@@ -1,0 +1,11 @@
+D:\source\Solution\QLCUAHANG_BUS\bin\Debug\QLCUAHANG_BUS.dll
+D:\source\Solution\QLCUAHANG_BUS\bin\Debug\QLCUAHANG_BUS.pdb
+D:\source\Solution\QLCUAHANG_BUS\bin\Debug\QLCUAHANG_DAL.dll
+D:\source\Solution\QLCUAHANG_BUS\bin\Debug\QLCUAHANG_DTO.dll
+D:\source\Solution\QLCUAHANG_BUS\bin\Debug\QLCUAHANG_DAL.pdb
+D:\source\Solution\QLCUAHANG_BUS\bin\Debug\QLCUAHANG_DTO.pdb
+D:\source\Solution\QLCUAHANG_BUS\obj\Debug\QLCUAHANG_BUS.csprojAssemblyReference.cache
+D:\source\Solution\QLCUAHANG_BUS\obj\Debug\QLCUAHANG_BUS.csproj.CoreCompileInputs.cache
+D:\source\Solution\QLCUAHANG_BUS\obj\Debug\QLCUAHANG_BUS.csproj.CopyComplete
+D:\source\Solution\QLCUAHANG_BUS\obj\Debug\QLCUAHANG_BUS.dll
+D:\source\Solution\QLCUAHANG_BUS\obj\Debug\QLCUAHANG_BUS.pdb
