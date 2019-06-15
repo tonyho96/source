@@ -90,7 +90,7 @@ namespace QLCUAHANG_GUI
 
         private void btnBill_ItemClick(object sender, ItemClickEventArgs e)
         {
-            addTabPages(uctPhieuHoaDon.uctPHD, 25, "Receipt");
+            addTabPages(uctInvoice.uctPHD, 25, "Invoice");
         }
 
 
