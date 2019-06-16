@@ -40,14 +40,14 @@
             this.rpManager = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pageGroupInfoOfAgency = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnInfoAgency = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUnit = new DevExpress.XtraBars.BarButtonItem();
             this.pageGroupOfCustomer = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnInfoOfCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.pageGroupOfBills = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnBill = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnProductOfStore1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.btnProductOfStore = new DevExpress.XtraBars.BarButtonItem();
             this.btnBillOfExportProduct = new DevExpress.XtraBars.BarButtonItem();
             this.rpSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -185,7 +185,7 @@
             // 
             this.pageGroupInfoOfAgency.AllowTextClipping = false;
             this.pageGroupInfoOfAgency.ItemLinks.Add(this.btnInfoAgency, true);
-            this.pageGroupInfoOfAgency.ItemLinks.Add(this.barButtonItem11);
+            this.pageGroupInfoOfAgency.ItemLinks.Add(this.btnUnit);
             this.pageGroupInfoOfAgency.Name = "pageGroupInfoOfAgency";
             // 
             // btnInfoAgency
@@ -198,13 +198,14 @@
             this.btnInfoAgency.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnInfoAgency.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInfoAgency_ItemClick);
             // 
-            // barButtonItem11
+            // btnUnit
             // 
-            this.barButtonItem11.Caption = "Unit";
-            this.barButtonItem11.Id = 56;
-            this.barButtonItem11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem11.ImageOptions.Image")));
-            this.barButtonItem11.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem11.ImageOptions.LargeImage")));
-            this.barButtonItem11.Name = "barButtonItem11";
+            this.btnUnit.Caption = "Unit";
+            this.btnUnit.Id = 56;
+            this.btnUnit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUnit.ImageOptions.Image")));
+            this.btnUnit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUnit.ImageOptions.LargeImage")));
+            this.btnUnit.Name = "btnUnit";
+            this.btnUnit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BtnUnit_ItemClick);
             // 
             // pageGroupOfCustomer
             // 
@@ -238,11 +239,6 @@
             this.btnBill.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnBill.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBill_ItemClick);
             // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Id = 16;
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
             // ribbonPageGroup6
             // 
             this.ribbonPageGroup6.AllowTextClipping = false;
@@ -257,6 +253,11 @@
             this.btnProductOfStore1.Name = "btnProductOfStore1";
             this.btnProductOfStore1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnProductOfStore1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProductOfStore1_ItemClick);
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Id = 16;
+            this.barButtonItem7.Name = "barButtonItem7";
             // 
             // btnProductOfStore
             // 
@@ -428,7 +429,7 @@
             this.barButtonItem2,
             this.btnDeptCustomer,
             this.btnStatistics,
-            this.barButtonItem11});
+            this.btnUnit});
             this.menuToolStrip.Location = new System.Drawing.Point(0, 0);
             this.menuToolStrip.MaxItemId = 57;
             this.menuToolStrip.Name = "menuToolStrip";
@@ -954,6 +955,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem btnStatistics;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.BarButtonItem btnUnit;
     }
 }

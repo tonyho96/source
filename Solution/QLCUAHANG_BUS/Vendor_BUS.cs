@@ -22,7 +22,6 @@ namespace QLCUAHANG_BUS
         {
             return Vendor_DAL.UpdateVendor(vendor);
         }
-
         public static bool DeleteVendor(Vendor_DTO vendor)
         {
             return Vendor_DAL.DeleteVendor(vendor);

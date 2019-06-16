@@ -462,3 +462,4 @@ D:\source\Solution\QLCUAHANG_GUI\bin\Debug\DevExpress.Pdf.v19.1.Drawing.dll
 D:\source\Solution\QLCUAHANG_GUI\bin\Debug\DevExpress.Pdf.v19.1.Drawing.xml
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctInvoice.resources
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctPostInvoice.resources
+D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctUnit.resources

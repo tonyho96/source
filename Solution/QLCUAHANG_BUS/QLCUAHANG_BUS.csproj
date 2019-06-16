@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ChiTietHoaDonBan_BUS.cs" />
     <Compile Include="ChiTietHoaDonNhap_BUS.cs" />
+    <Compile Include="Unit_BUS.cs" />
     <Compile Include="Vendor_BUS.cs" />
     <Compile Include="HoaDonBanHang_BUS.cs" />
     <Compile Include="HoaDonNhapHang_BUS.cs" />
