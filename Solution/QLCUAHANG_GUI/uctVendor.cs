@@ -37,7 +37,7 @@ namespace QLCUAHANG_GUI
             btnAddAgency.Click += new EventHandler(btnAddAgency_Click);
             btnUpdateAgency.Click += new EventHandler(btnUpdateAgency_Click);
             btnDeleteAgency.Click += new EventHandler(btnDeleteAgency_Click);
-            txtIDAgency.Text = DataProvider.ExcuteScalar(string.Format("SELECT MaDL=dbo.fcGetMaDL()"));
+            txtIDAgency.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([VendorID]), 0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Vendor]"));
         }
 
         private void dtgvAgencyInfoList_Click(object sender, EventArgs e)
@@ -162,7 +162,7 @@ namespace QLCUAHANG_GUI
 
         private void ClearDisplay()
         {
-            txtIDAgency.Text = DataProvider.ExcuteScalar(string.Format("SELECT MaDL=dbo.fcGetMaDL()"));
+            txtIDAgency.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([VendorID]), 0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Vendor]"));
             txtNameAgency.Text = "";
             txtAddressOfAgency.Text = "";
             txtNumberPhone.Text = "";

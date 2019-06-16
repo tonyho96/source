@@ -50,18 +50,18 @@ namespace QLCUAHANG_DAL
         public static bool InsertVendor(Vendor_DTO vendor)
         {
             SqlConnection con = DataProvider.OpenConnection();
-            SqlCommand cmd = new SqlCommand("ThemDaiLi", con);
+            SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_insertVendor]", con);
 
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlParameter p = new SqlParameter("@MaDL", vendor.VendorID);
+                //SqlParameter p = new SqlParameter("@MaDL", vendor.VendorID);
+                //cmd.Parameters.Add(p);
+                SqlParameter p = new SqlParameter("@VendorName", vendor.VendorName);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@TenDL", vendor.VendorName);
+                p = new SqlParameter("@Address", vendor.VendorAddress);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@DiaChi", vendor.VendorAddress);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoDT", vendor.VendorPhone);
+                p = new SqlParameter("@PhoneNo", vendor.VendorPhone);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -78,17 +78,17 @@ namespace QLCUAHANG_DAL
         public static bool UpdateVendor(Vendor_DTO vendor)
         {
             SqlConnection con = DataProvider.OpenConnection();
-            SqlCommand cmd = new SqlCommand("SuaDaiLi", con);
+            SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_updateVendor]", con);
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlParameter p = new SqlParameter("@MaDL", vendor.VendorID);
+                SqlParameter p = new SqlParameter("@VendorID", vendor.VendorID);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@TenDL", vendor.VendorName);
+                p = new SqlParameter("@VendorName", vendor.VendorName);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@DiaChi", vendor.VendorAddress);
+                p = new SqlParameter("@Address", vendor.VendorAddress);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoDT", vendor.VendorPhone);
+                p = new SqlParameter("@PhoneNo", vendor.VendorPhone);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -105,12 +105,12 @@ namespace QLCUAHANG_DAL
         public static bool DeleteVendor(Vendor_DTO vendor)
         {
             SqlConnection con = DataProvider.OpenConnection();
-            SqlCommand cmd = new SqlCommand("XoaDL", con);
+            SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_deleteVendor]", con);
 
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlParameter p = new SqlParameter("@MaDL", vendor.VendorID);
+                SqlParameter p = new SqlParameter("@VendorID", vendor.VendorID);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
