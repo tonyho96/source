@@ -41,24 +41,25 @@ namespace QLCUAHANG_GUI
 
         }
         public static uctInvoice uctPHD = new uctInvoice();
+
         private void btnSaleManager_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            addTabPages(uctPhieuHoaDonBan.uctPHDB, 4, "Phiếu hóa đơn bán hàng");
+            addTabPages(uctSaleInvoice.uctPHDB, 4, "Phiếu hóa đơn bán hàng");
         }
 
         private void btnPurchaseManager_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            addTabPages(uctPostInvoice.uctPHN, 4, "Phiếu hóa đơn nhập hàng");
+            addTabPages(uctPostInvoice.uctPHN, 5, "Phiếu hóa đơn nhập hàng");
         }
 
         private void btnTotalDebtOfCutomer_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            addTabPages(uctQuanLiTienNoKhachHang.uctQLTienNoKH, 4, "Quản lí tiền nợ Khách hàng");
+            //addTabPages(uctQuanLiTienNoKhachHang.uctQLTienNoKH, 4, "Quản lí tiền nợ Khách hàng");
         }
 
-        private void btnTotalDebtOfAgency_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        /*private void btnTotalDebtOfAgency_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             addTabPages(uctQuanLiTienNoDaiLi.uctQLTienNoDL, 4, "Quản lí tiền nợ Đại lí");
-        }
+        }*/
     }
 }

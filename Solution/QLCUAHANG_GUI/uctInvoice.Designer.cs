@@ -34,10 +34,9 @@
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnSaleManager = new DevExpress.XtraNavBar.NavBarItem();
             this.btnPurchaseManager = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.btnTotalDebtÒCutomer = new DevExpress.XtraNavBar.NavBarItem();
             this.btnTotalDebtOfAgency = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +45,7 @@
             this.tabControlBill.Location = new System.Drawing.Point(193, 0);
             this.tabControlBill.Name = "tabControlBill";
             this.tabControlBill.SelectedIndex = 0;
-            this.tabControlBill.Size = new System.Drawing.Size(1111, 543);
+            this.tabControlBill.Size = new System.Drawing.Size(1300, 543);
             this.tabControlBill.TabIndex = 1;
             // 
             // navBarControl1
@@ -54,8 +53,7 @@
             this.navBarControl1.ActiveGroup = this.navBarGroup1;
             this.navBarControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navBarGroup1,
-            this.navBarGroup2});
+            this.navBarGroup1});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
             this.btnSaleManager,
             this.btnPurchaseManager,
@@ -96,14 +94,11 @@
             this.btnPurchaseManager.Name = "btnPurchaseManager";
             this.btnPurchaseManager.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnPurchaseManager_LinkClicked);
             // 
-            // navBarGroup2
+            // navBarItem1
             // 
-            this.navBarGroup2.Caption = "Quản lí tiền nợ";
-            this.navBarGroup2.Expanded = true;
-            this.navBarGroup2.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.btnTotalDebtÒCutomer),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.btnTotalDebtOfAgency)});
-            this.navBarGroup2.Name = "navBarGroup2";
+            this.navBarItem1.Caption = "Services";
+            this.navBarItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem1.ImageOptions.SvgImage")));
+            this.navBarItem1.Name = "navBarItem1";
             // 
             // btnTotalDebtÒCutomer
             // 
@@ -114,25 +109,16 @@
             // 
             // btnTotalDebtOfAgency
             // 
-            this.btnTotalDebtOfAgency.Caption = "Quản lí tiền nợ Đại lí";
-            this.btnTotalDebtOfAgency.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnTotalDebtOfAgency.ImageOptions.SmallImage")));
             this.btnTotalDebtOfAgency.Name = "btnTotalDebtOfAgency";
-            this.btnTotalDebtOfAgency.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnTotalDebtOfAgency_LinkClicked);
             // 
-            // navBarItem1
-            // 
-            this.navBarItem1.Caption = "Services";
-            this.navBarItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem1.ImageOptions.SvgImage")));
-            this.navBarItem1.Name = "navBarItem1";
-            // 
-            // uctPhieuHoaDon
+            // uctInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.tabControlBill);
-            this.Name = "uctPhieuHoaDon";
+            this.Name = "uctInvoice";
             this.Size = new System.Drawing.Size(1301, 543);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             this.ResumeLayout(false);
@@ -145,7 +131,6 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private DevExpress.XtraNavBar.NavBarItem btnSaleManager;
         private DevExpress.XtraNavBar.NavBarItem btnPurchaseManager;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
         private DevExpress.XtraNavBar.NavBarItem btnTotalDebtÒCutomer;
         private DevExpress.XtraNavBar.NavBarItem btnTotalDebtOfAgency;
         private DevExpress.XtraNavBar.NavBarItem navBarItem1;

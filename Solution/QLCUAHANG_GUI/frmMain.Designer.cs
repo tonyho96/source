@@ -47,6 +47,7 @@
             this.btnBill = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnProductOfStore1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnProductCategory = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.btnProductOfStore = new DevExpress.XtraBars.BarButtonItem();
             this.btnBillOfExportProduct = new DevExpress.XtraBars.BarButtonItem();
@@ -243,6 +244,7 @@
             // 
             this.ribbonPageGroup6.AllowTextClipping = false;
             this.ribbonPageGroup6.ItemLinks.Add(this.btnProductOfStore1);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnProductCategory);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             // 
             // btnProductOfStore1
@@ -253,6 +255,15 @@
             this.btnProductOfStore1.Name = "btnProductOfStore1";
             this.btnProductOfStore1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnProductOfStore1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProductOfStore1_ItemClick);
+            // 
+            // btnProductCategory
+            // 
+            this.btnProductCategory.Caption = "Product Category";
+            this.btnProductCategory.Id = 57;
+            this.btnProductCategory.ImageOptions.Image = global::QLCUAHANG_GUI.Properties.Resources.catogory_1;
+            this.btnProductCategory.Name = "btnProductCategory";
+            this.btnProductCategory.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnProductCategory.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProductCategory_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -429,9 +440,10 @@
             this.barButtonItem2,
             this.btnDeptCustomer,
             this.btnStatistics,
-            this.btnUnit});
+            this.btnUnit,
+            this.btnProductCategory});
             this.menuToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuToolStrip.MaxItemId = 57;
+            this.menuToolStrip.MaxItemId = 58;
             this.menuToolStrip.Name = "menuToolStrip";
             this.menuToolStrip.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpSystem,
@@ -782,29 +794,29 @@
             this.toolStripSeparator2,
             this.colseAllTabToolStripMenuItem});
             this.ctxtMenuTapDispaly.Name = "ctxtMenuTapDispaly";
-            this.ctxtMenuTapDispaly.Size = new System.Drawing.Size(142, 60);
+            this.ctxtMenuTapDispaly.Size = new System.Drawing.Size(143, 60);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click_1);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
             // 
             // colseAllTabToolStripMenuItem
             // 
             this.colseAllTabToolStripMenuItem.Name = "colseAllTabToolStripMenuItem";
-            this.colseAllTabToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.colseAllTabToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.colseAllTabToolStripMenuItem.Text = "Colse All Tab";
             this.colseAllTabToolStripMenuItem.Click += new System.EventHandler(this.colseAllTapToolStripMenuItem_Click);
             // 
@@ -956,5 +968,6 @@
         private DevExpress.XtraBars.BarButtonItem btnStatistics;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
         private DevExpress.XtraBars.BarButtonItem btnUnit;
+        private DevExpress.XtraBars.BarButtonItem btnProductCategory;
     }
 }

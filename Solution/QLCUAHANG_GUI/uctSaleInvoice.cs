@@ -14,13 +14,13 @@ using DevExpress.XtraEditors;
 
 namespace QLCUAHANG_GUI
 {
-    public partial class uctPhieuHoaDonBan : UserControl
+    public partial class uctSaleInvoice : UserControl
     {
-        public uctPhieuHoaDonBan()
+        public uctSaleInvoice()
         {
             InitializeComponent();
         }
-        public static uctPhieuHoaDonBan uctPHDB = new uctPhieuHoaDonBan();
+        public static uctSaleInvoice uctPHDB = new uctSaleInvoice();
 
         private void uctPhieuHoaDonBan_Load(object sender, EventArgs e)
         {
@@ -56,7 +56,7 @@ namespace QLCUAHANG_GUI
         }
         private void LoadPhieuBanHang()
         {
-            List<HoaDonBanHang_DTO> listPhieuBan = HoaDonBanHang_BUS.LoadPhieuBan();
+            List<SaleInvoice_DTO> listPhieuBan = SaleInvoice_BUS.LoadPhieuBan();
             dtgvInfoListOfBillExport.DataSource = listPhieuBan;
         }
 
@@ -72,7 +72,7 @@ namespace QLCUAHANG_GUI
                     return;
                 }
 
-                HoaDonBanHang_DTO phieuban = new HoaDonBanHang_DTO();
+                SaleInvoice_DTO phieuban = new SaleInvoice_DTO();
                 phieuban.MaHDB = txtIDBillExport.Text;
                 phieuban.MaKH = txtIDCustomer.Text.ToString();
                 phieuban.TenKH = txtNameCustomer.Text.ToString();
@@ -82,13 +82,13 @@ namespace QLCUAHANG_GUI
                 phieuban.TongNo = Convert.ToDouble(txtTotalDebtExport.Text.ToString());
                 phieuban.GhiChu = txtNote.Text;
 
-                if (HoaDonBanHang_BUS.ThemPHBan(phieuban))
+                if (SaleInvoice_BUS.ThemPHBan(phieuban))
                 {
                     uctCustomer.uctCustomerInfo.LoadCustomer();
                     LoadPhieuBanHang();
                     LoadHoaDonBan();
                     cmbIDBillExportDetail.Text = txtIDBillExport.Text;
-                    uctQuanLiTienNoKhachHang.uctQLTienNoKH.LoadDSKH_NoTien();
+                    //uctQuanLiTienNoKhachHang.uctQLTienNoKH.LoadDSKH_NoTien();
                     ClearDisplay();
 
                     XtraMessageBox.Show("Thêm Hóa đơn bán hàng thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -139,7 +139,7 @@ namespace QLCUAHANG_GUI
                     ClearDisplay();
                     return;
                 }
-                HoaDonBanHang_DTO phieunhap = new HoaDonBanHang_DTO();
+                SaleInvoice_DTO phieunhap = new SaleInvoice_DTO();
                 phieunhap.MaHDB = (string)dtgvInfoListOfBillExport.CurrentRow.Cells["MaHDB"].Value;
                 phieunhap.MaKH = txtIDCustomer.Text.ToString();
                 phieunhap.TenKH = txtNameCustomer.Text.ToString();
@@ -150,12 +150,12 @@ namespace QLCUAHANG_GUI
                 phieunhap.TongNo = Convert.ToDouble(txtTotalDebtExport.Text.ToString());
                 phieunhap.GhiChu = txtNote.Text;
 
-                if (HoaDonBanHang_BUS.SuaPHBan(phieunhap))
+                if (SaleInvoice_BUS.SuaPHBan(phieunhap))
                 {
                     LoadPhieuBanHang();
                     uctCustomer.uctCustomerInfo.LoadCustomer();
                     LoadHoaDonBan();
-                    uctQuanLiTienNoKhachHang.uctQLTienNoKH.LoadDSKH_NoTien();
+                    //uctQuanLiTienNoKhachHang.uctQLTienNoKH.LoadDSKH_NoTien();
                     XtraMessageBox.Show("Hóa đơn bán hàng cập nhật thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearDisplay();
                     return;
@@ -178,15 +178,15 @@ namespace QLCUAHANG_GUI
                     return;
                 }
 
-                HoaDonBanHang_DTO phieuhang = new HoaDonBanHang_DTO();
+                SaleInvoice_DTO phieuhang = new SaleInvoice_DTO();
                 phieuhang.MaHDB = txtIDBillExport.Text;
-                if (HoaDonBanHang_BUS.XoaPHBan(phieuhang))
+                if (SaleInvoice_BUS.XoaPHBan(phieuhang))
                 {
                     LoadPhieuBanHang();
                     LoadHoaDonBan();
 
                     uctCustomer.uctCustomerInfo.LoadCustomer();
-                    uctQuanLiTienNoKhachHang.uctQLTienNoKH.LoadDSKH_NoTien();
+                    //uctQuanLiTienNoKhachHang.uctQLTienNoKH.LoadDSKH_NoTien();
                     ClearDisplay();
                     XtraMessageBox.Show("Hóa đơn bán hàng xóa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -282,19 +282,19 @@ namespace QLCUAHANG_GUI
         }
         private void LoadChiTietPhieuBanHang()
         {
-            List<ChiTietHoaDonBan_DTO> listChiTietPhieuBan = ChiTietHoaDonBan_BUS.LoadChiTietPhieuBan();
+            List<SaleInvoiceDetails_DTO> listChiTietPhieuBan = SaleInvoiceDetails_BUS.LoadChiTietPhieuBan();
             dtgvDetailBillSale.DataSource = listChiTietPhieuBan;
         }
         private void LoadHoaDonBan()
         {
-            List<HoaDonBanHang_DTO> hd = HoaDonBanHang_BUS.LoadPhieuBan();
+            List<SaleInvoice_DTO> hd = SaleInvoice_BUS.LoadPhieuBan();
             cmbIDBillExportDetail.DataSource = hd;
             cmbIDBillExportDetail.ValueMember = "MaHDB";
             cmbIDBillExportDetail.DisplayMember = "MaHDB";
         }
         private void LoadMaSP()
         {
-            List<SanPhamCH_DTO> sanpham = SanPhamCH_BUS.LoadSanPHamCH();
+            List<Product_DTO> sanpham = Product_BUS.LoadSanPHamCH();
 
             cmbIDProductDetailStore.DataSource = sanpham;
             cmbIDProductDetailStore.ValueMember = "MaSPCH";
@@ -311,7 +311,7 @@ namespace QLCUAHANG_GUI
                 return;
             }
 
-            ChiTietHoaDonBan_DTO phieunhap = new ChiTietHoaDonBan_DTO();
+            SaleInvoiceDetails_DTO phieunhap = new SaleInvoiceDetails_DTO();
             phieunhap.MaHDB = cmbIDBillExportDetail.Text;
             phieunhap.MaSPCH = cmbIDProductDetailStore.Text;
             if (txtAmountOfProductExportDetail.Text == "")
@@ -329,11 +329,11 @@ namespace QLCUAHANG_GUI
                 phieunhap.HinhThucBan = 0;
 
             
-                if (ChiTietHoaDonBan_BUS.ThemChiTietPHBan(phieunhap))
+                if (SaleInvoiceDetails_BUS.ThemChiTietPHBan(phieunhap))
                 {
                    LoadPhieuBanHang();
                    LoadChiTietPhieuBanHang();
-                    uctSanPhamCH.uctSPCH.LoadSanPhamCH1();
+                    uctProduct.uctSPCH.LoadSanPhamCH1();
                     XtraMessageBox.Show("Thêm chi tiết hóa đơn bán hàng thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     ClearDisplay1();
@@ -362,7 +362,7 @@ namespace QLCUAHANG_GUI
                     XtraMessageBox.Show("Chi tiết hóa đơn bán hàng cập nhật thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                ChiTietHoaDonBan_DTO phieunhap = new ChiTietHoaDonBan_DTO();
+                SaleInvoiceDetails_DTO phieunhap = new SaleInvoiceDetails_DTO();
                 phieunhap.MaHDB = (string)dtgvDetailBillSale.CurrentRow.Cells["MaHDB1"].Value;
                 phieunhap.MaSPCH = (string)dtgvDetailBillSale.CurrentRow.Cells["MaSPCH"].Value;
 
@@ -381,11 +381,11 @@ namespace QLCUAHANG_GUI
                     phieunhap.SoLuongMuaLe = 0;
                 }
 
-                if (ChiTietHoaDonBan_BUS.SuaChiTietPHBan(phieunhap))
+                if (SaleInvoiceDetails_BUS.SuaChiTietPHBan(phieunhap))
                 {
                     LoadPhieuBanHang();
                     LoadChiTietPhieuBanHang();
-                    uctSanPhamCH.uctSPCH.LoadSanPhamCH1();
+                    uctProduct.uctSPCH.LoadSanPhamCH1();
                     XtraMessageBox.Show("Chi tiết hóa đơn bán hàng cập nhật thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearDisplay1();
                     return;
@@ -407,15 +407,15 @@ namespace QLCUAHANG_GUI
             }
 
            
-                ChiTietHoaDonBan_DTO phieunhap = new ChiTietHoaDonBan_DTO();
+                SaleInvoiceDetails_DTO phieunhap = new SaleInvoiceDetails_DTO();
                 phieunhap.MaHDB = (string)dtgvDetailBillSale.CurrentRow.Cells["MaHDB1"].Value;
                 phieunhap.MaSPCH = cmbIDProductDetailStore.Text;
 
-                if (ChiTietHoaDonBan_BUS.XoaChiTietPHBan(phieunhap))
+                if (SaleInvoiceDetails_BUS.XoaChiTietPHBan(phieunhap))
                 {
                     LoadPhieuBanHang();
                     LoadChiTietPhieuBanHang();
-                    uctSanPhamCH.uctSPCH.LoadSanPhamCH1();
+                    uctProduct.uctSPCH.LoadSanPhamCH1();
                     XtraMessageBox.Show("Chi tiết phiếu Bán hàng xóa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearDisplay1();
                     if(dtgvDetailBillSale.Rows.Count==0)
@@ -542,7 +542,7 @@ namespace QLCUAHANG_GUI
 
         private void cmbIDProductDetailStore_TextChanged_1(object sender, EventArgs e)
         {
-            cmbUnitCalculator.Text = ChiTietHoaDonBan_BUS.TimDonViSanPham(cmbIDProductDetailStore.Text.ToString());
+            cmbUnitCalculator.Text = SaleInvoiceDetails_BUS.TimDonViSanPham(cmbIDProductDetailStore.Text.ToString());
 
         }
 
@@ -553,7 +553,7 @@ namespace QLCUAHANG_GUI
                 num = 0;
             else
                 num = Convert.ToInt32(txtAmountOfProductExportDetail.Text.ToString());
-            int num1 = Convert.ToInt32(ChiTietHoaDonBan_BUS.SoLuongMax(cmbIDProductDetailStore.Text.ToString()));
+            int num1 = Convert.ToInt32(SaleInvoiceDetails_BUS.SoLuongMax(cmbIDProductDetailStore.Text.ToString()));
             if (num < 0)
                 XtraMessageBox.Show("Số lượng sản phẩm nhỏ hơn 0 !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (num > num1)

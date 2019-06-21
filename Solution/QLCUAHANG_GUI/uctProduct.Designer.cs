@@ -1,6 +1,6 @@
 ﻿namespace QLCUAHANG_GUI
 {
-    partial class uctSanPhamCH
+    partial class uctProduct
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uctSanPhamCH));
+            //System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uctSanPhamCH));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtgvProductListOfStore = new System.Windows.Forms.DataGridView();
             this.MaSPCH = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -362,7 +362,7 @@
             // pictureBox
             // 
             this.pictureBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.pictureBox.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox.ErrorImage")));
+            //this.pictureBox.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox.ErrorImage")));
             this.pictureBox.Location = new System.Drawing.Point(566, 40);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(142, 142);

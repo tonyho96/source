@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLCUAHANG_DTO
 {
-    public class ChiTietHoaDonBan_DTO
+    public class SaleInvoiceDetails_DTO
     {
         private string maHDB;
         private string maSPCH;

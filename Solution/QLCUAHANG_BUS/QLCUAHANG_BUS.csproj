@@ -40,17 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietHoaDonBan_BUS.cs" />
-    <Compile Include="ChiTietHoaDonNhap_BUS.cs" />
+    <Compile Include="SaleInvoiceDetails_BUS.cs" />
+    <Compile Include="PostInvoiceDetails_BUS.cs" />
+    <Compile Include="ProductCategory_BUS.cs" />
+    <Compile Include="ServiceInvoiceDetails_BUS.cs" />
+    <Compile Include="ServiceInvoice_BUS.cs" />
     <Compile Include="Unit_BUS.cs" />
     <Compile Include="Vendor_BUS.cs" />
-    <Compile Include="HoaDonBanHang_BUS.cs" />
-    <Compile Include="HoaDonNhapHang_BUS.cs" />
+    <Compile Include="SaleInvoice_BUS.cs" />
+    <Compile Include="PostInvoice_BUS.cs" />
     <Compile Include="Customer_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLiTienNo_DaiLi_BUS.cs" />
-    <Compile Include="SanPhamCH_BUS.cs" />
-    <Compile Include="SanPhamDL_BUS.cs" />
+    <Compile Include="Product_BUS.cs" />
     <Compile Include="QuanLi_TienNoKH_BUS.cs" />
   </ItemGroup>
   <ItemGroup>

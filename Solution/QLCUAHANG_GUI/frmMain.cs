@@ -107,7 +107,7 @@ namespace QLCUAHANG_GUI
 
         private void btnProductOfStore_ItemClick(object sender, ItemClickEventArgs e)
         {
-            addTabPages(uctSanPhamCH.uctSPCH, 10, "Product in Store");
+            addTabPages(uctProduct.uctSPCH, 10, "Product in Store");
         }
 
         private void barEditItem3_ItemClick(object sender, ItemClickEventArgs e)
@@ -181,7 +181,7 @@ namespace QLCUAHANG_GUI
 
         private void btnProductOfStore1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            addTabPages(uctSanPhamCH.uctSPCH, 10, "Product Management");
+            addTabPages(uctProduct.uctSPCH, 10, "Product Management");
         }
 
         private void btnAuthorInfo_ItemClick(object sender, ItemClickEventArgs e)
@@ -272,6 +272,11 @@ namespace QLCUAHANG_GUI
         private void BtnUnit_ItemClick(object sender, ItemClickEventArgs e)
         {
             addTabPages(uctUnit.uctUnitInfo, 40, "Unit Information");
+        }
+
+        private void btnProductCategory_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            addTabPages(uctProductCategory.uctProductCategoryInfo, 40, "Category Information");
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace QLCUAHANG_GUI
 {
-    partial class uctPhieuHoaDonBan
+    partial class uctSaleInvoice
     {
         /// <summary> 
         /// Required designer variable.

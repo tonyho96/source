@@ -6,51 +6,66 @@ using System.Threading.Tasks;
 
 namespace QLCUAHANG_DTO
 {
-    public class HoaDonNhapHang_DTO
+    public class SaleInvoice_DTO
     {
-        private string maHDN;
-        private string maDL;
-        private string tenDL;
+        private string maHDB;
+        private string tenCH;
+        private string maKH;
+        private string tenKH;
         private DateTime ngayNhap;
         private double tongTien;
         private double tongNo;
+        private string ghiChu;
 
-        public string MaHDN
+        public string MaHDB
         {
             get
             {
-                return maHDN;
+                return maHDB;
             }
 
             set
             {
-                maHDN = value;
+                maHDB = value;
             }
         }
 
-        public string MaDL
+        public string TenCH
         {
             get
             {
-                return maDL;
+                return tenCH;
             }
 
             set
             {
-                maDL = value;
+                tenCH = value;
             }
         }
 
-        public string TenDL
+        public string MaKH
         {
             get
             {
-                return tenDL;
+                return maKH;
             }
 
             set
             {
-                tenDL = value;
+                maKH = value;
+            }
+        }
+
+        public string TenKH
+        {
+            get
+            {
+                return tenKH;
+            }
+
+            set
+            {
+                tenKH = value;
             }
         }
 
@@ -90,6 +105,19 @@ namespace QLCUAHANG_DTO
             set
             {
                 tongNo = value;
+            }
+        }
+
+        public string GhiChu
+        {
+            get
+            {
+                return ghiChu;
+            }
+
+            set
+            {
+                ghiChu = value;
             }
         }
     }

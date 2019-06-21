@@ -411,11 +411,6 @@ D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmSearchInfoOfC
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.Properties.Resources.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctVendor.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctCustomer.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctPhieuHoaDonBan.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctQuanLiTienNoDaiLi.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctQuanLiTienNoKhachHang.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctSanPhamCH.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctSanPhamDL.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctSearchKhachHang.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctThongKe.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctWareHouseController.resources
@@ -463,3 +458,7 @@ D:\source\Solution\QLCUAHANG_GUI\bin\Debug\DevExpress.Pdf.v19.1.Drawing.xml
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctInvoice.resources
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctPostInvoice.resources
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctUnit.resources
+D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctUnit.resources
+D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctProductCategory.resources
+D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctSaleInvoice.resources
+D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctProduct.resources

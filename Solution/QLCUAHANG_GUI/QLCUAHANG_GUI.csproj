@@ -206,6 +206,12 @@
     <Compile Include="uctUnit.Designer.cs">
       <DependentUpon>uctUnit.cs</DependentUpon>
     </Compile>
+    <Compile Include="uctProductCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uctProductCategory.Designer.cs">
+      <DependentUpon>uctProductCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="uctVendor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -224,11 +230,11 @@
     <Compile Include="uctInvoice.Designer.cs">
       <DependentUpon>uctInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctPhieuHoaDonBan.cs">
+    <Compile Include="uctSaleInvoice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctPhieuHoaDonBan.Designer.cs">
-      <DependentUpon>uctPhieuHoaDonBan.cs</DependentUpon>
+    <Compile Include="uctSaleInvoice.Designer.cs">
+      <DependentUpon>uctSaleInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="uctPostInvoice.cs">
       <SubType>UserControl</SubType>
@@ -236,29 +242,11 @@
     <Compile Include="uctPostInvoice.Designer.cs">
       <DependentUpon>uctPostInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctQuanLiTienNoDaiLi.cs">
+    <Compile Include="uctProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="uctQuanLiTienNoDaiLi.Designer.cs">
-      <DependentUpon>uctQuanLiTienNoDaiLi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="uctQuanLiTienNoKhachHang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="uctQuanLiTienNoKhachHang.Designer.cs">
-      <DependentUpon>uctQuanLiTienNoKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="uctSanPhamCH.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="uctSanPhamCH.Designer.cs">
-      <DependentUpon>uctSanPhamCH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="uctSanPhamDL.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="uctSanPhamDL.Designer.cs">
-      <DependentUpon>uctSanPhamDL.cs</DependentUpon>
+    <Compile Include="uctProduct.Designer.cs">
+      <DependentUpon>uctProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="uctSearchKhachHang.cs">
       <SubType>UserControl</SubType>
@@ -348,6 +336,9 @@
     <EmbeddedResource Include="uctUnit.resx">
       <DependentUpon>uctUnit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="uctProductCategory.resx">
+      <DependentUpon>uctProductCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uctVendor.resx">
       <DependentUpon>uctVendor.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,23 +348,14 @@
     <EmbeddedResource Include="uctInvoice.resx">
       <DependentUpon>uctInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctPhieuHoaDonBan.resx">
-      <DependentUpon>uctPhieuHoaDonBan.cs</DependentUpon>
+    <EmbeddedResource Include="uctSaleInvoice.resx">
+      <DependentUpon>uctSaleInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uctPostInvoice.resx">
       <DependentUpon>uctPostInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctQuanLiTienNoDaiLi.resx">
-      <DependentUpon>uctQuanLiTienNoDaiLi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="uctQuanLiTienNoKhachHang.resx">
-      <DependentUpon>uctQuanLiTienNoKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="uctSanPhamCH.resx">
-      <DependentUpon>uctSanPhamCH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="uctSanPhamDL.resx">
-      <DependentUpon>uctSanPhamDL.cs</DependentUpon>
+    <EmbeddedResource Include="uctProduct.resx">
+      <DependentUpon>uctProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uctSearchKhachHang.resx">
       <DependentUpon>uctSearchKhachHang.cs</DependentUpon>

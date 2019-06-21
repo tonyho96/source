@@ -19,14 +19,14 @@ using DevExpress.XtraEditors;
 
 namespace QLCUAHANG_GUI
 {
-    public partial class uctSanPhamCH : UserControl
+    public partial class uctProduct : UserControl
     {
-        public uctSanPhamCH()
+        public uctProduct()
         {
             InitializeComponent();
         }
 
-        public static uctSanPhamCH uctSPCH = new uctSanPhamCH();
+        public static uctProduct uctSPCH = new uctProduct();
         private void LoadDataStore()
         {
             LoadSanPhamCH1();
@@ -162,29 +162,29 @@ namespace QLCUAHANG_GUI
             try
             {
 
-                SanPhamCH_DTO sanpham = new SanPhamCH_DTO();
-                sanpham.MaSPCH = txtIDProductCH.Text;
-                sanpham.TenSP = txtNameProductCH.Text;
+                Product_DTO product = new Product_DTO();
+                product.ProductID = txtIDProductCH.Text;
+                product.ProductName = txtNameProductCH.Text;
 
-                sanpham.DonVi = txtUnitCH.Text;
-                sanpham.Gia = Double.Parse(txtPriceCH.Text.ToString());
-                sanpham.SoLuong = Int32.Parse(txtAmountOfProductCH.Text.ToString());
-                sanpham.HinhAnh = imageLocation;
-                sanpham.ThongSo = txtParameter.Text;
+                product.VendorID = txtUnitCH.Text;
+                product.ProductCategoryID = txtPriceCH.Text.ToString();
+                product.ImportPrice = float.Parse(txtAmountOfProductCH.Text.ToString());
+                product.ImageUrl = imageLocation;
+                product.Weight = txtParameter.Text;
 
                 if (cbRetail.Checked == true)
                 {
-                    sanpham.BanLe = 1;
-                    sanpham.SoLuongLe = Convert.ToInt32(txtAmonutRetail.Text);
+                    //product.BanLe = 1;
+                    //product.SoLuongLe = Convert.ToInt32(txtAmonutRetail.Text);
                 }
                 else
                 {
-                    sanpham.BanLe = 0;
-                    sanpham.SoLuongLe = 0;
+                    //product.BanLe = 0;
+                    //product.SoLuongLe = 0;
                 }
 
 
-                if (SanPhamCH_BUS.SuaSPCH(sanpham))
+                if (Product_BUS.SuaSPCH(product))
                 {
                     XtraMessageBox.Show("Sửa thông tin Sản phẩm trong Cửa hàng thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadSanPhamCH1();
@@ -214,9 +214,9 @@ namespace QLCUAHANG_GUI
             }
             try
             {
-                SanPhamCH_DTO sanpham = new SanPhamCH_DTO();
-                sanpham.MaSPCH = txtIDProductCH.Text;
-                if (SanPhamCH_BUS.XoaSPCH(sanpham))
+                Product_DTO product = new Product_DTO();
+                product.ProductID = txtIDProductCH.Text;
+                if (Product_BUS.XoaSPCH(product))
                 {
                     LoadSanPhamCH1();
                     XtraMessageBox.Show("Xóa Sản phẩm trong Cửa hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -284,17 +284,17 @@ namespace QLCUAHANG_GUI
             string s = firstSelectedItem.SubItems[0].Text;
             DataGridView d = new DataGridView();
 
-            SanPhamCH_DTO sanpham = SanPhamCH_BUS.TimKiemTenSP(s);
+            Product_DTO product = Product_BUS.TimKiemTenSP(s);
 
             try
             {
-                txtIDProductCH.Text = sanpham.MaSPCH;
-                txtNameProductCH.Text = sanpham.TenSP;
-                txtPriceCH.Text = sanpham.Gia.ToString();
-                txtUnitCH.Text = sanpham.DonVi;
-                txtAmountOfProductCH.Text = sanpham.SoLuong.ToString();
-                txtParameter.Text = sanpham.ThongSo.ToString();
-                if (sanpham.BanLe == 1)
+                txtIDProductCH.Text = product.ProductID;
+                txtNameProductCH.Text = product.ProductName;
+                txtPriceCH.Text = product.VendorID.ToString();
+                txtUnitCH.Text = product.ProductCategoryID;
+                txtAmountOfProductCH.Text = product.ImportPrice.ToString();
+                txtParameter.Text = product.Weight.ToString();
+                /*if (product.BanLe == 1)
                 {
                     txtAmonutRetail.Text = sanpham.SoLuongLe.ToString();
                     cbRetail.Checked = true;
@@ -304,8 +304,8 @@ namespace QLCUAHANG_GUI
                     cbRetail.Checked = false;
                     txtAmonutRetail.Enabled = false;
                     txtAmonutRetail.Text = "";
-                }
-                string str = sanpham.HinhAnh.ToString();
+                }*/
+                string str = product.ImageUrl.ToString();
 
                 imageLocation = str;
                 if (str == "" || str == null)

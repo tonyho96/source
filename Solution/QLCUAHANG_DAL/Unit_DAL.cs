@@ -78,10 +78,11 @@ namespace QLCUAHANG_DAL
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlParameter p = new SqlParameter("@UnitID", unit.UnitID);
+                cmd.Parameters.Add(p);
                 p = new SqlParameter("@UnitName", unit.UnitName);
                 cmd.Parameters.Add(p);
-                //p = new SqlParameter("@UnitPrice", unit.UnitPrice);
-                //cmd.Parameters.Add(p);
+                p = new SqlParameter("@UnitPrice", unit.UnitPrice);
+                cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
                 DataProvider.CloseConnection(con);

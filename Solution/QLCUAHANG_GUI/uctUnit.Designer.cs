@@ -31,24 +31,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.grbListAgency = new System.Windows.Forms.GroupBox();
-            this.dtgvAgencyInfoList = new System.Windows.Forms.DataGridView();
+            this.dtgvUnitInfoList = new System.Windows.Forms.DataGridView();
             this.UnitID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbAgency = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txtAddressOfAgency = new System.Windows.Forms.TextBox();
-            this.txtNameAgency = new System.Windows.Forms.TextBox();
+            this.txtUnitPrice = new System.Windows.Forms.TextBox();
+            this.txtNameUnit = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtIDAgency = new System.Windows.Forms.TextBox();
+            this.txtIDUnit = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbIDAgency = new System.Windows.Forms.Label();
+            this.lbIDUnit = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnDeleteAgency = new System.Windows.Forms.Button();
+            this.btnDeleteUnit = new System.Windows.Forms.Button();
             this.btnUpdateUnit = new System.Windows.Forms.Button();
-            this.btnAddAgency = new System.Windows.Forms.Button();
+            this.btnAddUnit = new System.Windows.Forms.Button();
             this.grbListAgency.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvAgencyInfoList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvUnitInfoList)).BeginInit();
             this.grbAgency.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +75,7 @@
             // 
             // grbListAgency
             // 
-            this.grbListAgency.Controls.Add(this.dtgvAgencyInfoList);
+            this.grbListAgency.Controls.Add(this.dtgvUnitInfoList);
             this.grbListAgency.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbListAgency.Location = new System.Drawing.Point(512, 82);
             this.grbListAgency.Name = "grbListAgency";
@@ -83,20 +83,20 @@
             this.grbListAgency.TabIndex = 15;
             this.grbListAgency.TabStop = false;
             // 
-            // dtgvAgencyInfoList
+            // dtgvUnitInfoList
             // 
-            this.dtgvAgencyInfoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvAgencyInfoList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgvUnitInfoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvUnitInfoList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UnitID,
             this.UnitName,
             this.UnitPrice});
-            this.dtgvAgencyInfoList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvAgencyInfoList.Location = new System.Drawing.Point(3, 19);
-            this.dtgvAgencyInfoList.Name = "dtgvAgencyInfoList";
-            this.dtgvAgencyInfoList.ReadOnly = true;
-            this.dtgvAgencyInfoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvAgencyInfoList.Size = new System.Drawing.Size(665, 287);
-            this.dtgvAgencyInfoList.TabIndex = 22;
+            this.dtgvUnitInfoList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvUnitInfoList.Location = new System.Drawing.Point(3, 19);
+            this.dtgvUnitInfoList.Name = "dtgvUnitInfoList";
+            this.dtgvUnitInfoList.ReadOnly = true;
+            this.dtgvUnitInfoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvUnitInfoList.Size = new System.Drawing.Size(665, 287);
+            this.dtgvUnitInfoList.TabIndex = 22;
             // 
             // UnitID
             // 
@@ -133,12 +133,12 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.txtAddressOfAgency);
-            this.panel2.Controls.Add(this.txtNameAgency);
+            this.panel2.Controls.Add(this.txtUnitPrice);
+            this.panel2.Controls.Add(this.txtNameUnit);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtIDAgency);
+            this.panel2.Controls.Add(this.txtIDUnit);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.lbIDAgency);
+            this.panel2.Controls.Add(this.lbIDUnit);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(3, 16);
@@ -146,20 +146,20 @@
             this.panel2.Size = new System.Drawing.Size(436, 293);
             this.panel2.TabIndex = 2;
             // 
-            // txtAddressOfAgency
+            // txtUnitPrice
             // 
-            this.txtAddressOfAgency.Location = new System.Drawing.Point(152, 105);
-            this.txtAddressOfAgency.Name = "txtAddressOfAgency";
-            this.txtAddressOfAgency.Size = new System.Drawing.Size(145, 21);
-            this.txtAddressOfAgency.TabIndex = 2;
-            this.txtAddressOfAgency.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddressOfAgency_KeyPress);
+            this.txtUnitPrice.Location = new System.Drawing.Point(152, 105);
+            this.txtUnitPrice.Name = "txtUnitPrice";
+            this.txtUnitPrice.Size = new System.Drawing.Size(145, 21);
+            this.txtUnitPrice.TabIndex = 2;
+            this.txtUnitPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnitPrice_KeyPress);
             // 
-            // txtNameAgency
+            // txtNameUnit
             // 
-            this.txtNameAgency.Location = new System.Drawing.Point(152, 65);
-            this.txtNameAgency.Name = "txtNameAgency";
-            this.txtNameAgency.Size = new System.Drawing.Size(144, 21);
-            this.txtNameAgency.TabIndex = 2;
+            this.txtNameUnit.Location = new System.Drawing.Point(152, 65);
+            this.txtNameUnit.Name = "txtNameUnit";
+            this.txtNameUnit.Size = new System.Drawing.Size(144, 21);
+            this.txtNameUnit.TabIndex = 2;
             // 
             // label5
             // 
@@ -171,14 +171,14 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Unit Price";
             // 
-            // txtIDAgency
+            // txtIDUnit
             // 
-            this.txtIDAgency.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.txtIDAgency.Location = new System.Drawing.Point(152, 26);
-            this.txtIDAgency.Name = "txtIDAgency";
-            this.txtIDAgency.ReadOnly = true;
-            this.txtIDAgency.Size = new System.Drawing.Size(144, 21);
-            this.txtIDAgency.TabIndex = 2;
+            this.txtIDUnit.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txtIDUnit.Location = new System.Drawing.Point(152, 26);
+            this.txtIDUnit.Name = "txtIDUnit";
+            this.txtIDUnit.ReadOnly = true;
+            this.txtIDUnit.Size = new System.Drawing.Size(144, 21);
+            this.txtIDUnit.TabIndex = 2;
             // 
             // label3
             // 
@@ -190,15 +190,15 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Unit Name";
             // 
-            // lbIDAgency
+            // lbIDUnit
             // 
-            this.lbIDAgency.AutoSize = true;
-            this.lbIDAgency.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIDAgency.Location = new System.Drawing.Point(22, 26);
-            this.lbIDAgency.Name = "lbIDAgency";
-            this.lbIDAgency.Size = new System.Drawing.Size(51, 16);
-            this.lbIDAgency.TabIndex = 0;
-            this.lbIDAgency.Text = "Unit ID";
+            this.lbIDUnit.AutoSize = true;
+            this.lbIDUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIDUnit.Location = new System.Drawing.Point(22, 26);
+            this.lbIDUnit.Name = "lbIDUnit";
+            this.lbIDUnit.Size = new System.Drawing.Size(51, 16);
+            this.lbIDUnit.TabIndex = 0;
+            this.lbIDUnit.Text = "Unit ID";
             // 
             // btnClear
             // 
@@ -214,21 +214,21 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnDeleteAgency
+            // btnDeleteUnit
             // 
-            this.btnDeleteAgency.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnDeleteAgency.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDeleteAgency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteAgency.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteAgency.Image = global::QLCUAHANG_GUI.Properties.Resources.delete_3;
-            this.btnDeleteAgency.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteAgency.Location = new System.Drawing.Point(297, 399);
-            this.btnDeleteAgency.Name = "btnDeleteAgency";
-            this.btnDeleteAgency.Size = new System.Drawing.Size(74, 28);
-            this.btnDeleteAgency.TabIndex = 16;
-            this.btnDeleteAgency.Text = "Delete";
-            this.btnDeleteAgency.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteAgency.UseVisualStyleBackColor = false;
+            this.btnDeleteUnit.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.btnDeleteUnit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDeleteUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteUnit.Image = global::QLCUAHANG_GUI.Properties.Resources.delete_3;
+            this.btnDeleteUnit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteUnit.Location = new System.Drawing.Point(297, 399);
+            this.btnDeleteUnit.Name = "btnDeleteUnit";
+            this.btnDeleteUnit.Size = new System.Drawing.Size(74, 28);
+            this.btnDeleteUnit.TabIndex = 16;
+            this.btnDeleteUnit.Text = "Delete";
+            this.btnDeleteUnit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteUnit.UseVisualStyleBackColor = false;
             // 
             // btnUpdateUnit
             // 
@@ -246,22 +246,22 @@
             this.btnUpdateUnit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdateUnit.UseVisualStyleBackColor = false;
             // 
-            // btnAddAgency
+            // btnAddUnit
             // 
-            this.btnAddAgency.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.btnAddAgency.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAddAgency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddAgency.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAgency.ForeColor = System.Drawing.Color.Black;
-            this.btnAddAgency.Image = global::QLCUAHANG_GUI.Properties.Resources.add_2;
-            this.btnAddAgency.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddAgency.Location = new System.Drawing.Point(186, 399);
-            this.btnAddAgency.Name = "btnAddAgency";
-            this.btnAddAgency.Size = new System.Drawing.Size(74, 28);
-            this.btnAddAgency.TabIndex = 18;
-            this.btnAddAgency.Text = "Insert";
-            this.btnAddAgency.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnAddAgency.UseVisualStyleBackColor = false;
+            this.btnAddUnit.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.btnAddUnit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAddUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddUnit.ForeColor = System.Drawing.Color.Black;
+            this.btnAddUnit.Image = global::QLCUAHANG_GUI.Properties.Resources.add_2;
+            this.btnAddUnit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddUnit.Location = new System.Drawing.Point(186, 399);
+            this.btnAddUnit.Name = "btnAddUnit";
+            this.btnAddUnit.Size = new System.Drawing.Size(74, 28);
+            this.btnAddUnit.TabIndex = 18;
+            this.btnAddUnit.Text = "Insert";
+            this.btnAddUnit.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnAddUnit.UseVisualStyleBackColor = false;
             // 
             // uctUnit
             // 
@@ -269,9 +269,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnDeleteAgency);
+            this.Controls.Add(this.btnDeleteUnit);
             this.Controls.Add(this.btnUpdateUnit);
-            this.Controls.Add(this.btnAddAgency);
+            this.Controls.Add(this.btnAddUnit);
             this.Controls.Add(this.grbListAgency);
             this.Controls.Add(this.grbAgency);
             this.Controls.Add(this.label9);
@@ -280,7 +280,7 @@
             this.Size = new System.Drawing.Size(1226, 525);
             this.Load += new System.EventHandler(this.uctUnit_Load);
             this.grbListAgency.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvAgencyInfoList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvUnitInfoList)).EndInit();
             this.grbAgency.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -295,17 +295,17 @@
         private System.Windows.Forms.GroupBox grbListAgency;
         private System.Windows.Forms.GroupBox grbAgency;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtAddressOfAgency;
-        private System.Windows.Forms.TextBox txtNameAgency;
+        private System.Windows.Forms.TextBox txtUnitPrice;
+        private System.Windows.Forms.TextBox txtNameUnit;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtIDAgency;
+        private System.Windows.Forms.TextBox txtIDUnit;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbIDAgency;
-        private System.Windows.Forms.Button btnDeleteAgency;
+        private System.Windows.Forms.Label lbIDUnit;
+        private System.Windows.Forms.Button btnDeleteUnit;
         private System.Windows.Forms.Button btnUpdateUnit;
-        private System.Windows.Forms.Button btnAddAgency;
+        private System.Windows.Forms.Button btnAddUnit;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.DataGridView dtgvAgencyInfoList;
+        private System.Windows.Forms.DataGridView dtgvUnitInfoList;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitID;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitName;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;

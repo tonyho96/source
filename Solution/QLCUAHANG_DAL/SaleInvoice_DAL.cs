@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace QLCUAHANG_DAL
 {
-    public class HoaDonBanHang_DAL
+    public class SaleInvoice_DAL
     {
         private static SqlCommand cmd;
         private static DataTable dt;
         private static SqlDataAdapter da;
-        public static bool ThemPHBanHang(HoaDonBanHang_DTO phieu)
+        public static bool ThemPHBanHang(SaleInvoice_DTO phieu)
         {
             SqlConnection con = DataProvider.OpenConnection();
             cmd = new SqlCommand("ThemPHBan", con);
@@ -54,7 +54,7 @@ namespace QLCUAHANG_DAL
             }
         }
 
-        public static List<HoaDonBanHang_DTO> LoadPhieuBan()
+        public static List<SaleInvoice_DTO> LoadPhieuBan()
         {
             SqlConnection con = DataProvider.OpenConnection();
 
@@ -79,10 +79,10 @@ namespace QLCUAHANG_DAL
             if (dt.Rows.Count == 0)
                 return null;
 
-            List<HoaDonBanHang_DTO> dsPhieuNhap = new List<HoaDonBanHang_DTO>();
+            List<SaleInvoice_DTO> dsPhieuNhap = new List<SaleInvoice_DTO>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                HoaDonBanHang_DTO phieuhang = new HoaDonBanHang_DTO();
+                SaleInvoice_DTO phieuhang = new SaleInvoice_DTO();
                 phieuhang.MaHDB = dt.Rows[i]["MaHDB"].ToString();
                 phieuhang.MaKH = dt.Rows[i]["MaKH"].ToString();
                 phieuhang.TenKH = dt.Rows[i]["TenKH"].ToString();
@@ -99,7 +99,7 @@ namespace QLCUAHANG_DAL
             return dsPhieuNhap;
         }
 
-        public static bool SuaPhieuBanHang(HoaDonBanHang_DTO phieuhang)
+        public static bool SuaPhieuBanHang(SaleInvoice_DTO phieuhang)
         {
             SqlConnection con = DataProvider.OpenConnection();
             try
@@ -138,7 +138,7 @@ namespace QLCUAHANG_DAL
             }
         }
 
-        public static bool XoaPhieuBanHang(HoaDonBanHang_DTO phieuhang)
+        public static bool XoaPhieuBanHang(SaleInvoice_DTO phieuhang)
         {
             SqlConnection con = DataProvider.OpenConnection();
             try
@@ -161,7 +161,7 @@ namespace QLCUAHANG_DAL
                 return false;
             }
         }
-        public static List<HoaDonBanHang_DTO> DS_KHNoTien()
+        public static List<SaleInvoice_DTO> DS_KHNoTien()
         {
 
             SqlConnection con = DataProvider.OpenConnection();
@@ -187,10 +187,10 @@ namespace QLCUAHANG_DAL
             if (dt.Rows.Count == 0)
                 return null;
 
-            List<HoaDonBanHang_DTO> dsPhieuNhap = new List<HoaDonBanHang_DTO>();
+            List<SaleInvoice_DTO> dsPhieuNhap = new List<SaleInvoice_DTO>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                HoaDonBanHang_DTO phieuhang = new HoaDonBanHang_DTO();
+                SaleInvoice_DTO phieuhang = new SaleInvoice_DTO();
               
                 phieuhang.MaKH = dt.Rows[i]["MaKH"].ToString();
                 phieuhang.TenKH = dt.Rows[i]["TenKH"].ToString();

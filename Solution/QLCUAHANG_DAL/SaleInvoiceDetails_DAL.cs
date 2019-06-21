@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace QLCUAHANG_DAL
 {
-   public class ChiTietHoaDonBan_DAL
+   public class SaleInvoiceDetails_DAL
     {
         private static SqlCommand cmd;
         private static DataTable dt;
         private static SqlDataAdapter da;
-        public static bool ThemChiTietPHBanHang(ChiTietHoaDonBan_DTO phieu)
+        public static bool ThemChiTietPHBanHang(SaleInvoiceDetails_DTO phieu)
         {
             SqlConnection con = DataProvider.OpenConnection();
             try
@@ -53,7 +53,7 @@ namespace QLCUAHANG_DAL
             }
         }
 
-        public static List<ChiTietHoaDonBan_DTO> LoadChiTietPhieuBan()
+        public static List<SaleInvoiceDetails_DTO> LoadChiTietPhieuBan()
         {
             SqlConnection con = DataProvider.OpenConnection();
 
@@ -79,10 +79,10 @@ namespace QLCUAHANG_DAL
             if (dt.Rows.Count == 0)
                 return null;
 
-            List<ChiTietHoaDonBan_DTO> dsChiTietPhieuBan = new List<ChiTietHoaDonBan_DTO>();
+            List<SaleInvoiceDetails_DTO> dsChiTietPhieuBan = new List<SaleInvoiceDetails_DTO>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                ChiTietHoaDonBan_DTO phieuhang = new ChiTietHoaDonBan_DTO();
+                SaleInvoiceDetails_DTO phieuhang = new SaleInvoiceDetails_DTO();
                 phieuhang.MaHDB = dt.Rows[i]["MaHDB"].ToString();
                 phieuhang.MaSPCH = dt.Rows[i]["MaSPCH"].ToString();
                 phieuhang.SoLuong = Convert.ToInt32(dt.Rows[i]["SoLuong"].ToString());
@@ -98,7 +98,7 @@ namespace QLCUAHANG_DAL
             return dsChiTietPhieuBan;
         }
 
-        public static bool SuaChiTietPhieuBanHang(ChiTietHoaDonBan_DTO phieuhang)
+        public static bool SuaChiTietPhieuBanHang(SaleInvoiceDetails_DTO phieuhang)
         {
             SqlConnection con = DataProvider.OpenConnection();
             try
@@ -170,7 +170,7 @@ namespace QLCUAHANG_DAL
             return s;
         }
        
-        public static bool XoaChiTietPhieuBanHang(ChiTietHoaDonBan_DTO phieuhang)
+        public static bool XoaChiTietPhieuBanHang(SaleInvoiceDetails_DTO phieuhang)
         {
             SqlConnection con = DataProvider.OpenConnection();
             try

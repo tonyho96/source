@@ -33,48 +33,48 @@ namespace QLCUAHANG_GUI
         private void UnitData()
         {
             LoadUnitList();
-            dtgvAgencyInfoList.CellClick += new DataGridViewCellEventHandler(dtgvAgencyInfoList_CellClick);
+            dtgvUnitInfoList.CellClick += new DataGridViewCellEventHandler(dtgvUnitInfoList_CellClick);
             //dtgvAgencyInfoList.Click += new EventHandler(dtgvAgencyInfoList_Click);
-            btnAddAgency.Click += new EventHandler(btnAddAgency_Click);
+            btnAddUnit.Click += new EventHandler(btnAddUnit_Click);
             btnUpdateUnit.Click += new EventHandler(btnUpdateUnit_Click);
-            btnDeleteAgency.Click += new EventHandler(btnDeleteAgency_Click);
-            txtIDAgency.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([UnitID]), 0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Unit]"));
+            btnDeleteUnit.Click += new EventHandler(btnDeleteUnit_Click);
+            txtIDUnit.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([UnitID]), 0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Unit]"));
         }
 
-        private void dtgvAgencyInfoList_Click(object sender, EventArgs e)
+        private void dtgvUnitInfoList_Click(object sender, EventArgs e)
         {
-            DataGridViewRow dr = dtgvAgencyInfoList.SelectedRows[0];
-            txtIDAgency.Text = Convert.ToString(dr.Cells["UnitID"].Value);
-            txtNameAgency.Text = Convert.ToString(dr.Cells["UnitName"].Value);
-            txtAddressOfAgency.Text = Convert.ToString(dr.Cells["UnitPrice"].Value);
+            DataGridViewRow dr = dtgvUnitInfoList.SelectedRows[0];
+            txtIDUnit.Text = Convert.ToString(dr.Cells["UnitID"].Value);
+            txtNameUnit.Text = Convert.ToString(dr.Cells["UnitName"].Value);
+            txtUnitPrice.Text = Convert.ToString(dr.Cells["UnitPrice"].Value);
         }
 
-        private void dtgvAgencyInfoList_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvUnitInfoList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                txtIDAgency.Text = Convert.ToString(dtgvAgencyInfoList.CurrentRow.Cells["UnitID"].Value);
-                txtNameAgency.Text = Convert.ToString(dtgvAgencyInfoList.CurrentRow.Cells["UnitName"].Value);
-                txtAddressOfAgency.Text = Convert.ToString(dtgvAgencyInfoList.CurrentRow.Cells["UnitPrice"].Value);
+                txtIDUnit.Text = Convert.ToString(dtgvUnitInfoList.CurrentRow.Cells["UnitID"].Value);
+                txtNameUnit.Text = Convert.ToString(dtgvUnitInfoList.CurrentRow.Cells["UnitName"].Value);
+                txtUnitPrice.Text = Convert.ToString(dtgvUnitInfoList.CurrentRow.Cells["UnitPrice"].Value);
             }
         }
 
         public void LoadUnitList()
         {
             List<Unit_DTO> unit = Unit_BUS.LoadUnit();
-            dtgvAgencyInfoList.DataSource = unit;
+            dtgvUnitInfoList.DataSource = unit;
         }
 
-        private void btnAddAgency_Click(object sender, EventArgs e)
+        private void btnAddUnit_Click(object sender, EventArgs e)
         {
             try
             {
                 Unit_DTO unit = new Unit_DTO();
-                unit.UnitID = txtIDAgency.Text;
-                unit.UnitName = txtNameAgency.Text;
-                unit.UnitPrice = txtAddressOfAgency.Text;
+                unit.UnitID = txtIDUnit.Text;
+                unit.UnitName = txtNameUnit.Text;
+                unit.UnitPrice = txtUnitPrice.Text;
 
-                if (txtIDAgency.Text == "" || txtNameAgency.Text == "" || txtAddressOfAgency.Text == "")
+                if (txtIDUnit.Text == "" || txtNameUnit.Text == "" || txtUnitPrice.Text == "")
                 {
                     XtraMessageBox.Show("You have to fullfill unit information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     ClearDisplay();
@@ -102,11 +102,11 @@ namespace QLCUAHANG_GUI
             {
 
                 Unit_DTO unit = new Unit_DTO();
-                unit.UnitID = dtgvAgencyInfoList.CurrentRow.Cells["UnitID"].Value.ToString();
-                unit.UnitName = txtNameAgency.Text;
-                //unit.UnitPrice = txtAddressOfAgency.Text;
+                unit.UnitID = dtgvUnitInfoList.CurrentRow.Cells["UnitID"].Value.ToString();
+                unit.UnitName = txtNameUnit.Text;
+                unit.UnitPrice = txtUnitPrice.Text;
 
-                if (txtIDAgency.Text == "" || txtNameAgency.Text == "" || txtAddressOfAgency.Text == "")
+                if (txtIDUnit.Text == "" || txtNameUnit.Text == "" || txtUnitPrice.Text == "")
                 {
                     XtraMessageBox.Show("You have to choose at least one unit to update!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     ClearDisplay();
@@ -128,15 +128,15 @@ namespace QLCUAHANG_GUI
             }
         }
 
-        public void btnDeleteAgency_Click(object sender, EventArgs e)
+        public void btnDeleteUnit_Click(object sender, EventArgs e)
         {
             try
             {
                 Unit_DTO unit = new Unit_DTO();
-                unit.UnitID = dtgvAgencyInfoList.CurrentRow.Cells["UnitID"].Value.ToString();
-                unit.UnitName = txtNameAgency.Text;
+                unit.UnitID = dtgvUnitInfoList.CurrentRow.Cells["UnitID"].Value.ToString();
+                unit.UnitName = txtNameUnit.Text;
 
-                if (txtIDAgency.Text == "" || txtNameAgency.Text == "" || txtAddressOfAgency.Text == "")
+                if (txtIDUnit.Text == "" || txtNameUnit.Text == "" || txtUnitPrice.Text == "")
                 {
                     XtraMessageBox.Show("You have to choose at least one unit to delete!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     ClearDisplay();
@@ -160,9 +160,9 @@ namespace QLCUAHANG_GUI
 
         private void ClearDisplay()
         {
-            txtIDAgency.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([UnitID]), 0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Unit]"));
-            txtNameAgency.Text = "";
-            txtAddressOfAgency.Text = "";
+            txtIDUnit.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([UnitID]), 0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Unit]"));
+            txtNameUnit.Text = "";
+            txtUnitPrice.Text = "";
 
         }
         #endregion
@@ -172,7 +172,7 @@ namespace QLCUAHANG_GUI
             ClearDisplay();
         }
 
-        private void txtAddressOfAgency_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtUnitPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
