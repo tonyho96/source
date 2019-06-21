@@ -268,5 +268,10 @@ namespace QLCUAHANG_GUI
             account.ShowDialog();
             this.Show();
         }
+
+        private void BtnUnit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            addTabPages(uctUnit.uctUnitInfo, 40, "Unit Information");
+        }
     }
 }

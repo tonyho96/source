@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ChiTietHoaDonBan_DAL.cs" />
     <Compile Include="ChiTietHoaDonNhap_DAL.cs" />
+    <Compile Include="Unit_DAL.cs" />
     <Compile Include="Vendor_DAL.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="HoaDonBanHang_DAL.cs" />

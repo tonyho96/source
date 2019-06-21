@@ -47,6 +47,7 @@
     <Compile Include="ChiTietHoaDonBan_DTO.cs" />
     <Compile Include="ChiTietHoaDonNhap_DTO.cs" />
     <Compile Include="PostInvoice_DTO.cs" />
+    <Compile Include="Unit_DTO.cs" />
     <Compile Include="Vendor_DTO.cs" />
     <Compile Include="HoaDonNhapHang_DTO.cs" />
     <Compile Include="Customer_DTO.cs" />

@@ -207,9 +207,7 @@ D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmSorftwareInfo.resour
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmThongTinTaiKhoan.resources
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmSearchInfoOfCustomer.resources
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.Properties.Resources.resources
-D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctPhieuHoaDon.resources
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctPhieuHoaDonBan.resources
-D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctPhieuHoaDonNhap.resources
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctQuanLiTienNoDaiLi.resources
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctQuanLiTienNoKhachHang.resources
 D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctSanPhamCH.resources
@@ -460,3 +458,8 @@ D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\DevExpress.XtraRichEdit.v19.1.
 D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\DevExpress.Pdf.v19.1.Drawing.xml
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctInvoice.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctPostInvoice.resources
+D:\source\Solution\QLCUAHANG_GUI\bin\Debug\DevExpress.Pdf.v19.1.Drawing.dll
+D:\source\Solution\QLCUAHANG_GUI\bin\Debug\DevExpress.Pdf.v19.1.Drawing.xml
+D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctInvoice.resources
+D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctPostInvoice.resources
+D:\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctUnit.resources
