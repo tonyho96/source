@@ -31,7 +31,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cmbUnit = new System.Windows.Forms.ComboBox();
+            this.txtWeight = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtTransPrice = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -48,7 +51,7 @@
             this.cmbIDBillImportDetail = new System.Windows.Forms.ComboBox();
             this.cmbIDProductDetailStore = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtAmountOfProductImportDetail = new System.Windows.Forms.TextBox();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -66,8 +69,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dtgvInfoListOfBillImport = new System.Windows.Forms.DataGridView();
-            this.txtWeight = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.TransID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VendorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VendorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,13 +76,18 @@
             this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmbUnit = new System.Windows.Forms.ComboBox();
+            this.txtProductID = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtTransDetailsID = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransDetailsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListOfDetailProductImport)).BeginInit();
@@ -113,10 +119,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtTransDetailsID);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.txtProductID);
+            this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.cmbUnit);
             this.groupBox2.Controls.Add(this.txtWeight);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txtTotal);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.txtTransPrice);
             this.groupBox2.Controls.Add(this.label12);
@@ -128,7 +138,7 @@
             this.groupBox2.Controls.Add(this.cmbIDBillImportDetail);
             this.groupBox2.Controls.Add(this.cmbIDProductDetailStore);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.txtAmountOfProductImportDetail);
+            this.groupBox2.Controls.Add(this.txtQuantity);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Location = new System.Drawing.Point(502, 63);
@@ -137,13 +147,39 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
-            // textBox3
+            // cmbUnit
             // 
-            this.textBox3.Location = new System.Drawing.Point(359, 125);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(116, 20);
-            this.textBox3.TabIndex = 22;
+            this.cmbUnit.FormattingEnabled = true;
+            this.cmbUnit.Location = new System.Drawing.Point(135, 125);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Size = new System.Drawing.Size(116, 21);
+            this.cmbUnit.TabIndex = 25;
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.Location = new System.Drawing.Point(359, 51);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Size = new System.Drawing.Size(116, 20);
+            this.txtWeight.TabIndex = 24;
+            this.txtWeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWeight_KeyPress);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(279, 51);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 17);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "Weight";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(359, 125);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(116, 20);
+            this.txtTotal.TabIndex = 22;
             // 
             // label13
             // 
@@ -161,6 +197,7 @@
             this.txtTransPrice.Name = "txtTransPrice";
             this.txtTransPrice.Size = new System.Drawing.Size(116, 20);
             this.txtTransPrice.TabIndex = 20;
+            this.txtTransPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTransPrice_KeyPress);
             // 
             // label12
             // 
@@ -214,12 +251,14 @@
             // 
             this.dtgvListOfDetailProductImport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvListOfDetailProductImport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductID,
             this.ProductName,
-            this.ProductCategory,
-            this.Quantity,
-            this.Unit,
-            this.Price,
-            this.Weight});
+            this.ProductCategoryName,
+            this.TransQuantity,
+            this.UnitName,
+            this.TransPrice,
+            this.Weight,
+            this.TransDetailsID});
             this.dtgvListOfDetailProductImport.Location = new System.Drawing.Point(3, 19);
             this.dtgvListOfDetailProductImport.Name = "dtgvListOfDetailProductImport";
             this.dtgvListOfDetailProductImport.ReadOnly = true;
@@ -254,7 +293,7 @@
             // btnUpdateProductImportDetail
             // 
             this.btnUpdateProductImportDetail.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateProductImportDetail.Location = new System.Drawing.Point(169, 27);
+            this.btnUpdateProductImportDetail.Location = new System.Drawing.Point(86, 27);
             this.btnUpdateProductImportDetail.Name = "btnUpdateProductImportDetail";
             this.btnUpdateProductImportDetail.Size = new System.Drawing.Size(72, 42);
             this.btnUpdateProductImportDetail.TabIndex = 16;
@@ -274,7 +313,7 @@
             // btnDeleteProductImportDetail
             // 
             this.btnDeleteProductImportDetail.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteProductImportDetail.Location = new System.Drawing.Point(86, 27);
+            this.btnDeleteProductImportDetail.Location = new System.Drawing.Point(164, 27);
             this.btnDeleteProductImportDetail.Name = "btnDeleteProductImportDetail";
             this.btnDeleteProductImportDetail.Size = new System.Drawing.Size(77, 42);
             this.btnDeleteProductImportDetail.TabIndex = 16;
@@ -310,14 +349,14 @@
             this.label9.TabIndex = 11;
             this.label9.Text = "Product Name";
             // 
-            // txtAmountOfProductImportDetail
+            // txtQuantity
             // 
-            this.txtAmountOfProductImportDetail.Location = new System.Drawing.Point(359, 16);
-            this.txtAmountOfProductImportDetail.Name = "txtAmountOfProductImportDetail";
-            this.txtAmountOfProductImportDetail.Size = new System.Drawing.Size(116, 20);
-            this.txtAmountOfProductImportDetail.TabIndex = 9;
-            this.txtAmountOfProductImportDetail.Click += new System.EventHandler(this.txtAmountOfProductImportDetail_Click);
-            this.txtAmountOfProductImportDetail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmountOfProductImportDetail_KeyPress_1);
+            this.txtQuantity.Location = new System.Drawing.Point(359, 16);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(116, 20);
+            this.txtQuantity.TabIndex = 9;
+            this.txtQuantity.Click += new System.EventHandler(this.txtAmountOfProductImportDetail_Click);
+            this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantity_KeyPress);
             // 
             // label10
             // 
@@ -506,23 +545,6 @@
             this.dtgvInfoListOfBillImport.Size = new System.Drawing.Size(463, 250);
             this.dtgvInfoListOfBillImport.TabIndex = 0;
             // 
-            // txtWeight
-            // 
-            this.txtWeight.Location = new System.Drawing.Point(359, 51);
-            this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(116, 20);
-            this.txtWeight.TabIndex = 24;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(279, 51);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(53, 17);
-            this.label14.TabIndex = 23;
-            this.label14.Text = "Weight";
-            // 
             // TransID
             // 
             this.TransID.DataPropertyName = "TransID";
@@ -573,51 +595,105 @@
             this.TotalPrice.Name = "TotalPrice";
             this.TotalPrice.ReadOnly = true;
             // 
-            // cmbUnit
+            // txtProductID
             // 
-            this.cmbUnit.FormattingEnabled = true;
-            this.cmbUnit.Location = new System.Drawing.Point(135, 125);
-            this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(116, 21);
-            this.cmbUnit.TabIndex = 25;
+            this.txtProductID.Location = new System.Drawing.Point(600, 120);
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.ReadOnly = true;
+            this.txtProductID.Size = new System.Drawing.Size(116, 20);
+            this.txtProductID.TabIndex = 27;
+            this.txtProductID.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(520, 120);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(74, 17);
+            this.label15.TabIndex = 26;
+            this.label15.Text = "Product ID";
+            this.label15.Visible = false;
+            // 
+            // txtTransDetailsID
+            // 
+            this.txtTransDetailsID.Location = new System.Drawing.Point(600, 139);
+            this.txtTransDetailsID.Name = "txtTransDetailsID";
+            this.txtTransDetailsID.ReadOnly = true;
+            this.txtTransDetailsID.Size = new System.Drawing.Size(116, 20);
+            this.txtTransDetailsID.TabIndex = 29;
+            this.txtTransDetailsID.Visible = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Enabled = false;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(492, 139);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(102, 17);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "TransDetails ID";
+            this.label16.Visible = false;
+            // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "ProductID";
+            this.ProductID.HeaderText = "Product ID";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
             // 
             // ProductName
             // 
             this.ProductName.DataPropertyName = "ProductName";
             this.ProductName.HeaderText = "Product Name";
             this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
             this.ProductName.Width = 140;
             // 
-            // ProductCategory
+            // ProductCategoryName
             // 
-            this.ProductCategory.DataPropertyName = "ProductCategoryName";
-            this.ProductCategory.HeaderText = "Product Category";
-            this.ProductCategory.Name = "ProductCategory";
-            this.ProductCategory.Width = 125;
+            this.ProductCategoryName.DataPropertyName = "ProductCategoryName";
+            this.ProductCategoryName.HeaderText = "Product Category";
+            this.ProductCategoryName.Name = "ProductCategoryName";
+            this.ProductCategoryName.ReadOnly = true;
+            this.ProductCategoryName.Width = 125;
             // 
-            // Quantity
+            // TransQuantity
             // 
-            this.Quantity.DataPropertyName = "TransQuantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
+            this.TransQuantity.DataPropertyName = "TransQuantity";
+            this.TransQuantity.HeaderText = "Quantity";
+            this.TransQuantity.Name = "TransQuantity";
+            this.TransQuantity.ReadOnly = true;
             // 
-            // Unit
+            // UnitName
             // 
-            this.Unit.DataPropertyName = "UnitName";
-            this.Unit.HeaderText = "Unit";
-            this.Unit.Name = "Unit";
+            this.UnitName.DataPropertyName = "UnitName";
+            this.UnitName.HeaderText = "Unit";
+            this.UnitName.Name = "UnitName";
+            this.UnitName.ReadOnly = true;
             // 
-            // Price
+            // TransPrice
             // 
-            this.Price.DataPropertyName = "ImportPrice";
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
+            this.TransPrice.DataPropertyName = "TransPrice";
+            this.TransPrice.HeaderText = "Price";
+            this.TransPrice.Name = "TransPrice";
+            this.TransPrice.ReadOnly = true;
             // 
             // Weight
             // 
             this.Weight.DataPropertyName = "Weight";
             this.Weight.HeaderText = "Weight";
             this.Weight.Name = "Weight";
+            this.Weight.ReadOnly = true;
+            // 
+            // TransDetailsID
+            // 
+            this.TransDetailsID.DataPropertyName = "TransDetailsID";
+            this.TransDetailsID.HeaderText = "TransDetails ID";
+            this.TransDetailsID.Name = "TransDetailsID";
+            this.TransDetailsID.ReadOnly = true;
+            this.TransDetailsID.Visible = false;
             // 
             // uctPostInvoice
             // 
@@ -657,7 +733,7 @@
         private System.Windows.Forms.Button btnDeleteProductImportDetail;
         private System.Windows.Forms.ComboBox cmbIDProductDetailStore;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtAmountOfProductImportDetail;
+        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -682,7 +758,7 @@
         private System.Windows.Forms.ComboBox cmbProductCategory;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtTransPrice;
         private System.Windows.Forms.Label label12;
@@ -696,11 +772,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
         private System.Windows.Forms.ComboBox cmbUnit;
+        private System.Windows.Forms.TextBox txtProductID;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtTransDetailsID;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCategoryName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnitName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Weight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransDetailsID;
     }
 }

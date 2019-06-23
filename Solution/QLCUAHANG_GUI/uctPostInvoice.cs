@@ -34,9 +34,12 @@ namespace QLCUAHANG_GUI
         {
             btnAddImportBill.Click += new EventHandler(btnAddImportBill_Click);
             dtgvInfoListOfBillImport.CellClick += new DataGridViewCellEventHandler(dtgvInfoListOfBillImport_CellClick);
+            dtgvListOfDetailProductImport.CellClick += new DataGridViewCellEventHandler(dtgvListOfDetailProductImport_CellClick);
             btnUpdateBillImport.Click += new EventHandler(btnUpdateBillImport_Click);
             btnDeleteBillImport.Click += new EventHandler(btnDeleteBillImport_Click);
             btnAddProductImportDetail.Click += new EventHandler(btnAddProductImportDetail_Click);
+            btnUpdateProductImportDetail.Click += new EventHandler(btnUpdateProductImportDetail_Click);
+            btnDeleteProductImportDetail.Click += new EventHandler(btnDeleteProductImportDetail_Click);
             LoadVendor();
             LoadProductCategory();
             LoadUnit();
@@ -86,6 +89,7 @@ namespace QLCUAHANG_GUI
                 cmbIDAgency.Text = Convert.ToString(dtgvInfoListOfBillImport.CurrentRow.Cells["VendorName"].Value);
                 dtpkDateTimeImport.Text = Convert.ToString(dtgvInfoListOfBillImport.CurrentRow.Cells["CreateDate"].Value);
                 cmbIDBillImportDetail.Text = txtIDBillImport.Text;
+                txtTotal.Text = Convert.ToString(dtgvInfoListOfBillImport.CurrentRow.Cells["TotalPrice"].Value);
 
                 List<PostInvoiceDetails_DTO> listInvoice = PostInvoiceDetails_BUS.LoadPostInvoiceDetails(Convert.ToInt32(txtIDBillImport.Text));
                 dtgvListOfDetailProductImport.DataSource = listInvoice;
@@ -93,7 +97,6 @@ namespace QLCUAHANG_GUI
                 if (dtgvListOfDetailProductImport.Rows.Count > 1)
                 {
                     dtgvListOfDetailProductImport.Columns["TransID"].Visible = false;
-                    dtgvListOfDetailProductImport.Columns["TransPrice"].Visible = false;
                 }
             }
         }
@@ -217,11 +220,9 @@ namespace QLCUAHANG_GUI
 
         #region Post Invoice Details
 
-
-
-        /*private void dtgvListOfDetailProductImport_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvListOfDetailProductImport_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            /*try
             {
                 cmbIDProductDetailStore.Text = "";
                 cmbIDProductDetailStore.Text = "";
@@ -237,18 +238,30 @@ namespace QLCUAHANG_GUI
             catch
             {
                 return;
+            }*/
+
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                cmbIDProductDetailStore.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["ProductName"].Value);
+                cmbProductCategory.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["ProductCategoryName"].Value);
+                cmbUnit.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["UnitName"].Value);
+                txtQuantity.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["TransQuantity"].Value);
+                txtWeight.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["Weight"].Value);
+                txtTransPrice.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["TransPrice"].Value);
+                txtProductID.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["ProductID"].Value);
+                txtTransDetailsID.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["TransDetailsID"].Value);
             }
-        }*/
+        }
 
         private void LoadPostInvoiceDetails()
         {
             List<PostInvoiceDetails_DTO> listInvoice = PostInvoiceDetails_BUS.LoadPostInvoiceDetails(Convert.ToInt32(txtIDBillImport.Text));
             dtgvListOfDetailProductImport.DataSource = listInvoice;
+            txtTotal.Text = Convert.ToString(dtgvInfoListOfBillImport.CurrentRow.Cells["TotalPrice"].Value);
 
             if (dtgvListOfDetailProductImport.Rows.Count != 1)
             {
                 dtgvListOfDetailProductImport.Columns["TransID"].Visible = false;
-                dtgvListOfDetailProductImport.Columns["TransPrice"].Visible = false;
             }
 
         }
@@ -257,7 +270,7 @@ namespace QLCUAHANG_GUI
         {
             try
             {
-                if (cmbIDBillImportDetail.Text == "" || cmbIDProductDetailStore.Text == "" || txtAmountOfProductImportDetail.Text == "")
+                if (cmbIDProductDetailStore.Text == "" || txtQuantity.Text == "" || txtWeight.Text == "" || txtTransPrice.Text == "")
                 {
                     XtraMessageBox.Show("You have to fullfill all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -268,14 +281,13 @@ namespace QLCUAHANG_GUI
                 invoiceDetails.ProductName = cmbIDProductDetailStore.Text;
                 invoiceDetails.ProductCategoryName = cmbProductCategory.Text;
                 invoiceDetails.UnitName = cmbUnit.Text;
-                invoiceDetails.TransQuantity = Convert.ToInt32(txtAmountOfProductImportDetail.Text.ToString());
+                invoiceDetails.TransQuantity = Convert.ToInt32(txtQuantity.Text.ToString());
                 invoiceDetails.Weight = txtWeight.Text;
-                invoiceDetails.ImportPrice = txtTransPrice.Text;
                 invoiceDetails.TransPrice = txtTransPrice.Text;
 
                 if (PostInvoiceDetails_BUS.InsertPostInvoiceDetails(invoiceDetails))
                 {
-                    //LoadPostInvoice();
+                    LoadPostInvoice();
                     LoadPostInvoiceDetails();
                     //LoadPhieuNhapHang();
                     XtraMessageBox.Show("Insert details sucessfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -291,35 +303,36 @@ namespace QLCUAHANG_GUI
             }
         }
 
-        /*private void btnUpdateProductImportDetail_Click(object sender, EventArgs e)
+        private void btnUpdateProductImportDetail_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cmbIDBillImportDetail.Text == "" || cmbIDProductDetailStore.Text == "" || txtAmountOfProductImportDetail.Text == "")
+                if (cmbIDProductDetailStore.Text == "" || txtQuantity.Text == "" || txtWeight.Text == "" || txtTransPrice.Text == "")
                 {
-                    XtraMessageBox.Show("Bạn phải chọn chi tiết phiếu cần chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (cmbIDBillImportDetail.Text != (string)dtgvListOfDetailProductImport.CurrentRow.Cells["MaHDN1"].Value || cmbIDProductDetailStore.Text != (string)dtgvListOfDetailProductImport.CurrentRow.Cells["MaSPDL"].Value)
-                {
-                    XtraMessageBox.Show("Chi tiết phiếu nhập hàng cập nhật thất bại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("You have to choose at least 1 field to update", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                PostInvoiceDetails_DTO phieunhap = new PostInvoiceDetails_DTO();
-                phieunhap.MaHDN = (string)dtgvListOfDetailProductImport.CurrentRow.Cells["MaHDN1"].Value;
-                phieunhap.MaSPDL = cmbIDProductDetailStore.Text;
-                phieunhap.SoLuong = Convert.ToInt32(txtAmountOfProductImportDetail.Text.ToString());
+                PostInvoiceDetails_DTO invoiceDetails = new PostInvoiceDetails_DTO();
+                invoiceDetails.TransID = cmbIDBillImportDetail.Text;
+                invoiceDetails.TransDetailsID = txtTransDetailsID.Text;
+                invoiceDetails.ProductID = txtProductID.Text;
+                invoiceDetails.ProductName = cmbIDProductDetailStore.Text;
+                invoiceDetails.ProductCategoryName = cmbProductCategory.Text;
+                invoiceDetails.UnitName = cmbUnit.Text;
+                invoiceDetails.TransQuantity = Convert.ToInt32(txtQuantity.Text.ToString());
+                invoiceDetails.Weight = txtWeight.Text;
+                invoiceDetails.TransPrice = txtTransPrice.Text;
 
 
-                if (PostInvoiceDetails_BUS.SuaChiTietPHNhap(phieunhap))
+                if (PostInvoiceDetails_BUS.UpdatePostInvoiceDetails(invoiceDetails))
                 {
-                    GetPostInvoice();
+                    LoadPostInvoice();
                     //LoadPhieuNhapHang();
-                    LoadChiTietPhieuNhapHang();
-                    uctSanPhamCH.uctSPCH.LoadSanPhamCH1();
+                    LoadPostInvoiceDetails();
+                    //uctSanPhamCH.uctSPCH.LoadSanPhamCH1();
 
-                    XtraMessageBox.Show("Chi tiết phiếu nhập hàng cập nhật thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show("Update details sucessfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearDisplay1();
                     return;
                 }
@@ -335,45 +348,25 @@ namespace QLCUAHANG_GUI
         {
             try
             {
-                if (cmbIDBillImportDetail.Text == "" || txtAmountOfProductImportDetail.Text == "" || cmbIDProductDetailStore.Text == "")
+                if (cmbIDProductDetailStore.Text == "" || txtQuantity.Text == "" || txtWeight.Text == "" || txtTransPrice.Text == "")
                 {
-                    XtraMessageBox.Show("Bạn phải chọn chi tiết phiếu cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("You have to choose at least 1 field to delete", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                PostInvoiceDetails_DTO phieunhap = new PostInvoiceDetails_DTO();
-                phieunhap.MaHDN = (string)dtgvListOfDetailProductImport.CurrentRow.Cells["MaHDN1"].Value;
-                phieunhap.MaSPDL = cmbIDProductDetailStore.Text;
+                PostInvoiceDetails_DTO invoiceDetails = new PostInvoiceDetails_DTO();
+                invoiceDetails.TransDetailsID = txtTransDetailsID.Text;
+                invoiceDetails.ProductID = txtProductID.Text;
 
 
-                if (PostInvoiceDetails_BUS.XoaChiTietPHNhap(phieunhap))
+                if (PostInvoiceDetails_BUS.DeletePostInvoiceDetails(invoiceDetails))
                 {
-                    GetPostInvoice();
+                    LoadPostInvoice();
                     //LoadPhieuNhapHang();
-                    LoadChiTietPhieuNhapHang();
-                    uctSanPhamCH.uctSPCH.LoadSanPhamCH1();
-                    XtraMessageBox.Show("Chi tiết hóa đơn xóa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadPostInvoiceDetails();
+                    //uctSanPhamCH.uctSPCH.LoadSanPhamCH1();
+                    XtraMessageBox.Show("Delete details sucessfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearDisplay1();
-                    if (dtgvListOfDetailProductImport.Rows.Count == 0)
-                    {
-                        dtgvListOfDetailProductImport.ColumnCount = 3;
-                        dtgvListOfDetailProductImport.ColumnHeadersVisible = true;
-                        dtgvListOfDetailProductImport.Columns[0].Name = "MaHDN1";
-                        dtgvListOfDetailProductImport.Columns[1].Name = "MaSPDL";
-                        dtgvListOfDetailProductImport.Columns[2].Name = "SoLuong";
-
-                        dtgvListOfDetailProductImport.Columns[0].DataPropertyName = "MaHDN";
-                        dtgvListOfDetailProductImport.Columns[1].DataPropertyName = "MaSPDL";
-                        dtgvListOfDetailProductImport.Columns[2].DataPropertyName = "SoLuong";
-
-                        dtgvListOfDetailProductImport.Columns[0].HeaderText = "Mã HD nhập";
-                        dtgvListOfDetailProductImport.Columns[1].HeaderText = "Mã SP Đại lí";
-                        dtgvListOfDetailProductImport.Columns[2].HeaderText = "Số lượng";
-
-                        dtgvListOfDetailProductImport.Columns[0].Width = 140;
-                        dtgvListOfDetailProductImport.Columns[1].Width = 140;
-                        dtgvListOfDetailProductImport.Columns[2].Width = 125;
-                    }
                     return;
                 }
             }catch
@@ -381,20 +374,14 @@ namespace QLCUAHANG_GUI
                 XtraMessageBox.Show("Xóa chi tiết hóa đơn thất bại ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-        }*/
+        }
 
         private void ClearDisplay1()
         {
             cmbIDProductDetailStore.Text = "";
-            txtAmountOfProductImportDetail.Text = "";
-        }
-
-        private void txtAmountOfProductImportDetail_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            txtQuantity.Text = "";
+            txtWeight.Text = "";
+            txtTransPrice.Text = "";
         }
 
         #endregion
@@ -409,7 +396,7 @@ namespace QLCUAHANG_GUI
             ClearDisplay1();
         }
 
-        private void txtTotalPay_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
@@ -417,7 +404,7 @@ namespace QLCUAHANG_GUI
             }
         }
 
-        private void txtTotalDebt_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
@@ -425,7 +412,7 @@ namespace QLCUAHANG_GUI
             }
         }
 
-        private void txtAmountOfProductImportDetail_KeyPress_1(object sender, KeyPressEventArgs e)
+        private void txtTransPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
@@ -435,7 +422,7 @@ namespace QLCUAHANG_GUI
 
         private void txtAmountOfProductImportDetail_Click(object sender, EventArgs e)
         {
-            txtAmountOfProductImportDetail.Text = "";
+            txtQuantity.Text = "";
         }
 
         private void CmbIDAgency_SelectedIndexChanged(object sender, EventArgs e)

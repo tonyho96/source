@@ -48,11 +48,12 @@ namespace QLCUAHANG_DAL
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 PostInvoiceDetails_DTO postInvoiceDetails = new PostInvoiceDetails_DTO();
+                postInvoiceDetails.TransDetailsID = dt.Rows[i]["TransDetailsID"].ToString();
+                postInvoiceDetails.ProductID = dt.Rows[i]["ProductID"].ToString();
                 postInvoiceDetails.ProductName = dt.Rows[i]["ProductName"].ToString();
                 postInvoiceDetails.ProductCategoryName = dt.Rows[i]["ProductCategoryName"].ToString();
                 postInvoiceDetails.TransQuantity = Convert.ToInt32(dt.Rows[i]["TransQuantity"].ToString());
                 postInvoiceDetails.UnitName = dt.Rows[i]["UnitName"].ToString();
-                postInvoiceDetails.ImportPrice = dt.Rows[i]["ImportPrice"].ToString();
                 postInvoiceDetails.TransPrice = dt.Rows[i]["TransPrice"].ToString();
                 postInvoiceDetails.Weight = dt.Rows[i]["Weight"].ToString();
 
@@ -83,8 +84,6 @@ namespace QLCUAHANG_DAL
                 cmd.Parameters.Add(p);
                 p = new SqlParameter("@Weight", invoice.Weight);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@ImportPrice", invoice.ImportPrice);
-                cmd.Parameters.Add(p);
                 p = new SqlParameter("@TransPrice", invoice.TransPrice);
                 cmd.Parameters.Add(p);
 
@@ -100,19 +99,31 @@ namespace QLCUAHANG_DAL
             }
         }
 
-        /*public static bool SuaChiTietPhieuHangNhap(PostInvoiceDetails_DTO phieuhang)
+        public static bool UpdatePostInvoiceDetails(PostInvoiceDetails_DTO invoice)
         {
             SqlConnection con = DataProvider.OpenConnection();
             try
             {
-                cmd = new SqlCommand("SuaChiTietPHNhap", con);
+                cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_updatePostInvoice_Details]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@MaHDN", phieuhang.MaHDN);
+                SqlParameter p = new SqlParameter("@TransID", invoice.TransID);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@MaSPDL", phieuhang.MaSPDL);
+                p = new SqlParameter("@TransDetailsID", invoice.TransDetailsID);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoLuong", phieuhang.SoLuong);
+                p = new SqlParameter("@ProductID", invoice.ProductID);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@ProductName", invoice.ProductName);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@ProductCategoryName", invoice.ProductCategoryName);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@UnitName", invoice.UnitName);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@TransQuantity", invoice.TransQuantity);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@Weight", invoice.Weight);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@TransPrice", invoice.TransPrice);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -122,23 +133,23 @@ namespace QLCUAHANG_DAL
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Notification",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 DataProvider.CloseConnection(con);
                 return false;
             }
         }
 
-        public static bool XoaChiTietPhieuHangNhap(PostInvoiceDetails_DTO phieuhang)
+        public static bool DeletePostInvoiceDetails(PostInvoiceDetails_DTO invoice)
         {
             SqlConnection con = DataProvider.OpenConnection();
             try
             {
-                cmd = new SqlCommand("XoaChiTietPHNhap", con);
+                cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_deletePostInvoice_Details]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@MaHDN", phieuhang.MaHDN);
+                SqlParameter p = new SqlParameter("@TransDetailsID", invoice.TransDetailsID);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("MaSPDL", phieuhang.MaSPDL);
+                p = new SqlParameter("@ProductID", invoice.ProductID);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -148,10 +159,10 @@ namespace QLCUAHANG_DAL
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DataProvider.CloseConnection(con);
                 return false;
             }
-        }*/
+        }
     }
 }

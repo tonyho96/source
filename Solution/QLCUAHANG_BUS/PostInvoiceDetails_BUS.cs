@@ -20,14 +20,14 @@ namespace QLCUAHANG_BUS
             return PostInvoiceDetails_DAL.InsertPostInvoiceDetails(invoice);
         }
 
-        /*public static bool XoaChiTietPHNhap(PostInvoiceDetails_DTO phieunhap)
+        public static bool UpdatePostInvoiceDetails(PostInvoiceDetails_DTO invoice)
         {
-            return PostInvoiceDetails_DAL.XoaChiTietPhieuHangNhap(phieunhap);
+            return PostInvoiceDetails_DAL.UpdatePostInvoiceDetails(invoice);
         }
 
-        public static bool SuaChiTietPHNhap(PostInvoiceDetails_DTO phieu)
+        public static bool DeletePostInvoiceDetails(PostInvoiceDetails_DTO invoice)
         {
-            return PostInvoiceDetails_DAL.SuaChiTietPhieuHangNhap(phieu);
-        }*/
+            return PostInvoiceDetails_DAL.DeletePostInvoiceDetails(invoice);
+        }
     }
 }

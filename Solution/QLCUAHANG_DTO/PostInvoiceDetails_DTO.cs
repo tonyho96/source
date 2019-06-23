@@ -9,11 +9,12 @@ namespace QLCUAHANG_DTO
     public class PostInvoiceDetails_DTO
     {
         private string transID;
+        private string transDetailsID;
+        private string productID;
         private string productName;
         private string productCategoryName;
         private int transQuantity;
         private string unitName;
-        private string importPrice;
         private string transPrice;
         private string weight;
 
@@ -27,6 +28,32 @@ namespace QLCUAHANG_DTO
             set
             {
                 transID = value;
+            }
+        }
+
+        public string TransDetailsID
+        {
+            get
+            {
+                return transDetailsID;
+            }
+
+            set
+            {
+                transDetailsID = value;
+            }
+        }
+
+        public string ProductID
+        {
+            get
+            {
+                return productID;
+            }
+
+            set
+            {
+                productID = value;
             }
         }
 
@@ -79,19 +106,6 @@ namespace QLCUAHANG_DTO
             set
             {
                 unitName = value;
-            }
-        }
-
-        public string ImportPrice
-        {
-            get
-            {
-                return importPrice;
-            }
-
-            set
-            {
-                importPrice = value;
             }
         }
 
