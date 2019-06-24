@@ -10,35 +10,24 @@ namespace QLCUAHANG_BUS
 {
    public class SaleInvoiceDetails_BUS
     {
-        public static List<SaleInvoiceDetails_DTO> LoadChiTietPhieuBan()
+        public static List<SaleInvoiceDetails_DTO> LoadSaleInvoiceDetails(int transId)
         {
-            return SaleInvoiceDetails_DAL.LoadChiTietPhieuBan();
-        }
-        public static bool ThemChiTietPHBan(SaleInvoiceDetails_DTO phieu)
-        {
-            return SaleInvoiceDetails_DAL.ThemChiTietPHBanHang(phieu);
+            return SaleInvoiceDetails_DAL.LoadSaleInvoiceDetails(transId);
         }
 
-        public static bool XoaChiTietPHBan(SaleInvoiceDetails_DTO phieunhap)
+        public static bool InsertSaleInvoiceDetails(SaleInvoiceDetails_DTO invoice)
         {
-            return SaleInvoiceDetails_DAL.XoaChiTietPhieuBanHang(phieunhap);
+            return SaleInvoiceDetails_DAL.InsertSaleInvoiceDetails(invoice);
         }
 
-        public static bool SuaChiTietPHBan(SaleInvoiceDetails_DTO phieu)
+        public static bool UpdateSaleInvoiceDetails(SaleInvoiceDetails_DTO invoice)
         {
-            return SaleInvoiceDetails_DAL.SuaChiTietPhieuBanHang(phieu);
+            return SaleInvoiceDetails_DAL.UpdateSaleInvoiceDetails(invoice);
         }
-        public static string TimDonViSanPham(string t)
+
+        public static bool DeleteSaleInvoiceDetails(SaleInvoiceDetails_DTO invoice)
         {
-            return SaleInvoiceDetails_DAL.TimDonViSanPham(t);
-        }
-        public static string ThongSoMax(string t)
-        {
-            return SaleInvoiceDetails_DAL.ThongSoMax(t);
-        }
-        public static string SoLuongMax(string t)
-        {
-            return SaleInvoiceDetails_DAL.SoLuongMax(t);
+            return SaleInvoiceDetails_DAL.DeleteSaleInvoiceDetails(invoice);
         }
     }
 }

@@ -133,37 +133,6 @@ namespace QLCUAHANG_DAL
                 MessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-        } 
-
-         public static List<string>LoadDS_MaHDNhap(string s)
-        {
-            SqlConnection con = DataProvider.OpenConnection();
-
-            try
-            {
-
-                string query = string.Format("EXEC dbo.DS_MaHDNhap @MaDL = N'" + s + "'");
-                dt = DataProvider.GetDataTable(query, con);
-            }
-            catch
-            {
-                return null;
-            }
-
-            if (dt.Rows.Count == 0)
-                return null;
-
-            List<string> listDS = new List<string>();
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                string phieuhang;
-                phieuhang = dt.Rows[i]["MaHDN"].ToString();
-
-
-                listDS.Add(phieuhang);
-            }
-            DataProvider.CloseConnection(con);
-            return listDS;
         }
     }
 }

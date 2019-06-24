@@ -8,116 +8,74 @@ namespace QLCUAHANG_DTO
 {
     public class SaleInvoice_DTO
     {
-        private string maHDB;
-        private string tenCH;
-        private string maKH;
-        private string tenKH;
-        private DateTime ngayNhap;
-        private double tongTien;
-        private double tongNo;
-        private string ghiChu;
+        private int transid;
+        private string customerName;
+        private int customerId;
+        private DateTime createdate;
+        private double totalprice;
 
-        public string MaHDB
+        public int TransID
         {
             get
             {
-                return maHDB;
+                return transid;
             }
 
             set
             {
-                maHDB = value;
+                transid = value;
             }
         }
 
-        public string TenCH
+        public int CustomerId
         {
             get
             {
-                return tenCH;
+                return customerId;
             }
 
             set
             {
-                tenCH = value;
+                customerId = value;
             }
         }
 
-        public string MaKH
+        public string CustomerName
         {
             get
             {
-                return maKH;
+                return customerName;
             }
 
             set
             {
-                maKH = value;
+                customerName = value;
             }
         }
 
-        public string TenKH
+        public DateTime CreateDate
         {
             get
             {
-                return tenKH;
+                return createdate;
             }
 
             set
             {
-                tenKH = value;
+                createdate = value;
             }
         }
 
-        public DateTime NgayNhap
+        public double TotalPrice
         {
             get
             {
-                return ngayNhap;
+                return totalprice;
             }
 
             set
             {
-                ngayNhap = value;
-            }
-        }
-
-        public double TongTien
-        {
-            get
-            {
-                return tongTien;
-            }
-
-            set
-            {
-                tongTien = value;
-            }
-        }
-
-        public double TongNo
-        {
-            get
-            {
-                return tongNo;
-            }
-
-            set
-            {
-                tongNo = value;
-            }
-        }
-
-        public string GhiChu
-        {
-            get
-            {
-                return ghiChu;
-            }
-
-            set
-            {
-                ghiChu = value;
+                totalprice = value;
             }
         }
     }

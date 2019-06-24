@@ -15,52 +15,14 @@ namespace QLCUAHANG_DAL
         private static SqlCommand cmd;
         private static DataTable dt;
         private static SqlDataAdapter da;
-        public static bool ThemPHBanHang(SaleInvoice_DTO phieu)
-        {
-            SqlConnection con = DataProvider.OpenConnection();
-            cmd = new SqlCommand("ThemPHBan", con);
 
-            try
-            {
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                SqlParameter p = new SqlParameter("@MaHDB", phieu.MaHDB);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@TenCH", phieu.TenCH);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@MaKH", phieu.MaKH);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@TenKH", phieu.TenKH);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@NgayNhap", phieu.NgayNhap);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@TongTien", phieu.TongTien);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@TongNo", phieu.TongNo);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@GhiChu", phieu.GhiChu);
-                cmd.Parameters.Add(p);
-
-                cmd.ExecuteNonQuery();
-
-                DataProvider.CloseConnection(con);
-                return true;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                DataProvider.CloseConnection(con);
-                return false;
-            }
-        }
-
-        public static List<SaleInvoice_DTO> LoadPhieuBan()
+        public static List<SaleInvoice_DTO> LoadSaleInvoice()
         {
             SqlConnection con = DataProvider.OpenConnection();
 
             try
             {
-                cmd = new SqlCommand("DSPhieuBan", con);
+                cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_getSaleInvoice]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.ExecuteNonQuery();
@@ -69,7 +31,6 @@ namespace QLCUAHANG_DAL
                 dt = new DataTable();
 
                 da.Fill(dt);
-
             }
             catch
             {
@@ -79,50 +40,34 @@ namespace QLCUAHANG_DAL
             if (dt.Rows.Count == 0)
                 return null;
 
-            List<SaleInvoice_DTO> dsPhieuNhap = new List<SaleInvoice_DTO>();
+            List<SaleInvoice_DTO> saleInvoiceList = new List<SaleInvoice_DTO>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                SaleInvoice_DTO phieuhang = new SaleInvoice_DTO();
-                phieuhang.MaHDB = dt.Rows[i]["MaHDB"].ToString();
-                phieuhang.MaKH = dt.Rows[i]["MaKH"].ToString();
-                phieuhang.TenKH = dt.Rows[i]["TenKH"].ToString();
-                phieuhang.NgayNhap = Convert.ToDateTime(dt.Rows[i]["NgayNhap"].ToString());
-                phieuhang.TongTien =Convert.ToDouble(dt.Rows[i]["TongTien"].ToString());
-                phieuhang.TongNo = Convert.ToDouble(dt.Rows[i]["TongNo"].ToString());
-                phieuhang.GhiChu = dt.Rows[i]["GhiChu"].ToString();
+                SaleInvoice_DTO invoice = new SaleInvoice_DTO();
+                invoice.TransID = Convert.ToInt32(dt.Rows[i]["TransID"].ToString());
+                invoice.CustomerId = Convert.ToInt32(dt.Rows[i]["CustomerId"].ToString());
+                invoice.CustomerName = dt.Rows[i]["CustomerName"].ToString();
+                invoice.CreateDate = Convert.ToDateTime(dt.Rows[i]["TransDate"].ToString());
+                invoice.TotalPrice = Convert.ToDouble(dt.Rows[i]["TotalPrice"].ToString());
 
-                phieuhang.TenCH = dt.Rows[i]["TenCH"].ToString();
-
-                dsPhieuNhap.Add(phieuhang);
+                saleInvoiceList.Add(invoice);
             }
             DataProvider.CloseConnection(con);
-            return dsPhieuNhap;
+            return saleInvoiceList;
         }
 
-        public static bool SuaPhieuBanHang(SaleInvoice_DTO phieuhang)
+        public static bool InsertSaleInvoice(SaleInvoice_DTO invoice)
         {
             SqlConnection con = DataProvider.OpenConnection();
+            cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_insertSaleInvoice]", con);
+
             try
             {
-                cmd = new SqlCommand("SuaPHBan", con);
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@MaHDB", phieuhang.MaHDB);
+                SqlParameter p = new SqlParameter("@CreateDate", invoice.CreateDate);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@MaKH", phieuhang.MaKH);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@TenKH", phieuhang.TenKH);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@NgayNhap", phieuhang.NgayNhap);
-                cmd.Parameters.Add(p);
-
-                p = new SqlParameter("@TongTien", phieuhang.TongTien);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@TongNo", phieuhang.TongNo);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@TenCH", phieuhang.TenCH);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@GhiChu", phieuhang.GhiChu);
+                p = new SqlParameter("@CustomerID", invoice.CustomerId);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -132,21 +77,49 @@ namespace QLCUAHANG_DAL
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 DataProvider.CloseConnection(con);
                 return false;
             }
         }
 
-        public static bool XoaPhieuBanHang(SaleInvoice_DTO phieuhang)
+        public static bool UpdateSaleInvoice(SaleInvoice_DTO invoice)
         {
             SqlConnection con = DataProvider.OpenConnection();
             try
             {
-                cmd = new SqlCommand("XoaPHBan", con);
+                cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_updateSaleInvoice]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@MaHDB", phieuhang.MaHDB);
+                SqlParameter p = new SqlParameter("@TransID", invoice.TransID);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@CreateDate", invoice.CreateDate);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@CustomerID", invoice.CustomerId);
+                cmd.Parameters.Add(p);
+
+                cmd.ExecuteNonQuery();
+
+                DataProvider.CloseConnection(con);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
+
+        public static bool DeleteSaleInvoice(SaleInvoice_DTO invoice)
+        {
+            SqlConnection con = DataProvider.OpenConnection();
+            try
+            {
+                cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_deleteSaleInvoice]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter p = new SqlParameter("@TransID", invoice.TransID);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -156,110 +129,10 @@ namespace QLCUAHANG_DAL
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DataProvider.CloseConnection(con);
                 return false;
             }
-        }
-        public static List<SaleInvoice_DTO> DS_KHNoTien()
-        {
-
-            SqlConnection con = DataProvider.OpenConnection();
-
-            try
-            {
-                cmd = new SqlCommand("DS_TIENNOKH", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cmd.ExecuteNonQuery();
-                da = new SqlDataAdapter();
-                da.SelectCommand = cmd;
-                dt = new DataTable();
-
-                da.Fill(dt);
-
-            }
-            catch
-            {
-                return null;
-            }
-
-            if (dt.Rows.Count == 0)
-                return null;
-
-            List<SaleInvoice_DTO> dsPhieuNhap = new List<SaleInvoice_DTO>();
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                SaleInvoice_DTO phieuhang = new SaleInvoice_DTO();
-              
-                phieuhang.MaKH = dt.Rows[i]["MaKH"].ToString();
-                phieuhang.TenKH = dt.Rows[i]["TenKH"].ToString();
-
-
-                dsPhieuNhap.Add(phieuhang);
-            }
-            DataProvider.CloseConnection(con);
-            return dsPhieuNhap;
-        }
-        public static List<string>LoadDS_MaHDB(string s)
-        {
-            SqlConnection con = DataProvider.OpenConnection();
-
-            try
-            {
-         
-                string query = string.Format("EXEC dbo.DS_MaHDBAN @MaKH = N'" + s + "'");
-                dt = DataProvider.GetDataTable(query, con);
-            }
-            catch
-            {
-                return null;
-            }
-
-            if (dt.Rows.Count == 0)
-                return null;
-
-            List<string> listDS = new List<string>();
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                string phieuhang;
-                phieuhang= dt.Rows[i]["MaHDB"].ToString();
-     
-
-                listDS.Add(phieuhang);
-            }
-            DataProvider.CloseConnection(con);
-            return listDS;
-        }
-        public static List<string>DS_TongNo(string s)
-        {
-
-            SqlConnection con = DataProvider.OpenConnection();
-
-            try
-            {
-
-                string query = string.Format("EXEC DS_TONGNO @MaKH = N'" + s + "'");
-                dt = DataProvider.GetDataTable(query, con);
-            }
-            catch
-            {
-                return null;
-            }
-
-            if (dt.Rows.Count == 0)
-                return null;
-
-            List<string> listDS = new List<string>();
-
-            string d2;
-            d2= dt.Rows[0]["TongNo"].ToString();
-
-
-            listDS.Add(d2);
-
-            DataProvider.CloseConnection(con);
-            return listDS;
         }
     }
 }

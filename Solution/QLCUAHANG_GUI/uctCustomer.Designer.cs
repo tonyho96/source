@@ -40,15 +40,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lbIDCustomer = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnDeleteCustomer = new System.Windows.Forms.Button();
             this.btnUpdateCustomer = new System.Windows.Forms.Button();
             this.btnAddCustomer = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnHideList = new System.Windows.Forms.Button();
             this.grbListInfoOfCustomer = new System.Windows.Forms.GroupBox();
             this.dtgvCustomersListOfStore = new System.Windows.Forms.DataGridView();
-            this.pnlListCustomer = new System.Windows.Forms.Panel();
             this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,8 +68,11 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.lbClear);
+            this.panel1.Controls.Add(this.btnDeleteCustomer);
             this.panel1.Controls.Add(this.txtNameCustomer);
+            this.panel1.Controls.Add(this.btnUpdateCustomer);
             this.panel1.Controls.Add(this.txtNumberPhone);
+            this.panel1.Controls.Add(this.btnAddCustomer);
             this.panel1.Controls.Add(this.txtAddressCustomer);
             this.panel1.Controls.Add(this.txtIDCustomer);
             this.panel1.Controls.Add(this.label4);
@@ -168,26 +167,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(164, 11);
+            this.label1.Location = new System.Drawing.Point(178, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 19);
             this.label1.TabIndex = 12;
             this.label1.Text = "CUSTOMER INFORMATION";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(800, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 19);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "CUSTOMER LIST";
-            // 
             // btnDeleteCustomer
             // 
             this.btnDeleteCustomer.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(350, 226);
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(341, 118);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
             this.btnDeleteCustomer.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteCustomer.TabIndex = 13;
@@ -197,7 +186,7 @@
             // btnUpdateCustomer
             // 
             this.btnUpdateCustomer.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateCustomer.Location = new System.Drawing.Point(226, 226);
+            this.btnUpdateCustomer.Location = new System.Drawing.Point(217, 118);
             this.btnUpdateCustomer.Name = "btnUpdateCustomer";
             this.btnUpdateCustomer.Size = new System.Drawing.Size(75, 23);
             this.btnUpdateCustomer.TabIndex = 14;
@@ -207,42 +196,20 @@
             // btnAddCustomer
             // 
             this.btnAddCustomer.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCustomer.Location = new System.Drawing.Point(105, 226);
+            this.btnAddCustomer.Location = new System.Drawing.Point(96, 118);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.Size = new System.Drawing.Size(75, 23);
             this.btnAddCustomer.TabIndex = 15;
             this.btnAddCustomer.Text = "Insert";
             this.btnAddCustomer.UseVisualStyleBackColor = true;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(570, 226);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 13;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnHideList
-            // 
-            this.btnHideList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHideList.Location = new System.Drawing.Point(696, 226);
-            this.btnHideList.Name = "btnHideList";
-            this.btnHideList.Size = new System.Drawing.Size(75, 23);
-            this.btnHideList.TabIndex = 13;
-            this.btnHideList.Text = "<<";
-            this.btnHideList.UseVisualStyleBackColor = true;
-            this.btnHideList.Click += new System.EventHandler(this.btnHideList_Click);
-            // 
             // grbListInfoOfCustomer
             // 
             this.grbListInfoOfCustomer.Controls.Add(this.dtgvCustomersListOfStore);
             this.grbListInfoOfCustomer.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbListInfoOfCustomer.Location = new System.Drawing.Point(567, 44);
+            this.grbListInfoOfCustomer.Location = new System.Drawing.Point(20, 228);
             this.grbListInfoOfCustomer.Name = "grbListInfoOfCustomer";
-            this.grbListInfoOfCustomer.Size = new System.Drawing.Size(612, 165);
+            this.grbListInfoOfCustomer.Size = new System.Drawing.Size(541, 165);
             this.grbListInfoOfCustomer.TabIndex = 18;
             this.grbListInfoOfCustomer.TabStop = false;
             // 
@@ -260,16 +227,8 @@
             this.dtgvCustomersListOfStore.ReadOnly = true;
             this.dtgvCustomersListOfStore.RowHeadersVisible = false;
             this.dtgvCustomersListOfStore.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvCustomersListOfStore.Size = new System.Drawing.Size(606, 144);
+            this.dtgvCustomersListOfStore.Size = new System.Drawing.Size(535, 144);
             this.dtgvCustomersListOfStore.TabIndex = 23;
-            this.dtgvCustomersListOfStore.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvCustomersListOfStore_CellContentClick);
-            // 
-            // pnlListCustomer
-            // 
-            this.pnlListCustomer.Location = new System.Drawing.Point(23, 269);
-            this.pnlListCustomer.Name = "pnlListCustomer";
-            this.pnlListCustomer.Size = new System.Drawing.Size(1156, 240);
-            this.pnlListCustomer.TabIndex = 19;
             // 
             // CustomerID
             // 
@@ -307,19 +266,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.Controls.Add(this.pnlListCustomer);
             this.Controls.Add(this.grbListInfoOfCustomer);
-            this.Controls.Add(this.btnHideList);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.btnDeleteCustomer);
-            this.Controls.Add(this.btnUpdateCustomer);
-            this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.grbInfoCustomer);
             this.Name = "uctCustomer";
-            this.Size = new System.Drawing.Size(1200, 525);
-            this.Load += new System.EventHandler(this.uctKhachHang_Load);
+            this.Size = new System.Drawing.Size(587, 424);
+            this.Load += new System.EventHandler(this.uctCustomer_Load);
             this.grbInfoCustomer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -342,14 +294,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbIDCustomer;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDeleteCustomer;
         private System.Windows.Forms.Button btnUpdateCustomer;
         private System.Windows.Forms.Button btnAddCustomer;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnHideList;
         private System.Windows.Forms.GroupBox grbListInfoOfCustomer;
-        private System.Windows.Forms.Panel pnlListCustomer;
         private System.Windows.Forms.DataGridView dtgvCustomersListOfStore;
         private System.Windows.Forms.LinkLabel lbClear;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;

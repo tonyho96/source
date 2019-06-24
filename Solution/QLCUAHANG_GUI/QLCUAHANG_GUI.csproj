@@ -191,12 +191,6 @@
     <Compile Include="frmThongTinTaiKhoan.Designer.cs">
       <DependentUpon>frmThongTinTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTimKiemThongTinKH.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTimKiemThongTinKH.Designer.cs">
-      <DependentUpon>frmTimKiemThongTinKH.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
@@ -247,12 +241,6 @@
     </Compile>
     <Compile Include="uctProduct.Designer.cs">
       <DependentUpon>uctProduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="uctSearchKhachHang.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="uctSearchKhachHang.Designer.cs">
-      <DependentUpon>uctSearchKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="uctThongKe.cs">
       <SubType>UserControl</SubType>
@@ -315,9 +303,6 @@
     <EmbeddedResource Include="frmThongTinTaiKhoan.resx">
       <DependentUpon>frmThongTinTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTimKiemThongTinKH.resx">
-      <DependentUpon>frmTimKiemThongTinKH.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -356,9 +341,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="uctProduct.resx">
       <DependentUpon>uctProduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="uctSearchKhachHang.resx">
-      <DependentUpon>uctSearchKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uctThongKe.resx">
       <DependentUpon>uctThongKe.cs</DependentUpon>

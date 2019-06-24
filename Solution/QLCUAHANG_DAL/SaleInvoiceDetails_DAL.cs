@@ -16,51 +16,18 @@ namespace QLCUAHANG_DAL
         private static SqlCommand cmd;
         private static DataTable dt;
         private static SqlDataAdapter da;
-        public static bool ThemChiTietPHBanHang(SaleInvoiceDetails_DTO phieu)
-        {
-            SqlConnection con = DataProvider.OpenConnection();
-            try
-            {
 
-                
-                cmd = new SqlCommand("ThemChiTietPHBan", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                SqlParameter p = new SqlParameter("@MaHDB", phieu.MaHDB);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@MaSPCH", phieu.MaSPCH);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoLuong", phieu.SoLuong);
-                cmd.Parameters.Add(p);
-
-                p = new SqlParameter("@DonViTinh", phieu.DonViTinh);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@HinhThucBan", phieu.HinhThucBan);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoLuongMuaLe", phieu.SoLuongMuaLe);
-                cmd.Parameters.Add(p);
-
-                cmd.ExecuteNonQuery();
-
-                DataProvider.CloseConnection(con);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                DataProvider.CloseConnection(con);
-                return false;
-            }
-        }
-
-        public static List<SaleInvoiceDetails_DTO> LoadChiTietPhieuBan()
+        public static List<SaleInvoiceDetails_DTO> LoadSaleInvoiceDetails(int transId)
         {
             SqlConnection con = DataProvider.OpenConnection();
 
             try
             {
-                cmd = new SqlCommand("DSChiTietPhieuBan", con);
+                cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_getSaleInvoice_Details]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter p = new SqlParameter("@TransID", transId);
+                cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
                 da = new SqlDataAdapter();
@@ -70,117 +37,89 @@ namespace QLCUAHANG_DAL
                 da.Fill(dt);
 
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
 
             if (dt.Rows.Count == 0)
                 return null;
 
-            List<SaleInvoiceDetails_DTO> dsChiTietPhieuBan = new List<SaleInvoiceDetails_DTO>();
+            List<SaleInvoiceDetails_DTO> saleInvoiceDetailsList = new List<SaleInvoiceDetails_DTO>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                SaleInvoiceDetails_DTO phieuhang = new SaleInvoiceDetails_DTO();
-                phieuhang.MaHDB = dt.Rows[i]["MaHDB"].ToString();
-                phieuhang.MaSPCH = dt.Rows[i]["MaSPCH"].ToString();
-                phieuhang.SoLuong = Convert.ToInt32(dt.Rows[i]["SoLuong"].ToString());
+                SaleInvoiceDetails_DTO saleInvoiceDetails = new SaleInvoiceDetails_DTO();
+                saleInvoiceDetails.TransDetailsID = dt.Rows[i]["TransDetailsID"].ToString();
+                saleInvoiceDetails.ProductID = dt.Rows[i]["ProductID"].ToString();
+                saleInvoiceDetails.ProductName = dt.Rows[i]["ProductName"].ToString();
+                saleInvoiceDetails.ProductCategoryName = dt.Rows[i]["ProductCategoryName"].ToString();
+                saleInvoiceDetails.TransQuantity = Convert.ToInt32(dt.Rows[i]["TransQuantity"].ToString());
+                saleInvoiceDetails.UnitName = dt.Rows[i]["UnitName"].ToString();
+                saleInvoiceDetails.TransPrice = dt.Rows[i]["TransPrice"].ToString();
 
-                phieuhang.DonViTinh = dt.Rows[i]["DonViTinh"].ToString();
-                phieuhang.HinhThucBan = Convert.ToInt32(dt.Rows[i]["HinhThucBan"].ToString());
-                phieuhang.SoLuongMuaLe = Convert.ToInt32(dt.Rows[i]["SoLuongMuaLe"].ToString());
-
-
-                dsChiTietPhieuBan.Add(phieuhang);
+                saleInvoiceDetailsList.Add(saleInvoiceDetails);
             }
             DataProvider.CloseConnection(con);
-            return dsChiTietPhieuBan;
+            return saleInvoiceDetailsList;
         }
 
-        public static bool SuaChiTietPhieuBanHang(SaleInvoiceDetails_DTO phieuhang)
+        public static bool InsertSaleInvoiceDetails(SaleInvoiceDetails_DTO invoice)
         {
             SqlConnection con = DataProvider.OpenConnection();
+            cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_insertSaleInvoice_Details]", con);
+
             try
             {
-                cmd = new SqlCommand("SuaChiTietPHBan", con);
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@MaHDB", phieuhang.MaHDB);
+                SqlParameter p = new SqlParameter("@TransID", invoice.TransID);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@MaSPCH", phieuhang.MaSPCH);
+                p = new SqlParameter("@ProductName", invoice.ProductName);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoLuong", phieuhang.SoLuong);
+                p = new SqlParameter("@ProductCategoryName", invoice.ProductCategoryName);
                 cmd.Parameters.Add(p);
-
-                p = new SqlParameter("@DonViTinh", phieuhang.DonViTinh);
+                p = new SqlParameter("@UnitName", invoice.UnitName);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@HinhThucBan", phieuhang.HinhThucBan);
+                p = new SqlParameter("@TransQuantity", invoice.TransQuantity);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoLuongMuaLe", phieuhang.SoLuongMuaLe);
+                p = new SqlParameter("@TransPrice", invoice.TransPrice);
                 cmd.Parameters.Add(p);
-
 
                 cmd.ExecuteNonQuery();
 
                 DataProvider.CloseConnection(con);
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DataProvider.CloseConnection(con);
                 return false;
             }
         }
-        public static string TimDonViSanPham(string t)
-        {
-            SqlConnection con = DataProvider.OpenConnection();
-            string query = string.Format("EXEC dbo.DonViSanPham @MaSPCH = N'" + t + "'");
-            DataTable dt = DataProvider.GetDataTable(query, con);
-            if (dt.Rows.Count == 0)
-                return null;
-            string s = dt.Rows[0]["DonVi"].ToString();
 
-            DataProvider.CloseConnection(con);
-            return s;
-        }
-        public static string ThongSoMax(string t)
-        {
-            SqlConnection con = DataProvider.OpenConnection();
-            string query = string.Format("EXEC dbo.DonViSanPham @MaSPCH = N'" + t + "'");
-            DataTable dt = DataProvider.GetDataTable(query, con);
-            if (dt.Rows.Count == 0)
-                return null;
-            string s = dt.Rows[0]["SoLuongLe"].ToString();
-
-            DataProvider.CloseConnection(con);
-            return s;
-        }
-        public static string SoLuongMax(string t)
-        {
-            SqlConnection con = DataProvider.OpenConnection();
-            string query = string.Format("EXEC dbo.DonViSanPham @MaSPCH = N'" + t + "'");
-            DataTable dt = DataProvider.GetDataTable(query, con);
-            if (dt.Rows.Count == 0)
-                return null;
-            string s = dt.Rows[0]["SoLuong"].ToString();
-
-            DataProvider.CloseConnection(con);
-            return s;
-        }
-       
-        public static bool XoaChiTietPhieuBanHang(SaleInvoiceDetails_DTO phieuhang)
+        public static bool UpdateSaleInvoiceDetails(SaleInvoiceDetails_DTO invoice)
         {
             SqlConnection con = DataProvider.OpenConnection();
             try
             {
-                cmd = new SqlCommand("XoaChiTietPHBan", con);
+                cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_updateSaleInvoice_Details]", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@MaHDB", phieuhang.MaHDB);
+                SqlParameter p = new SqlParameter("@TransID", invoice.TransID);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@MaSPCH", phieuhang.MaSPCH);
+                p = new SqlParameter("@TransDetailsID", invoice.TransDetailsID);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@ProductID", invoice.ProductID);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@ProductName", invoice.ProductName);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@ProductCategoryName", invoice.ProductCategoryName);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@UnitName", invoice.UnitName);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@TransQuantity", invoice.TransQuantity);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@TransPrice", invoice.TransPrice);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -190,7 +129,33 @@ namespace QLCUAHANG_DAL
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DataProvider.CloseConnection(con);
+                return false;
+            }
+        }
+
+        public static bool DeleteSaleInvoiceDetails(SaleInvoiceDetails_DTO invoice)
+        {
+            SqlConnection con = DataProvider.OpenConnection();
+            try
+            {
+                cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_deleteSaleInvoice_Details]", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter p = new SqlParameter("@TransDetailsID", invoice.TransDetailsID);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@ProductID", invoice.ProductID);
+                cmd.Parameters.Add(p);
+
+                cmd.ExecuteNonQuery();
+
+                DataProvider.CloseConnection(con);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 DataProvider.CloseConnection(con);
                 return false;
             }

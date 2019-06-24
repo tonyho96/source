@@ -29,15 +29,5 @@ namespace QLCUAHANG_BUS
         {
             return Customer_DAL.DeleteCustomer(customer);
         }
-
-        public static List<Customer_DTO> SearchCustomer(string keyword)
-        {
-            return Customer_DAL.SearchCustomer(keyword);
-        }
-
-        public static List<Customer_DTO> SearchCustomer2(string keyword)
-        {
-            return Customer_DAL.SearchCustomer2(keyword);
-        }
     }
 }

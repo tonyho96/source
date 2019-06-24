@@ -55,8 +55,7 @@ namespace QLCUAHANG_DAL
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                //SqlParameter p = new SqlParameter("@MaDL", vendor.VendorID);
-                //cmd.Parameters.Add(p);
+
                 SqlParameter p = new SqlParameter("@VendorName", vendor.VendorName);
                 cmd.Parameters.Add(p);
                 p = new SqlParameter("@Address", vendor.VendorAddress);

@@ -125,8 +125,6 @@ namespace QLCUAHANG_GUI
                     ClearDisplay();
 
                     uctVendor.uctVendorInfo.LoadVendorList();
-                    //uctQuanLiTienNoDaiLi.uctQLTienNoDL.Load_DSNoDaiLi();
-                    //LoadPhieuNhapHang();
                     LoadPostInvoice();
                     return;
                 }
@@ -155,9 +153,7 @@ namespace QLCUAHANG_GUI
                 if (PostInvoice_BUS.UpdatePostInvoice(invoice))
                 {
                     LoadPostInvoice();
-                    //LoadPhieuNhapHang();
                     uctVendor.uctVendorInfo.LoadVendorList();
-                    //uctQuanLiTienNoDaiLi.uctQLTienNoDL.Load_DSNoDaiLi();
                     XtraMessageBox.Show("Update Post Invoice Successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearDisplay();
                     return;
@@ -186,9 +182,7 @@ namespace QLCUAHANG_GUI
                 if (PostInvoice_BUS.DeletePostInvoice(invoice))
                 {
                     LoadPostInvoice();
-                    //LoadPhieuNhapHang();
                     uctVendor.uctVendorInfo.LoadVendorList();
-                    //uctQuanLiTienNoDaiLi.uctQLTienNoDL.Load_DSNoDaiLi();
                     XtraMessageBox.Show("Delete Post Invoice Successfully", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearDisplay();
                     return;
@@ -222,24 +216,6 @@ namespace QLCUAHANG_GUI
 
         private void dtgvListOfDetailProductImport_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*try
-            {
-                cmbIDProductDetailStore.Text = "";
-                cmbIDProductDetailStore.Text = "";
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-                {
-                    cmbIDBillImportDetail.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["MaHDN1"].Value.ToString());
-                    cmbIDProductDetailStore.Text = dtgvListOfDetailProductImport.CurrentRow.Cells["MaSPDL"].Value.ToString();
-                    txtAmountOfProductImportDetail.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["SoLuong"].Value);
-                }
-                else
-                    return;
-            }
-            catch
-            {
-                return;
-            }*/
-
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
                 cmbIDProductDetailStore.Text = Convert.ToString(dtgvListOfDetailProductImport.CurrentRow.Cells["ProductName"].Value);
@@ -289,7 +265,6 @@ namespace QLCUAHANG_GUI
                 {
                     LoadPostInvoice();
                     LoadPostInvoiceDetails();
-                    //LoadPhieuNhapHang();
                     XtraMessageBox.Show("Insert details sucessfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     //uctSanPhamCH.uctSPCH.LoadSanPhamCH1();
@@ -328,9 +303,7 @@ namespace QLCUAHANG_GUI
                 if (PostInvoiceDetails_BUS.UpdatePostInvoiceDetails(invoiceDetails))
                 {
                     LoadPostInvoice();
-                    //LoadPhieuNhapHang();
                     LoadPostInvoiceDetails();
-                    //uctSanPhamCH.uctSPCH.LoadSanPhamCH1();
 
                     XtraMessageBox.Show("Update details sucessfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearDisplay1();
@@ -362,9 +335,7 @@ namespace QLCUAHANG_GUI
                 if (PostInvoiceDetails_BUS.DeletePostInvoiceDetails(invoiceDetails))
                 {
                     LoadPostInvoice();
-                    //LoadPhieuNhapHang();
                     LoadPostInvoiceDetails();
-                    //uctSanPhamCH.uctSPCH.LoadSanPhamCH1();
                     XtraMessageBox.Show("Delete details sucessfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearDisplay1();
                     return;

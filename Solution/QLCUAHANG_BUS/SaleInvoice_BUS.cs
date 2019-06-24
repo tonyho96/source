@@ -10,36 +10,24 @@ namespace QLCUAHANG_BUS
 {
     public class SaleInvoice_BUS
     {
-        public static List<SaleInvoice_DTO> LoadPhieuBan()
+        public static List<SaleInvoice_DTO> LoadSaleInvoice()
         {
-            return SaleInvoice_DAL.LoadPhieuBan();
-        }
-        public static bool ThemPHBan(SaleInvoice_DTO phieu)
-        {
-            return SaleInvoice_DAL.ThemPHBanHang(phieu);
-        }
-        public static List<string> LoadDS_MaHDB(string s)
-        {
-            return SaleInvoice_DAL.LoadDS_MaHDB(s);
+            return SaleInvoice_DAL.LoadSaleInvoice();
         }
 
-        public static bool XoaPHBan(SaleInvoice_DTO phieunhap)
+        public static bool InsertSaleInvoice(SaleInvoice_DTO invoice)
         {
-            return SaleInvoice_DAL.XoaPhieuBanHang(phieunhap);
+            return SaleInvoice_DAL.InsertSaleInvoice(invoice);
         }
 
-        public static bool SuaPHBan(SaleInvoice_DTO phieu)
+        public static bool UpdateSaleInvoice(SaleInvoice_DTO invoice)
         {
-            return SaleInvoice_DAL.SuaPhieuBanHang(phieu);
+            return SaleInvoice_DAL.UpdateSaleInvoice(invoice);
         }
 
-        public static List<SaleInvoice_DTO> DS_KHNoTien()
+        public static bool DeleteSaleInvoice(SaleInvoice_DTO invoice)
         {
-            return SaleInvoice_DAL.DS_KHNoTien();
-        }
-        public static List<string> DS_TongNo(string s)
-        {
-            return SaleInvoice_DAL.DS_TongNo(s);
+            return SaleInvoice_DAL.DeleteSaleInvoice(invoice);
         }
     }
 }

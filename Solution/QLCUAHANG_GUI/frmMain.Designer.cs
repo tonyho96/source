@@ -557,7 +557,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
             this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
+            this.repositoryItemDateEdit1.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             // 
             // barEditItem5
             // 
@@ -794,29 +796,29 @@
             this.toolStripSeparator2,
             this.colseAllTabToolStripMenuItem});
             this.ctxtMenuTapDispaly.Name = "ctxtMenuTapDispaly";
-            this.ctxtMenuTapDispaly.Size = new System.Drawing.Size(143, 60);
+            this.ctxtMenuTapDispaly.Size = new System.Drawing.Size(142, 60);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click_1);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(138, 6);
             // 
             // colseAllTabToolStripMenuItem
             // 
             this.colseAllTabToolStripMenuItem.Name = "colseAllTabToolStripMenuItem";
-            this.colseAllTabToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.colseAllTabToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.colseAllTabToolStripMenuItem.Text = "Colse All Tab";
             this.colseAllTabToolStripMenuItem.Click += new System.EventHandler(this.colseAllTapToolStripMenuItem_Click);
             // 

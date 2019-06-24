@@ -8,89 +8,116 @@ namespace QLCUAHANG_DTO
 {
     public class SaleInvoiceDetails_DTO
     {
-        private string maHDB;
-        private string maSPCH;
-        private int soLuong;
-        private string donViTinh;
-        private int hinhThucBan;
-        private int soLuongMuaLe;
-       
+        private string transID;
+        private string transDetailsID;
+        private string productID;
+        private string productName;
+        private string productCategoryName;
+        private int transQuantity;
+        private string unitName;
+        private string transPrice;
 
-        public string MaHDB
+        public string TransID
         {
             get
             {
-                return maHDB;
+                return transID;
             }
 
             set
             {
-                maHDB = value;
+                transID = value;
             }
         }
 
-        public string MaSPCH
+        public string TransDetailsID
         {
             get
             {
-                return maSPCH;
+                return transDetailsID;
             }
 
             set
             {
-                maSPCH = value;
+                transDetailsID = value;
             }
         }
 
-        public int SoLuong
+        public string ProductID
         {
             get
             {
-                return soLuong;
+                return productID;
             }
 
             set
             {
-                soLuong = value;
+                productID = value;
             }
         }
 
-        public string DonViTinh
+        public string ProductName
         {
             get
             {
-                return donViTinh;
+                return productName;
             }
 
             set
             {
-                donViTinh = value;
+                productName = value;
             }
         }
 
-        public int HinhThucBan
+        public string ProductCategoryName
         {
             get
             {
-                return hinhThucBan;
+                return productCategoryName;
             }
 
             set
             {
-                hinhThucBan = value;
+                productCategoryName = value;
             }
         }
 
-        public int SoLuongMuaLe
+        public int TransQuantity
         {
             get
             {
-                return soLuongMuaLe;
+                return transQuantity;
             }
 
             set
             {
-                soLuongMuaLe = value;
+                transQuantity = value;
+            }
+        }
+
+        public string UnitName
+        {
+            get
+            {
+                return unitName;
+            }
+
+            set
+            {
+                unitName = value;
+            }
+        }
+
+        public string TransPrice
+        {
+            get
+            {
+                return transPrice;
+            }
+
+            set
+            {
+                transPrice = value;
             }
         }
     }

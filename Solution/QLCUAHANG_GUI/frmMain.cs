@@ -112,7 +112,7 @@ namespace QLCUAHANG_GUI
 
         private void barEditItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
-            barEditItem3.Caption = DateTime.Now.ToLongDateString();
+            barEditItem3.EditValue = DateTime.Now.ToLongDateString();
         }
 
         private void frmMain_Load(object sender, EventArgs e)

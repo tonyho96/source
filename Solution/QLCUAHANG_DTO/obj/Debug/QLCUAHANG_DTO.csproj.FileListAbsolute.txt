@@ -17,7 +17,6 @@ D:\source\Solution\QLCUAHANG_DTO\obj\Debug\QLCUAHANG_DTO.pdb
 D:\source\Solution\QLCUAHANG_DTO\obj\Debug\QLCUAHANG_DTO.csprojAssemblyReference.cache
 D:\source\source\Solution\QLCUAHANG_DTO\bin\Debug\QLCUAHANG_DTO.dll
 D:\source\source\Solution\QLCUAHANG_DTO\bin\Debug\QLCUAHANG_DTO.pdb
-D:\source\source\Solution\QLCUAHANG_DTO\obj\Debug\QLCUAHANG_DTO.csprojAssemblyReference.cache
 D:\source\source\Solution\QLCUAHANG_DTO\obj\Debug\QLCUAHANG_DTO.Properties.Resources.resources
 D:\source\source\Solution\QLCUAHANG_DTO\obj\Debug\QLCUAHANG_DTO.csproj.GenerateResource.cache
 D:\source\source\Solution\QLCUAHANG_DTO\obj\Debug\QLCUAHANG_DTO.csproj.CoreCompileInputs.cache

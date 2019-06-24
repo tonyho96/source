@@ -18,7 +18,7 @@ namespace QLCUAHANG_DAL
             {
                 SqlConnection con = DataProvider.OpenConnection();
 
-                DataTable dt = DataProvider.GetDataTable("DSKhachHang", con);
+                DataTable dt = DataProvider.GetDataTable("[JEWELRYSTOREMGMT].[dbo].[usp_getCustomerList]", con);
 
                 List<Customer_DTO> customerList = new List<Customer_DTO>();
 
@@ -30,10 +30,10 @@ namespace QLCUAHANG_DAL
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     Customer_DTO customer = new Customer_DTO();
-                    customer.CustomerID = dt.Rows[i]["MaKH"].ToString();
-                    customer.CustomerName = dt.Rows[i]["TenKH"].ToString();
-                    customer.CustomerPhone = dt.Rows[i]["SoDT"].ToString();
-                    customer.CustomerAddress = dt.Rows[i]["DiaChi"].ToString();
+                    customer.CustomerID = dt.Rows[i]["CustomerID"].ToString();
+                    customer.CustomerName = dt.Rows[i]["CustomerName"].ToString();
+                    customer.CustomerAddress = dt.Rows[i]["Address"].ToString();
+                    customer.CustomerPhone = dt.Rows[i]["PhoneNo"].ToString();
 
                     customerList.Add(customer);
                 }
@@ -50,19 +50,17 @@ namespace QLCUAHANG_DAL
         public static bool InsertCustomer(Customer_DTO customer)
         {
             SqlConnection con = DataProvider.OpenConnection();
-            SqlCommand cmd = new SqlCommand("ThemKH", con);
+            SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_insertCustomer]", con);
 
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@MaKH", customer.CustomerID);
+                SqlParameter p = new SqlParameter("@CustomerName", customer.CustomerName);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@TenKH", customer.CustomerName);
+                p = new SqlParameter("@Address", customer.CustomerAddress);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@DiaChi", customer.CustomerAddress);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoDT", customer.CustomerPhone);
+                p = new SqlParameter("@PhoneNo", customer.CustomerPhone);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -80,19 +78,19 @@ namespace QLCUAHANG_DAL
         public static bool UpdateCustomer(Customer_DTO customer)
         {
             SqlConnection con = DataProvider.OpenConnection();
-            SqlCommand cmd = new SqlCommand("SuaKH", con);
+            SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_updateCustomer]", con);
 
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@MaKH", customer.CustomerID);
+                SqlParameter p = new SqlParameter("@CustomerID", customer.CustomerID);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@TenKH", customer.CustomerName);
+                p = new SqlParameter("@CustomerName", customer.CustomerName);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@DiaChi", customer.CustomerAddress);
+                p = new SqlParameter("@Address", customer.CustomerAddress);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoDT", customer.CustomerPhone);
+                p = new SqlParameter("@PhoneNo", customer.CustomerPhone);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -110,12 +108,12 @@ namespace QLCUAHANG_DAL
         public static bool DeleteCustomer(Customer_DTO customer)
         {
             SqlConnection con = DataProvider.OpenConnection();
-            SqlCommand cmd = new SqlCommand("XoaKH", con);
+            SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_deleteCustomer]", con);
 
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlParameter p = new SqlParameter("@MaKH", customer.CustomerID);
+                SqlParameter p = new SqlParameter("@CustomerID", customer.CustomerID);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -128,59 +126,6 @@ namespace QLCUAHANG_DAL
                 DataProvider.CloseConnection(con);
                 return false;
             }
-        }
-
-        public static List<Customer_DTO> SearchCustomer(string keyword)
-        {
-            SqlConnection con = DataProvider.OpenConnection();
-            string query = string.Format("EXEC dbo.TimKiemKH @TuKhoa = N'%" + keyword + "%'");
-            DataTable dt = DataProvider.GetDataTable(query, con);
-
-            if (dt.Rows.Count == 0)
-            {
-                return null;
-            }
-            
-            List<Customer_DTO> customerList = new List<Customer_DTO>();
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                Customer_DTO customer = new Customer_DTO();
-                customer.CustomerID = dt.Rows[i]["MaKH"].ToString();
-                customer.CustomerName = dt.Rows[i]["TenKH"].ToString();
-                customer.CustomerAddress = dt.Rows[i]["DiaChi"].ToString();
-                customer.CustomerPhone = dt.Rows[i]["SoDT"].ToString();
-
-                customerList.Add(customer);
-            }
-            DataProvider.CloseConnection(con);
-            return customerList;
-        }
-
-        public static List<Customer_DTO> SearchCustomer2(string keyword)
-        {
-            SqlConnection con = DataProvider.OpenConnection();
-            string query = string.Format("EXEC dbo.TimKiemKH2 @TuKhoa = N'%" + keyword + "%'");
-        
-            DataTable dt = DataProvider.GetDataTable(query, con);
-            if (dt.Rows.Count == 0)
-            {
-                return null;
-            }
-                
-            List<Customer_DTO> customerList = new List<Customer_DTO>();
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                Customer_DTO customer = new Customer_DTO();
-                customer.CustomerID = dt.Rows[i]["MaKH"].ToString();
-                customer.CustomerName = dt.Rows[i]["TenKH"].ToString();
-                customer.CustomerAddress = dt.Rows[i]["DiaChi"].ToString();
-                customer.CustomerPhone = dt.Rows[i]["SoDT"].ToString();
-
-                customerList.Add(customer);
-            }
-            DataProvider.CloseConnection(con);
-            return customerList;
         }
     }
 }
