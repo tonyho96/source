@@ -34,17 +34,18 @@ namespace QLCUAHANG_GUI
         private void DataSaleInvoice()
         {
             dtgvInfoListOfBillExport.CellClick += new DataGridViewCellEventHandler(dtgvInfoListOfBillExport_CellClick);
+            dtgvDetailBillSale.CellClick += new DataGridViewCellEventHandler(dtgvDetailBillSale_CellClick);
+
             btnAddBillExport.Click += new EventHandler(btnAddBillExport_Click);
             btnUpdateBillExport.Click += new EventHandler(btnUpdateBillExport_Click);
             btnDeleteBillExport.Click += new EventHandler(btnDeleteBillExport_Click);
 
-            //btnAddProductExportDetail.Click += new EventHandler(btnAddProductExportDetail_Click);
+            btnAddProductExportDetail.Click += new EventHandler(btnAddProductExportDetail_Click);
             //btnUpdateProductExportDetail.Click += new EventHandler(btnUpdateProductExportDetail_Click);
             //btnDeleteProductExportDetail.Click += new EventHandler(btnDeleteProductExportDetail_Click);
 
             LoadCustomer();
-            LoadProductCategory();
-            LoadUnit();
+            LoadProduct();
             LoadSaleInvoice();
             txtIDBillExport.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([TransID]),0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Transaction]"));
             dtpkDateTimeExport.Value = DateTime.Now;
@@ -65,20 +66,34 @@ namespace QLCUAHANG_GUI
             txtIDCustomer.Text = cmbIDCustomer.SelectedValue.ToString();
         }
 
-        private void LoadProductCategory()
+        private void LoadProduct()
         {
-            List<ProductCategory_DTO> loadCategory = ProductCategory_BUS.LoadProductCategory();
-            cmbProductCategory.DataSource = loadCategory;
-            cmbProductCategory.ValueMember = "ProductCategoryID";
-            cmbProductCategory.DisplayMember = "ProductCategoryName";
-        }
+            List<Product_DTO> loadProduct = Product_BUS.LoadProduct();
+            cmbProductName.DataSource = loadProduct;
+            cmbProductName.ValueMember = "ProductID";
+            cmbProductName.DisplayMember = "ProductName";
+            cmbIDProductDetailStore.Text = cmbProductName.SelectedValue.ToString();
 
-        private void LoadUnit()
-        {
-            List<Unit_DTO> loadUnit = Unit_BUS.LoadUnit();
-            cmbUnit.DataSource = loadUnit;
+            cmbUnit.DataSource = loadProduct;
             cmbUnit.ValueMember = "UnitID";
             cmbUnit.DisplayMember = "UnitName";
+            cmbUnit.Text = cmbProductName.SelectedValue.ToString();
+
+            cmbProductCategory.DataSource = loadProduct;
+            cmbProductCategory.ValueMember = "ProductCategoryID";
+            cmbProductCategory.DisplayMember = "ProductCategoryName";
+
+            cmbPQuatity.DataSource = loadProduct;
+            cmbPQuatity.ValueMember = "Quantity";
+            cmbPQuatity.DisplayMember = "Quantity";
+
+            cmbPercent.DataSource = loadProduct;
+            cmbPercent.ValueMember = "PercentRevenue";
+            cmbPercent.DisplayMember = "PercentRevenue";
+
+            cmbImportPrice.DataSource = loadProduct;
+            cmbImportPrice.ValueMember = "ImportPrice";
+            cmbImportPrice.DisplayMember = "ImportPrice";
         }
 
         private void dtgvInfoListOfBillExport_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -92,7 +107,8 @@ namespace QLCUAHANG_GUI
                     cmbIDCustomer.Text = Convert.ToString(dtgvInfoListOfBillExport.CurrentRow.Cells["CustomerName"].Value);
                     dtpkDateTimeExport.Text = Convert.ToString(dtgvInfoListOfBillExport.CurrentRow.Cells["CreateDate"].Value);
                     cmbIDBillExportDetail.Text = txtIDBillExport.Text;
-                    txtTotal.Text = Convert.ToString(dtgvInfoListOfBillExport.CurrentRow.Cells["TotalPrice"].Value);
+                    txtTotal.Text = "";
+                    LoadSaleInvoiceDetails();
                 }
                 else
                     return;
@@ -203,8 +219,45 @@ namespace QLCUAHANG_GUI
         }
         #endregion
 
+        private void txtTransQuantity_TextChanged(object sender, EventArgs e)
+        {
+            /*int num;
+            if (txtTransQuantity.Text == "")
+                num = 0;
+            else
+                num = Convert.ToInt32(txtTransQuantity.Text.ToString());
 
-        #region Chi tiết Hóa đơn bán
+            int num1 = Convert.ToInt32(cmbPQuatity.Text.ToString());
+
+            if (num < 0)
+            {
+                XtraMessageBox.Show("Quantity must be greater than 0!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTransQuantity.Text = "";
+                return;
+            }
+
+            if (num > num1)
+            {
+                XtraMessageBox.Show("Not enough products in store!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTransQuantity.Text = "";
+                return;
+            }*/
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            float transPrice, total;
+            transPrice = float.Parse(cmbImportPrice.Text.ToString()) + (float.Parse(cmbImportPrice.Text.ToString()) * float.Parse(cmbPercent.Text.ToString()));
+            total = transPrice * float.Parse(txtTransQuantity.Text.ToString());
+            txtTransPrice.Text = transPrice.ToString();
+            txtTotal.Text = total.ToString();
+        }
+
+        private void LoadSaleInvoiceDetails()
+        {
+            List<SaleInvoiceDetails_DTO> listInvoice = SaleInvoiceDetails_BUS.LoadSaleInvoiceDetails(Convert.ToInt32(cmbIDBillExportDetail.Text));
+            dtgvDetailBillSale.DataSource = listInvoice;
+        }
 
         private void dtgvDetailBillSale_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -212,28 +265,15 @@ namespace QLCUAHANG_GUI
             {
                 if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
                 {
-                    cmbIDBillExportDetail.Text = (string)dtgvDetailBillSale.CurrentRow.Cells["MaHDB1"].Value;
-                    cmbIDProductDetailStore.Text = dtgvDetailBillSale.CurrentRow.Cells["MaSPCH"].Value.ToString();
-                    txtAmountOfProductExportDetail.Text = dtgvDetailBillSale.CurrentRow.Cells["SoLuong"].Value.ToString();
-                    cmbUnitCalculator.Text = dtgvDetailBillSale.CurrentRow.Cells["DonViTinh"].Value.ToString();
-                    if (dtgvDetailBillSale.CurrentRow.Cells["HinhThucBan"].Value.ToString() == "1")
-                    {
-                        txtRetail.Enabled = true;
-                        cbRetail.Checked = true;
-                    }
-                    else
-                    {
-                        txtRetail.Text = "0";
-                        txtRetail.Enabled = false;
-                        cbRetail.Checked = false;
-
-                    }
-
-                    if (cbRetail.Checked == true)
-                    {
-                        txtRetail.Text = dtgvDetailBillSale.CurrentRow.Cells["SoLuongMuaLe"].Value.ToString();
-                    }
-
+                    cmbIDProductDetailStore.Text = dtgvDetailBillSale.CurrentRow.Cells["ProductID"].Value.ToString();
+                    cmbProductName.Text = dtgvDetailBillSale.CurrentRow.Cells["ProductName"].Value.ToString();
+                    cmbProductCategory.Text = dtgvDetailBillSale.CurrentRow.Cells["ProductCategoryName"].Value.ToString();
+                    cmbUnit.Text = dtgvDetailBillSale.CurrentRow.Cells["UnitName"].Value.ToString();
+                    txtTransQuantity.Text = dtgvDetailBillSale.CurrentRow.Cells["TransQuantity"].Value.ToString();
+                    int quatity = Convert.ToInt32(cmbPQuatity.Text) + Convert.ToInt32(dtgvDetailBillSale.CurrentRow.Cells["TransQuantity"].Value.ToString());
+                    cmbPQuatity.Text = quatity.ToString();
+                    txtTransPrice.Text = dtgvDetailBillSale.CurrentRow.Cells["TransPrice"].Value.ToString();
+                    txtTotal.Text = dtgvDetailBillSale.CurrentRow.Cells["Total"].Value.ToString();
                 }
                 else
                     return;
@@ -244,46 +284,30 @@ namespace QLCUAHANG_GUI
             }
         }
 
-        private void LoadSaleInvoiceDetails()
-        {
-            List<SaleInvoiceDetails_DTO> listInvoice = SaleInvoiceDetails_BUS.LoadChiTietPhieuBan();
-            dtgvDetailBillSale.DataSource = listInvoice;
-        }
-
         private void btnAddProductExportDetail_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cmbIDBillExportDetail.Text == "" || cmbIDProductDetailStore.Text == "" || txtAmountOfProductExportDetail.Text == "")
-            {
-                XtraMessageBox.Show("Bạn phải điền đầy đủ thông tin !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            SaleInvoiceDetails_DTO phieunhap = new SaleInvoiceDetails_DTO();
-            phieunhap.MaHDB = cmbIDBillExportDetail.Text;
-            phieunhap.MaSPCH = cmbIDProductDetailStore.Text;
-            if (txtAmountOfProductExportDetail.Text == "")
-                phieunhap.SoLuong = 0;
-            else
-                phieunhap.SoLuong = Convert.ToInt32(txtAmountOfProductExportDetail.Text.ToString());
-
-            phieunhap.DonViTinh = cmbUnitCalculator.Text;
-            phieunhap.SoLuongMuaLe = Convert.ToInt32(txtRetail.Text.ToString());
-            if (cbRetail.Checked == true)
-            {
-                phieunhap.HinhThucBan = 1;
-            }
-            else
-                phieunhap.HinhThucBan = 0;
-
-            
-                if (SaleInvoiceDetails_BUS.ThemChiTietPHBan(phieunhap))
+                if (txtTransQuantity.Text == "")
                 {
-                   LoadPhieuBanHang();
-                   LoadChiTietPhieuBanHang();
-                    uctProduct.uctSPCH.LoadSanPhamCH1();
-                    XtraMessageBox.Show("Thêm chi tiết hóa đơn bán hàng thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show("You have to input quantity!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                SaleInvoiceDetails_DTO invoice = new SaleInvoiceDetails_DTO();
+                invoice.TransID = cmbIDBillExportDetail.Text;
+                invoice.ProductID = cmbIDProductDetailStore.Text;
+                invoice.TransQuantity = Convert.ToInt32(txtTransQuantity.Text);
+                invoice.TransPrice = txtTransPrice.Text;
+                invoice.Total = txtTotal.Text;
+
+                if (SaleInvoiceDetails_BUS.InsertSaleInvoiceDetails(invoice))
+                {
+                    LoadSaleInvoice();
+                    LoadSaleInvoiceDetails();
+                    LoadProduct();
+                    uctProduct.uctSPCH.LoadProductList();
+                    XtraMessageBox.Show("Insert detail sucessfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     ClearDisplay1();
                     return;
@@ -291,10 +315,12 @@ namespace QLCUAHANG_GUI
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
+
+        /*#region Chi tiết Hóa đơn bán
 
         private void btnUpdateProductExportDetail_Click(object sender, EventArgs e)
         {
@@ -407,7 +433,6 @@ namespace QLCUAHANG_GUI
                 XtraMessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
         }
 
         private void txtAmountOfProductExportDetail_KeyPress(object sender, KeyPressEventArgs e)
@@ -421,12 +446,6 @@ namespace QLCUAHANG_GUI
         private void txtAmountOfProductExportDetail_Click(object sender, EventArgs e)
         {
             txtAmountOfProductExportDetail.Text = "";
-        }
-
-        private void cmbIDProductDetailStore_TextChanged_1(object sender, EventArgs e)
-        {
-            cmbUnitCalculator.Text = SaleInvoiceDetails_BUS.TimDonViSanPham(cmbIDProductDetailStore.Text.ToString());
-
         }
 
         private void txtAmountOfProductExportDetail_TextChanged(object sender, EventArgs e)
@@ -443,17 +462,12 @@ namespace QLCUAHANG_GUI
                 XtraMessageBox.Show("Sản phẩm trong Cửa hàng không đủ !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         }
-
-
-        #endregion
-        */
+        #endregion*/
 
         private void ClearDisplay1()
         {
-            cmbIDProductDetailStore.Text = "";
-            cmbProductName.Text = "";
-            txtQuantity.Text = "";
-            txtTransPrice.Text = "";
+            txtTransQuantity.Text = "";
+            LoadProduct();
         }
 
         private void ClearDisplay()
@@ -517,5 +531,17 @@ namespace QLCUAHANG_GUI
         {
             txtIDCustomer.Text = cmbIDCustomer.SelectedValue.ToString();
         }
+
+        private void cmbProductName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbIDProductDetailStore.Text = cmbProductName.SelectedValue.ToString();
+            cmbUnit.Text = cmbProductName.SelectedValue.ToString();
+            cmbProductCategory.Text = cmbProductName.SelectedValue.ToString();
+            cmbPQuatity.Text = cmbProductName.SelectedValue.ToString();
+            cmbPercent.Text = cmbProductName.SelectedValue.ToString();
+            cmbImportPrice.Text = cmbProductName.SelectedValue.ToString();
+        }
+
+        
     }
 }

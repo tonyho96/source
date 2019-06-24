@@ -194,6 +194,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="uctService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uctService.Designer.cs">
+      <DependentUpon>uctService.cs</DependentUpon>
+    </Compile>
     <Compile Include="uctUnit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -318,6 +324,9 @@
     <EmbeddedResource Include="rptBaoCaoDoanhThu.rdlc" />
     <EmbeddedResource Include="rptBaoCaoNoDaiLi.rdlc" />
     <EmbeddedResource Include="rptBaoCaoSanPhamTonKho.rdlc" />
+    <EmbeddedResource Include="uctService.resx">
+      <DependentUpon>uctService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uctUnit.resx">
       <DependentUpon>uctUnit.cs</DependentUpon>
     </EmbeddedResource>

@@ -31,6 +31,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTransDetailsID = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtProductID = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -43,6 +47,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dtgvListOfDetailProductImport = new System.Windows.Forms.DataGridView();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransDetailsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbClear = new System.Windows.Forms.LinkLabel();
             this.btnUpdateProductImportDetail = new System.Windows.Forms.Button();
@@ -76,18 +88,6 @@
             this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtProductID = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtTransDetailsID = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransDetailsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListOfDetailProductImport)).BeginInit();
@@ -146,6 +146,47 @@
             this.groupBox2.Size = new System.Drawing.Size(781, 428);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // txtTransDetailsID
+            // 
+            this.txtTransDetailsID.Location = new System.Drawing.Point(600, 139);
+            this.txtTransDetailsID.Name = "txtTransDetailsID";
+            this.txtTransDetailsID.ReadOnly = true;
+            this.txtTransDetailsID.Size = new System.Drawing.Size(116, 20);
+            this.txtTransDetailsID.TabIndex = 29;
+            this.txtTransDetailsID.Visible = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Enabled = false;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(492, 139);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(102, 17);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "TransDetails ID";
+            this.label16.Visible = false;
+            // 
+            // txtProductID
+            // 
+            this.txtProductID.Location = new System.Drawing.Point(600, 120);
+            this.txtProductID.Name = "txtProductID";
+            this.txtProductID.ReadOnly = true;
+            this.txtProductID.Size = new System.Drawing.Size(116, 20);
+            this.txtProductID.TabIndex = 27;
+            this.txtProductID.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(520, 120);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(74, 17);
+            this.label15.TabIndex = 26;
+            this.label15.Text = "Product ID";
+            this.label15.Visible = false;
             // 
             // cmbUnit
             // 
@@ -265,6 +306,65 @@
             this.dtgvListOfDetailProductImport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvListOfDetailProductImport.Size = new System.Drawing.Size(758, 247);
             this.dtgvListOfDetailProductImport.TabIndex = 0;
+            // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "ProductID";
+            this.ProductID.HeaderText = "Product ID";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "Product Name";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            this.ProductName.Width = 140;
+            // 
+            // ProductCategoryName
+            // 
+            this.ProductCategoryName.DataPropertyName = "ProductCategoryName";
+            this.ProductCategoryName.HeaderText = "Product Category";
+            this.ProductCategoryName.Name = "ProductCategoryName";
+            this.ProductCategoryName.ReadOnly = true;
+            this.ProductCategoryName.Width = 125;
+            // 
+            // TransQuantity
+            // 
+            this.TransQuantity.DataPropertyName = "TransQuantity";
+            this.TransQuantity.HeaderText = "Quantity";
+            this.TransQuantity.Name = "TransQuantity";
+            this.TransQuantity.ReadOnly = true;
+            // 
+            // UnitName
+            // 
+            this.UnitName.DataPropertyName = "UnitName";
+            this.UnitName.HeaderText = "Unit";
+            this.UnitName.Name = "UnitName";
+            this.UnitName.ReadOnly = true;
+            // 
+            // TransPrice
+            // 
+            this.TransPrice.DataPropertyName = "TransPrice";
+            this.TransPrice.HeaderText = "Price";
+            this.TransPrice.Name = "TransPrice";
+            this.TransPrice.ReadOnly = true;
+            // 
+            // Weight
+            // 
+            this.Weight.DataPropertyName = "Weight";
+            this.Weight.HeaderText = "Weight";
+            this.Weight.Name = "Weight";
+            this.Weight.ReadOnly = true;
+            // 
+            // TransDetailsID
+            // 
+            this.TransDetailsID.DataPropertyName = "TransDetailsID";
+            this.TransDetailsID.HeaderText = "TransDetails ID";
+            this.TransDetailsID.Name = "TransDetailsID";
+            this.TransDetailsID.ReadOnly = true;
+            this.TransDetailsID.Visible = false;
             // 
             // groupBox3
             // 
@@ -594,106 +694,6 @@
             this.TotalPrice.HeaderText = "Total";
             this.TotalPrice.Name = "TotalPrice";
             this.TotalPrice.ReadOnly = true;
-            // 
-            // txtProductID
-            // 
-            this.txtProductID.Location = new System.Drawing.Point(600, 120);
-            this.txtProductID.Name = "txtProductID";
-            this.txtProductID.ReadOnly = true;
-            this.txtProductID.Size = new System.Drawing.Size(116, 20);
-            this.txtProductID.TabIndex = 27;
-            this.txtProductID.Visible = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(520, 120);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(74, 17);
-            this.label15.TabIndex = 26;
-            this.label15.Text = "Product ID";
-            this.label15.Visible = false;
-            // 
-            // txtTransDetailsID
-            // 
-            this.txtTransDetailsID.Location = new System.Drawing.Point(600, 139);
-            this.txtTransDetailsID.Name = "txtTransDetailsID";
-            this.txtTransDetailsID.ReadOnly = true;
-            this.txtTransDetailsID.Size = new System.Drawing.Size(116, 20);
-            this.txtTransDetailsID.TabIndex = 29;
-            this.txtTransDetailsID.Visible = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Enabled = false;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(492, 139);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(102, 17);
-            this.label16.TabIndex = 28;
-            this.label16.Text = "TransDetails ID";
-            this.label16.Visible = false;
-            // 
-            // ProductID
-            // 
-            this.ProductID.DataPropertyName = "ProductID";
-            this.ProductID.HeaderText = "Product ID";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "ProductName";
-            this.ProductName.HeaderText = "Product Name";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            this.ProductName.Width = 140;
-            // 
-            // ProductCategoryName
-            // 
-            this.ProductCategoryName.DataPropertyName = "ProductCategoryName";
-            this.ProductCategoryName.HeaderText = "Product Category";
-            this.ProductCategoryName.Name = "ProductCategoryName";
-            this.ProductCategoryName.ReadOnly = true;
-            this.ProductCategoryName.Width = 125;
-            // 
-            // TransQuantity
-            // 
-            this.TransQuantity.DataPropertyName = "TransQuantity";
-            this.TransQuantity.HeaderText = "Quantity";
-            this.TransQuantity.Name = "TransQuantity";
-            this.TransQuantity.ReadOnly = true;
-            // 
-            // UnitName
-            // 
-            this.UnitName.DataPropertyName = "UnitName";
-            this.UnitName.HeaderText = "Unit";
-            this.UnitName.Name = "UnitName";
-            this.UnitName.ReadOnly = true;
-            // 
-            // TransPrice
-            // 
-            this.TransPrice.DataPropertyName = "TransPrice";
-            this.TransPrice.HeaderText = "Price";
-            this.TransPrice.Name = "TransPrice";
-            this.TransPrice.ReadOnly = true;
-            // 
-            // Weight
-            // 
-            this.Weight.DataPropertyName = "Weight";
-            this.Weight.HeaderText = "Weight";
-            this.Weight.Name = "Weight";
-            this.Weight.ReadOnly = true;
-            // 
-            // TransDetailsID
-            // 
-            this.TransDetailsID.DataPropertyName = "TransDetailsID";
-            this.TransDetailsID.HeaderText = "TransDetails ID";
-            this.TransDetailsID.Name = "TransDetailsID";
-            this.TransDetailsID.ReadOnly = true;
-            this.TransDetailsID.Visible = false;
             // 
             // uctPostInvoice
             // 

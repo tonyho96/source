@@ -13,7 +13,12 @@ namespace QLCUAHANG_DTO
         private string productID;
         private string productName;
         private string vendorID;
+        private string vendorName;
         private string productCategoryID;
+        private string productCategoryName;
+        private float percentRevenue;
+        private string unitID;
+        private string unitName;
         private float importPrice;
         private string imageUrl;
         private string weight;
@@ -58,6 +63,19 @@ namespace QLCUAHANG_DTO
             }
         }
 
+        public string VendorName
+        {
+            get
+            {
+                return vendorName;
+            }
+
+            set
+            {
+                vendorName = value;
+            }
+        }
+
         public string ProductCategoryID
         {
             get
@@ -68,6 +86,58 @@ namespace QLCUAHANG_DTO
             set
             {
                 productCategoryID = value;
+            }
+        }
+
+        public string ProductCategoryName
+        {
+            get
+            {
+                return productCategoryName;
+            }
+
+            set
+            {
+                productCategoryName = value;
+            }
+        }
+
+        public float PercentRevenue
+        {
+            get
+            {
+                return percentRevenue;
+            }
+
+            set
+            {
+                percentRevenue = value;
+            }
+        }
+
+        public string UnitID
+        {
+            get
+            {
+                return unitID;
+            }
+
+            set
+            {
+                unitID = value;
+            }
+        }
+
+        public string UnitName
+        {
+            get
+            {
+                return unitName;
+            }
+
+            set
+            {
+                unitName = value;
             }
         }
 

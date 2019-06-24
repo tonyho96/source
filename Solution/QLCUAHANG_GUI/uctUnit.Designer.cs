@@ -38,11 +38,11 @@
             this.grbAgency = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
-            this.txtNameUnit = new System.Windows.Forms.TextBox();
+            this.txtUnitName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtIDUnit = new System.Windows.Forms.TextBox();
+            this.txtUnitID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbIDUnit = new System.Windows.Forms.Label();
+            this.lblUnitID = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDeleteUnit = new System.Windows.Forms.Button();
             this.btnUpdateUnit = new System.Windows.Forms.Button();
@@ -134,11 +134,11 @@
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.txtUnitPrice);
-            this.panel2.Controls.Add(this.txtNameUnit);
+            this.panel2.Controls.Add(this.txtUnitName);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.txtIDUnit);
+            this.panel2.Controls.Add(this.txtUnitID);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.lbIDUnit);
+            this.panel2.Controls.Add(this.lblUnitID);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(3, 16);
@@ -154,12 +154,12 @@
             this.txtUnitPrice.TabIndex = 2;
             this.txtUnitPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnitPrice_KeyPress);
             // 
-            // txtNameUnit
+            // txtUnitName
             // 
-            this.txtNameUnit.Location = new System.Drawing.Point(152, 65);
-            this.txtNameUnit.Name = "txtNameUnit";
-            this.txtNameUnit.Size = new System.Drawing.Size(144, 21);
-            this.txtNameUnit.TabIndex = 2;
+            this.txtUnitName.Location = new System.Drawing.Point(152, 65);
+            this.txtUnitName.Name = "txtUnitName";
+            this.txtUnitName.Size = new System.Drawing.Size(144, 21);
+            this.txtUnitName.TabIndex = 2;
             // 
             // label5
             // 
@@ -171,14 +171,14 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "Unit Price";
             // 
-            // txtIDUnit
+            // txtUnitID
             // 
-            this.txtIDUnit.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.txtIDUnit.Location = new System.Drawing.Point(152, 26);
-            this.txtIDUnit.Name = "txtIDUnit";
-            this.txtIDUnit.ReadOnly = true;
-            this.txtIDUnit.Size = new System.Drawing.Size(144, 21);
-            this.txtIDUnit.TabIndex = 2;
+            this.txtUnitID.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txtUnitID.Location = new System.Drawing.Point(152, 26);
+            this.txtUnitID.Name = "txtUnitID";
+            this.txtUnitID.ReadOnly = true;
+            this.txtUnitID.Size = new System.Drawing.Size(144, 21);
+            this.txtUnitID.TabIndex = 2;
             // 
             // label3
             // 
@@ -190,15 +190,15 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Unit Name";
             // 
-            // lbIDUnit
+            // lblUnitID
             // 
-            this.lbIDUnit.AutoSize = true;
-            this.lbIDUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIDUnit.Location = new System.Drawing.Point(22, 26);
-            this.lbIDUnit.Name = "lbIDUnit";
-            this.lbIDUnit.Size = new System.Drawing.Size(51, 16);
-            this.lbIDUnit.TabIndex = 0;
-            this.lbIDUnit.Text = "Unit ID";
+            this.lblUnitID.AutoSize = true;
+            this.lblUnitID.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnitID.Location = new System.Drawing.Point(22, 26);
+            this.lblUnitID.Name = "lblUnitID";
+            this.lblUnitID.Size = new System.Drawing.Size(51, 16);
+            this.lblUnitID.TabIndex = 0;
+            this.lblUnitID.Text = "Unit ID";
             // 
             // btnClear
             // 
@@ -238,7 +238,7 @@
             this.btnUpdateUnit.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateUnit.Image = global::QLCUAHANG_GUI.Properties.Resources.update_5;
             this.btnUpdateUnit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdateUnit.Location = new System.Drawing.Point(405, 399);
+            this.btnUpdateUnit.Location = new System.Drawing.Point(405, 397);
             this.btnUpdateUnit.Name = "btnUpdateUnit";
             this.btnUpdateUnit.Size = new System.Drawing.Size(81, 28);
             this.btnUpdateUnit.TabIndex = 17;
@@ -296,11 +296,11 @@
         private System.Windows.Forms.GroupBox grbAgency;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtUnitPrice;
-        private System.Windows.Forms.TextBox txtNameUnit;
+        private System.Windows.Forms.TextBox txtUnitName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtIDUnit;
+        private System.Windows.Forms.TextBox txtUnitID;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbIDUnit;
+        private System.Windows.Forms.Label lblUnitID;
         private System.Windows.Forms.Button btnDeleteUnit;
         private System.Windows.Forms.Button btnUpdateUnit;
         private System.Windows.Forms.Button btnAddUnit;

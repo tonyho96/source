@@ -56,6 +56,7 @@ namespace QLCUAHANG_DAL
                 saleInvoiceDetails.TransQuantity = Convert.ToInt32(dt.Rows[i]["TransQuantity"].ToString());
                 saleInvoiceDetails.UnitName = dt.Rows[i]["UnitName"].ToString();
                 saleInvoiceDetails.TransPrice = dt.Rows[i]["TransPrice"].ToString();
+                saleInvoiceDetails.Total = dt.Rows[i]["Total"].ToString();
 
                 saleInvoiceDetailsList.Add(saleInvoiceDetails);
             }
@@ -74,15 +75,13 @@ namespace QLCUAHANG_DAL
 
                 SqlParameter p = new SqlParameter("@TransID", invoice.TransID);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@ProductName", invoice.ProductName);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@ProductCategoryName", invoice.ProductCategoryName);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@UnitName", invoice.UnitName);
+                p = new SqlParameter("@ProductID", invoice.ProductID);
                 cmd.Parameters.Add(p);
                 p = new SqlParameter("@TransQuantity", invoice.TransQuantity);
                 cmd.Parameters.Add(p);
                 p = new SqlParameter("@TransPrice", invoice.TransPrice);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@Total", invoice.Total);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();

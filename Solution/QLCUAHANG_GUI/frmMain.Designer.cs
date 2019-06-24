@@ -118,6 +118,8 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem4 = new DevExpress.XtraBars.BarEditItem();
             this.tabDisplay = new System.Windows.Forms.TabControl();
+            this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnService = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuToolStrip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCL1)).BeginInit();
@@ -178,7 +180,8 @@
             this.pageGroupInfoOfAgency,
             this.pageGroupOfCustomer,
             this.pageGroupOfBills,
-            this.ribbonPageGroup6});
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup13});
             this.rpManager.Name = "rpManager";
             this.rpManager.Text = "Management";
             // 
@@ -441,9 +444,10 @@
             this.btnDeptCustomer,
             this.btnStatistics,
             this.btnUnit,
-            this.btnProductCategory});
+            this.btnProductCategory,
+            this.btnService});
             this.menuToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuToolStrip.MaxItemId = 58;
+            this.menuToolStrip.MaxItemId = 59;
             this.menuToolStrip.Name = "menuToolStrip";
             this.menuToolStrip.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpSystem,
@@ -796,29 +800,29 @@
             this.toolStripSeparator2,
             this.colseAllTabToolStripMenuItem});
             this.ctxtMenuTapDispaly.Name = "ctxtMenuTapDispaly";
-            this.ctxtMenuTapDispaly.Size = new System.Drawing.Size(142, 60);
+            this.ctxtMenuTapDispaly.Size = new System.Drawing.Size(143, 60);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click_1);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(138, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
             // 
             // colseAllTabToolStripMenuItem
             // 
             this.colseAllTabToolStripMenuItem.Name = "colseAllTabToolStripMenuItem";
-            this.colseAllTabToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.colseAllTabToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.colseAllTabToolStripMenuItem.Text = "Colse All Tab";
             this.colseAllTabToolStripMenuItem.Click += new System.EventHandler(this.colseAllTapToolStripMenuItem_Click);
             // 
@@ -846,6 +850,21 @@
             this.tabDisplay.TabIndex = 3;
             this.tabDisplay.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabDisplay_DrawItem_1);
             this.tabDisplay.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabDisplay_MouseDown);
+            // 
+            // ribbonPageGroup13
+            // 
+            this.ribbonPageGroup13.ItemLinks.Add(this.btnService);
+            this.ribbonPageGroup13.Name = "ribbonPageGroup13";
+            this.ribbonPageGroup13.ShowCaptionButton = false;
+            // 
+            // btnService
+            // 
+            this.btnService.Caption = "Service";
+            this.btnService.Id = 58;
+            this.btnService.ImageOptions.Image = global::QLCUAHANG_GUI.Properties.Resources.purchaseManager;
+            this.btnService.Name = "btnService";
+            this.btnService.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnService.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnService_ItemClick);
             // 
             // frmMain
             // 
@@ -971,5 +990,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
         private DevExpress.XtraBars.BarButtonItem btnUnit;
         private DevExpress.XtraBars.BarButtonItem btnProductCategory;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
+        private DevExpress.XtraBars.BarButtonItem btnService;
     }
 }

@@ -21,7 +21,6 @@ namespace QLCUAHANG_GUI
             InitializeComponent();
         }
         public static uctVendor uctVendorInfo = new uctVendor();
-        
 
         private void uctVendor_Load(object sender, EventArgs e)
         {

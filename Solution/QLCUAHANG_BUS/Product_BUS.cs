@@ -10,18 +10,16 @@ namespace QLCUAHANG_BUS
 {
    public  class Product_BUS
     {
-        public static List<Product_DTO> LoadSanPHamCH()
+        public static List<Product_DTO> LoadProduct()
         {
-            return Product_DAL.LoadSanPhamCH();
-        }
-        public static Product_DTO TimKiemTenSP(string t) {
-            return Product_DAL.TimKiemTenSP(t);
+            return Product_DAL.LoadProduct();
         }
        
         public static bool SuaSPCH(Product_DTO sanpham)
         {
             return Product_DAL.SuaSanPhamCH(sanpham);
         }
+
         public static bool XoaSPCH(Product_DTO sanpham)
         {
             return Product_DAL.XoaSPCH(sanpham);

@@ -278,5 +278,10 @@ namespace QLCUAHANG_GUI
         {
             addTabPages(uctProductCategory.uctProductCategoryInfo, 40, "Category Information");
         }
+
+        private void btnService_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            addTabPages(uctService.uctServiceInfo, 40, "Service Information");
+        }
     }
 }

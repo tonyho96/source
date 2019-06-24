@@ -27,133 +27,87 @@ namespace QLCUAHANG_GUI
         }
 
         public static uctProduct uctSPCH = new uctProduct();
+
+        private void uctProduct_Load(object sender, EventArgs e)
+        {
+            LoadDataStore();
+        }
+
         private void LoadDataStore()
         {
-            LoadSanPhamCH1();
-            btnUpdateProductStore.Click += new EventHandler(btnUpdateProductStore_Click);
+            LoadVendor();
+            LoadProductCategory();
+            LoadUnit();
+
+            LoadProductList();
+
             dtgvProductListOfStore.CellClick += new DataGridViewCellEventHandler(dtgvProductListOfStore_CellClick);
-            btnDeleteProductStore.Click += new EventHandler(btnDeleteProductStore_Click);
-            Display();
-            txtAmountOfProductCH.KeyPress += new KeyPressEventHandler(txtAmountOfProductCH_KeyPress);
-            txtPriceCH.KeyPress += new KeyPressEventHandler(txtPriceCH_KeyPress);
+
+            //btnUpdateProductStore.Click += new EventHandler(btnUpdateProductStore_Click);
+            //btnDeleteProductStore.Click += new EventHandler(btnDeleteProductStore_Click);
+
+            txtQuantity.KeyPress += new KeyPressEventHandler(txtQuantity_KeyPress);
+            txtImportPrice.KeyPress += new KeyPressEventHandler(txtImportPrice_KeyPress);
+            txtWeight.KeyPress += new KeyPressEventHandler(txtWeight_KeyPress);
         }
 
-        private DataTable dt;
-        public void LoadSanPhamCH1()
+        public void LoadProductList()
         {
-
-            try
-            {
-                SqlConnection con = DataProvider.OpenConnection();
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = new SqlCommand("DSSanPhamCH", con);
-                dt = new DataTable();
-                adapter.Fill(dt);
-                dtgvProductListOfStore.DataSource = dt;
-                return;
-            }
-            catch
-            {
-                return;
-            }
-
+            List<Product_DTO> productList = Product_BUS.LoadProduct();
+            dtgvProductListOfStore.DataSource = productList;
         }
-        int imageIndex = 0;
-        private void Display()
+
+        private void LoadVendor()
         {
-            imageIndex = 0;
-            if (dt.Rows.Count != 0)
-            {
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                        Image image;    
-                        if (dt.Rows[i]["HinhAnh"].ToString() == "" || dt.Rows[i]["HinhAnh"].ToString() == null)
-                        {
-                            image = Resources.noimage;
-                        }
-                        else
-                        {
-                            image = Image.FromFile(dt.Rows[i]["HinhAnh"].ToString());
-                        }
-                        imageList.Images.Add(image);
-                        var viewItem = new ListViewItem(dt.Rows[i][1].ToString());
-                        { };
+            List<Vendor_DTO> loadVendor = Vendor_BUS.LoadVendor();
+            cmbVendor.DataSource = loadVendor;
+            cmbVendor.ValueMember = "VendorID";
+            cmbVendor.DisplayMember = "VendorName";
+        }
 
-                        viewItem.ImageIndex = imageIndex;
-                        lvListImageProduct.Items.Add(viewItem);
+        private void LoadProductCategory()
+        {
+            List<ProductCategory_DTO> loadCategory = ProductCategory_BUS.LoadProductCategory();
+            cmbCategory.DataSource = loadCategory;
+            cmbCategory.ValueMember = "ProductCategoryID";
+            cmbCategory.DisplayMember = "ProductCategoryName";
+        }
 
-                        imageIndex++;
-                    }
-            }
+        private void LoadUnit()
+        {
+            List<Unit_DTO> loadUnit = Unit_BUS.LoadUnit();
+            cmbUnit.DataSource = loadUnit;
+            cmbUnit.ValueMember = "UnitID";
+            cmbUnit.DisplayMember = "UnitName";
         }
 
         private void ClearDisplay()
         {
-            txtIDProductCH.Text = "";
-            txtNameProductCH.Text = "";
-            pictureBox.BackgroundImage = null;
-            txtUnitCH.Text = "";
-            txtPriceCH.Text = "";
-            txtAmountOfProductCH.Text = "";
-            pictureBox.Image = null;
-            txtParameter.Text = "";
-            txtAmonutRetail.Text = "";
-            cbRetail.Checked = false;
+            txtProductName.Text = "";
+            txtQuantity.Text = "";
+            txtWeight.Text = "";
+            txtImportPrice.Text = "";
         }
+
         private void dtgvProductListOfStore_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                txtIDProductCH.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["MaSPCH"].Value);
-                txtNameProductCH.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["TenSP"].Value);
-
-                txtPriceCH.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["Gia"].Value);
-                txtUnitCH.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["DonVi"].Value);
-                txtAmountOfProductCH.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["SoLuong"].Value);
-                string s = string.Format(dtgvProductListOfStore.CurrentRow.Cells["HinhAnh"].Value.ToString());
-
-                if (Convert.ToInt32(dtgvProductListOfStore.CurrentRow.Cells["BanLe"].Value) == 1)
-                {
-                    cbRetail.Checked = true;
-                    txtAmonutRetail.Text = dtgvProductListOfStore.CurrentRow.Cells["SoLuongLe"].Value.ToString();
-                }
-                else
-                {
-                    cbRetail.Checked = false;
-                    txtAmonutRetail.Text = "0";
-                    txtAmonutRetail.Enabled = false;
-                }
-                try
-                {
-                    if (s == "" || s == null)
-                        pictureBox.Image = Resources.noimage;
-                    else
-                        pictureBox.Image = Image.FromFile(s);
-                }
-                catch
-                {
-                    pictureBox.Image = Resources.noimage;
-                }
-
-                if (txtUnitCH.Text == "bao")
-                    rbKg.Checked = true;
-                else
-                    rbMl.Checked = true;
-
-                imageLocation = s;
-                txtParameter.Text = dtgvProductListOfStore.CurrentRow.Cells["ThongSo"].Value.ToString();
+                txtProductID.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["ProductID"].Value);
+                txtProductName.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["ProductName"].Value);
+                cmbVendor.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["VendorName"].Value);
+                cmbCategory.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["ProductCategoryName"].Value);
+                cmbUnit.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["UnitName"].Value);
+                txtQuantity.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["Quantity"].Value);
+                txtWeight.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["Weight"].Value);
+                txtImportPrice.Text = Convert.ToString(dtgvProductListOfStore.CurrentRow.Cells["ImportPrice"].Value);
             }
         }
-
-      
-
-        private string imageLocation = "";
        
-
-        private void btnUpdateProductStore_Click(object sender, EventArgs e)
+        /*private void btnUpdateProductStore_Click(object sender, EventArgs e)
         {
-            if (txtIDProductCH.Text == "" || txtNameProductCH.Text == "" || txtUnitCH.Text == "" || txtPriceCH.Text == "" || txtAmountOfProductCH.Text == "")
+            if (txtProductID.Text == "" || txtNameProductCH.Text == "" || cmbUnit.Text == "" || txtImportPrice.Text == "" || txtQuantity.Text == "")
             {
                 XtraMessageBox.Show("Bạn phải điền đầy đủ thông tin !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ClearDisplay();
@@ -163,67 +117,19 @@ namespace QLCUAHANG_GUI
             {
 
                 Product_DTO product = new Product_DTO();
-                product.ProductID = txtIDProductCH.Text;
+                product.ProductID = txtProductID.Text;
                 product.ProductName = txtNameProductCH.Text;
 
-                product.VendorID = txtUnitCH.Text;
-                product.ProductCategoryID = txtPriceCH.Text.ToString();
-                product.ImportPrice = float.Parse(txtAmountOfProductCH.Text.ToString());
-                product.ImageUrl = imageLocation;
-                product.Weight = txtParameter.Text;
-
-                if (cbRetail.Checked == true)
-                {
-                    //product.BanLe = 1;
-                    //product.SoLuongLe = Convert.ToInt32(txtAmonutRetail.Text);
-                }
-                else
-                {
-                    //product.BanLe = 0;
-                    //product.SoLuongLe = 0;
-                }
-
+                product.VendorID = cmbUnit.Text;
+                product.ProductCategoryID = txtImportPrice.Text.ToString();
+                product.ImportPrice = float.Parse(txtQuantity.Text.ToString());
 
                 if (Product_BUS.SuaSPCH(product))
                 {
                     XtraMessageBox.Show("Sửa thông tin Sản phẩm trong Cửa hàng thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadSanPhamCH1();
-
-                    lvListImageProduct.Items.Clear();
-                    imageList.Images.Clear();
-                    Display();
                     ClearDisplay();
 
-                    return;
-                }
-            }catch(Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-        }
-
-        public void btnDeleteProductStore_Click(object sender, EventArgs e)
-        {
-
-            if (txtIDProductCH.Text == "" || txtNameProductCH.Text == "" || txtUnitCH.Text == "" || txtPriceCH.Text == "" || txtAmountOfProductCH.Text == "")
-            {
-                XtraMessageBox.Show("Bạn phải chọn Sản phẩm để xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                ClearDisplay();
-                return;
-            }
-            try
-            {
-                Product_DTO product = new Product_DTO();
-                product.ProductID = txtIDProductCH.Text;
-                if (Product_BUS.XoaSPCH(product))
-                {
-                    LoadSanPhamCH1();
-                    XtraMessageBox.Show("Xóa Sản phẩm trong Cửa hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    lvListImageProduct.Items.Clear();
-                    imageList.Images.Clear();
-                    Display();
-                    ClearDisplay();
                     return;
                 }
             }
@@ -233,6 +139,35 @@ namespace QLCUAHANG_GUI
                 return;
             }
         }
+
+        public void btnDeleteProductStore_Click(object sender, EventArgs e)
+        {
+
+            if (txtProductID.Text == "" || txtNameProductCH.Text == "" || cmbUnit.Text == "" || txtImportPrice.Text == "" || txtQuantity.Text == "")
+            {
+                XtraMessageBox.Show("Bạn phải chọn Sản phẩm để xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ClearDisplay();
+                return;
+            }
+            try
+            {
+                Product_DTO product = new Product_DTO();
+                product.ProductID = txtProductID.Text;
+                if (Product_BUS.XoaSPCH(product))
+                {
+                    LoadSanPhamCH1();
+                    XtraMessageBox.Show("Xóa Sản phẩm trong Cửa hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearDisplay();
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }*/
+
         private void txtAmountOfProductCH_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -241,123 +176,7 @@ namespace QLCUAHANG_GUI
             }
         }
 
-        private void txtPriceCH_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-        }
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            lvListImageProduct.Items.Clear();
-            imageList.Images.Clear();
-            LoadSanPhamCH1();
-            Display();
-
-            ClearDisplay();
-        }
-
-        private void txtAmonutRetail_Click(object sender, EventArgs e)
-        {
-            txtAmonutRetail.Text = "";
-        }
-        private void txtAmountOfProductCH_Click(object sender, EventArgs e)
-        {
-            txtAmountOfProductCH.Text = "";
-        }
-        private void cbRetail_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbRetail.Checked == true)
-            {
-                txtAmonutRetail.Enabled = true;
-            }
-            else
-            {
-                txtAmonutRetail.Enabled = false;
-            }
-        }
-
-        private void lvListImageProduct_Click(object sender, EventArgs e)
-        {
-            var firstSelectedItem = lvListImageProduct.SelectedItems[0];
-            string s = firstSelectedItem.SubItems[0].Text;
-            DataGridView d = new DataGridView();
-
-            Product_DTO product = Product_BUS.TimKiemTenSP(s);
-
-            try
-            {
-                txtIDProductCH.Text = product.ProductID;
-                txtNameProductCH.Text = product.ProductName;
-                txtPriceCH.Text = product.VendorID.ToString();
-                txtUnitCH.Text = product.ProductCategoryID;
-                txtAmountOfProductCH.Text = product.ImportPrice.ToString();
-                txtParameter.Text = product.Weight.ToString();
-                /*if (product.BanLe == 1)
-                {
-                    txtAmonutRetail.Text = sanpham.SoLuongLe.ToString();
-                    cbRetail.Checked = true;
-                }
-                else
-                {
-                    cbRetail.Checked = false;
-                    txtAmonutRetail.Enabled = false;
-                    txtAmonutRetail.Text = "";
-                }*/
-                string str = product.ImageUrl.ToString();
-
-                imageLocation = str;
-                if (str == "" || str == null)
-                    pictureBox.Image = Resources.noimage;
-                else
-                    pictureBox.Image = Image.FromFile(str);
-            }
-            catch
-            {
-                return;
-            }
-
-        }
-        private void cmbListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbListView.Text == "LargeIcon")
-            {
-                lvListImageProduct.View = View.LargeIcon;
-
-            }
-            else if (cmbListView.Text == "SmallIcon")
-            {
-                lvListImageProduct.View = View.SmallIcon;
-            }
-            else if (cmbListView.Text == "Tile")
-            {
-                lvListImageProduct.View = View.Tile;
-            }
-            else if (cmbListView.Text == "Details")
-                lvListImageProduct.View = View.Details;
-        }
-        private void btnBrowseSelectImage_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Filter = "PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif|All files (*.*)|*.*";
-            openFile.FilterIndex = 1;
-            openFile.Title = "Chọn Picture";
-            openFile.RestoreDirectory = true;
-            if (openFile.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox.ImageLocation = openFile.FileName;
-                imageLocation = openFile.FileName.ToString();
-            }
-        }
-        private void uctSanPhamCH_Load(object sender, EventArgs e)
-        {
-            cmbListView.Text = "LargeIcon";
-            lvListImageProduct.View = View.LargeIcon;
-            LoadDataStore();
-        }
-
-        private void txtParameter_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
@@ -365,12 +184,21 @@ namespace QLCUAHANG_GUI
             }
         }
 
-        private void txtAmonutRetail_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtWeight_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
         }
+
+        private void txtImportPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
     }
 }

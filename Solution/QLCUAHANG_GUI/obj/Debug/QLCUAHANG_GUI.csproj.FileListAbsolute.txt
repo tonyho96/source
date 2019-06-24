@@ -460,3 +460,4 @@ D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctUnit.resource
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctProductCategory.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctSaleInvoice.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctProduct.resources
+D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctService.resources

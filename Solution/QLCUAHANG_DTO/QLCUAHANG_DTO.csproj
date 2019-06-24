@@ -50,6 +50,7 @@
     <Compile Include="ProductCategory_DTO.cs" />
     <Compile Include="ServiceInvoiceDetails_DTO.cs" />
     <Compile Include="ServiceInvoice_DTO.cs" />
+    <Compile Include="Service_DTO.cs" />
     <Compile Include="Unit_DTO.cs" />
     <Compile Include="Vendor_DTO.cs" />
     <Compile Include="Customer_DTO.cs" />

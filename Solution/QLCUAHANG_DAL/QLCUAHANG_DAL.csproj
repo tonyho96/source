@@ -49,6 +49,7 @@
     <Compile Include="PostInvoiceDetails_DAL.cs" />
     <Compile Include="ServiceInvoiceDetails_DAL.cs" />
     <Compile Include="ServiceInvoice_DAL.cs" />
+    <Compile Include="Service_DAL.cs" />
     <Compile Include="Unit_DAL.cs" />
     <Compile Include="Vendor_DAL.cs" />
     <Compile Include="DataProvider.cs" />

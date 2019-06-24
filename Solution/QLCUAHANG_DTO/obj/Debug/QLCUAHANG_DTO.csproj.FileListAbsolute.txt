@@ -31,3 +31,4 @@ D:\source\source\Solution\QLCUAHANG_DTO\bin\Debug\de\DevExpress.Data.v19.1.resou
 D:\source\source\Solution\QLCUAHANG_DTO\bin\Debug\es\DevExpress.Data.v19.1.resources.dll
 D:\source\source\Solution\QLCUAHANG_DTO\bin\Debug\ja\DevExpress.Data.v19.1.resources.dll
 D:\source\source\Solution\QLCUAHANG_DTO\bin\Debug\ru\DevExpress.Data.v19.1.resources.dll
+D:\source\source\Solution\QLCUAHANG_DTO\obj\Debug\QLCUAHANG_DTO.csprojAssemblyReference.cache

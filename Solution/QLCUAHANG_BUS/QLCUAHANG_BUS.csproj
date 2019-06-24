@@ -45,6 +45,7 @@
     <Compile Include="ProductCategory_BUS.cs" />
     <Compile Include="ServiceInvoiceDetails_BUS.cs" />
     <Compile Include="ServiceInvoice_BUS.cs" />
+    <Compile Include="Service_BUS.cs" />
     <Compile Include="Unit_BUS.cs" />
     <Compile Include="Vendor_BUS.cs" />
     <Compile Include="SaleInvoice_BUS.cs" />

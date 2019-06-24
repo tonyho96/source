@@ -38,14 +38,14 @@ namespace QLCUAHANG_GUI
             btnAddUnit.Click += new EventHandler(btnAddUnit_Click);
             btnUpdateUnit.Click += new EventHandler(btnUpdateUnit_Click);
             btnDeleteUnit.Click += new EventHandler(btnDeleteUnit_Click);
-            txtIDUnit.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([UnitID]), 0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Unit]"));
+            txtUnitID.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([UnitID]), 0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Unit]"));
         }
 
         private void dtgvUnitInfoList_Click(object sender, EventArgs e)
         {
             DataGridViewRow dr = dtgvUnitInfoList.SelectedRows[0];
-            txtIDUnit.Text = Convert.ToString(dr.Cells["UnitID"].Value);
-            txtNameUnit.Text = Convert.ToString(dr.Cells["UnitName"].Value);
+            txtUnitID.Text = Convert.ToString(dr.Cells["UnitID"].Value);
+            txtUnitName.Text = Convert.ToString(dr.Cells["UnitName"].Value);
             txtUnitPrice.Text = Convert.ToString(dr.Cells["UnitPrice"].Value);
         }
 
@@ -53,8 +53,8 @@ namespace QLCUAHANG_GUI
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                txtIDUnit.Text = Convert.ToString(dtgvUnitInfoList.CurrentRow.Cells["UnitID"].Value);
-                txtNameUnit.Text = Convert.ToString(dtgvUnitInfoList.CurrentRow.Cells["UnitName"].Value);
+                txtUnitID.Text = Convert.ToString(dtgvUnitInfoList.CurrentRow.Cells["UnitID"].Value);
+                txtUnitName.Text = Convert.ToString(dtgvUnitInfoList.CurrentRow.Cells["UnitName"].Value);
                 txtUnitPrice.Text = Convert.ToString(dtgvUnitInfoList.CurrentRow.Cells["UnitPrice"].Value);
             }
         }
@@ -70,11 +70,11 @@ namespace QLCUAHANG_GUI
             try
             {
                 Unit_DTO unit = new Unit_DTO();
-                unit.UnitID = txtIDUnit.Text;
-                unit.UnitName = txtNameUnit.Text;
+                unit.UnitID = txtUnitID.Text;
+                unit.UnitName = txtUnitName.Text;
                 unit.UnitPrice = txtUnitPrice.Text;
 
-                if (txtIDUnit.Text == "" || txtNameUnit.Text == "" || txtUnitPrice.Text == "")
+                if (txtUnitID.Text == "" || txtUnitName.Text == "" || txtUnitPrice.Text == "")
                 {
                     XtraMessageBox.Show("You have to fullfill unit information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     ClearDisplay();
@@ -103,10 +103,10 @@ namespace QLCUAHANG_GUI
 
                 Unit_DTO unit = new Unit_DTO();
                 unit.UnitID = dtgvUnitInfoList.CurrentRow.Cells["UnitID"].Value.ToString();
-                unit.UnitName = txtNameUnit.Text;
+                unit.UnitName = txtUnitName.Text;
                 unit.UnitPrice = txtUnitPrice.Text;
 
-                if (txtIDUnit.Text == "" || txtNameUnit.Text == "" || txtUnitPrice.Text == "")
+                if (txtUnitID.Text == "" || txtUnitName.Text == "" || txtUnitPrice.Text == "")
                 {
                     XtraMessageBox.Show("You have to choose at least one unit to update!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     ClearDisplay();
@@ -134,9 +134,9 @@ namespace QLCUAHANG_GUI
             {
                 Unit_DTO unit = new Unit_DTO();
                 unit.UnitID = dtgvUnitInfoList.CurrentRow.Cells["UnitID"].Value.ToString();
-                unit.UnitName = txtNameUnit.Text;
+                unit.UnitName = txtUnitName.Text;
 
-                if (txtIDUnit.Text == "" || txtNameUnit.Text == "" || txtUnitPrice.Text == "")
+                if (txtUnitID.Text == "" || txtUnitName.Text == "" || txtUnitPrice.Text == "")
                 {
                     XtraMessageBox.Show("You have to choose at least one unit to delete!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     ClearDisplay();
@@ -160,8 +160,8 @@ namespace QLCUAHANG_GUI
 
         private void ClearDisplay()
         {
-            txtIDUnit.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([UnitID]), 0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Unit]"));
-            txtNameUnit.Text = "";
+            txtUnitID.Text = DataProvider.ExcuteScalar(string.Format("SELECT ISNULL(MAX([UnitID]), 0)+1 FROM [JEWELRYSTOREMGMT].[dbo].[Unit]"));
+            txtUnitName.Text = "";
             txtUnitPrice.Text = "";
 
         }

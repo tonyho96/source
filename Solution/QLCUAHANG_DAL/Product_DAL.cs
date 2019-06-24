@@ -13,11 +13,11 @@ namespace QLCUAHANG_DAL
 {
    public class Product_DAL
     {
-        public static List<Product_DTO> LoadSanPhamCH()
+        public static List<Product_DTO> LoadProduct()
         {
             SqlConnection con = DataProvider.OpenConnection();
 
-            SqlCommand cmd = new SqlCommand("DSSanPhamCH", con);
+            SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_getProductList]", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.ExecuteNonQuery();
@@ -30,52 +30,28 @@ namespace QLCUAHANG_DAL
             if (dt.Rows.Count == 0)
                 return null;
 
-            List<Product_DTO> listSP = new List<Product_DTO>();
+            List<Product_DTO> listProduct = new List<Product_DTO>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 Product_DTO product = new Product_DTO();
-                product.ProductID = dt.Rows[i]["MaSPCH"].ToString();
-                product.ProductName = dt.Rows[i]["TenSP"].ToString();
-                product.VendorID = dt.Rows[i]["Gia"].ToString();
-                product.ProductCategoryID = dt.Rows[i]["DonVi"].ToString();
-                product.ImportPrice = float.Parse(dt.Rows[i]["SoLuong"].ToString());
-                product.ImageUrl = dt.Rows[i]["HinhAnh"].ToString();
-                product.Weight= dt.Rows[i]["ThongSo"].ToString();
-                product.Quantity = Convert.ToInt32(dt.Rows[i]["BanLe"].ToString());
-                //sanpham.SoLuongLe= Convert.ToInt32(dt.Rows[i]["SoLuongLe"].ToString());
+                product.ProductID = dt.Rows[i]["ProductID"].ToString();
+                product.ProductName = dt.Rows[i]["ProductName"].ToString();
+                product.VendorID = dt.Rows[i]["VendorID"].ToString();
+                product.VendorName = dt.Rows[i]["VendorName"].ToString();
+                product.ProductCategoryID = dt.Rows[i]["ProductCategoryID"].ToString();
+                product.ProductCategoryName = dt.Rows[i]["ProductCategoryName"].ToString();
+                product.PercentRevenue = float.Parse(dt.Rows[i]["PercentRevenue"].ToString());
+                product.UnitID = dt.Rows[i]["UnitID"].ToString();
+                product.UnitName = dt.Rows[i]["UnitName"].ToString();
+                product.ImportPrice = float.Parse(dt.Rows[i]["ImportPrice"].ToString());
+                product.Weight= dt.Rows[i]["Weight"].ToString();
+                product.Quantity = Convert.ToInt32(dt.Rows[i]["Quantity"].ToString());
 
-                listSP.Add(product);
+                listProduct.Add(product);
             }
 
             DataProvider.CloseConnection(con);
-            return listSP;
-        }
-
-        public static Product_DTO TimKiemTenSP(string t)
-        {
-            
-            SqlConnection con = DataProvider.OpenConnection();
-            string query = string.Format("EXEC dbo.TimKiemTHSP @TenSP = N'" + t + "'");
-            DataTable dt = DataProvider.GetDataTable(query, con);
-            if (dt.Rows.Count == 0)
-                return null;
-
-            if (dt.Rows.Count == 0)
-                return null;
-
-            Product_DTO product = new Product_DTO();
-            product.ProductID = dt.Rows[0]["MaSPCH"].ToString();
-            product.ProductName = dt.Rows[0]["TenSP"].ToString();
-            product.VendorID = dt.Rows[0]["Gia"].ToString();
-            product.ProductCategoryID = dt.Rows[0]["DonVi"].ToString();
-            product.ImportPrice = float.Parse(dt.Rows[0]["SoLuong"].ToString());
-            product.ImageUrl = dt.Rows[0]["HinhAnh"].ToString();
-            product.Weight = dt.Rows[0]["ThongSo"].ToString();
-            product.Quantity = Convert.ToInt32(dt.Rows[0]["BanLe"].ToString());
-            //sanpham.SoLuongLe = Convert.ToInt32(dt.Rows[0]["SoLuongLe"].ToString());
-
-            DataProvider.CloseConnection(con);
-            return product;
+            return listProduct;
         }
 
         public static bool SuaSanPhamCH(Product_DTO product)

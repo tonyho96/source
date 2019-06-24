@@ -16,6 +16,7 @@ namespace QLCUAHANG_DTO
         private int transQuantity;
         private string unitName;
         private string transPrice;
+        private string total;
 
         public string TransID
         {
@@ -118,6 +119,19 @@ namespace QLCUAHANG_DTO
             set
             {
                 transPrice = value;
+            }
+        }
+
+        public string Total
+        {
+            get
+            {
+                return total;
+            }
+
+            set
+            {
+                total = value;
             }
         }
     }
