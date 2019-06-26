@@ -21,7 +21,7 @@ namespace QLCUAHANG_GUI
             InitializeComponent();
         }
 
-        public static uctSaleInvoice uctPHDB = new uctSaleInvoice();
+        public static uctSaleInvoice uctSaleInvoiceInfo = new uctSaleInvoice();
 
         private void uctSaleInvoice_Load(object sender, EventArgs e)
         {

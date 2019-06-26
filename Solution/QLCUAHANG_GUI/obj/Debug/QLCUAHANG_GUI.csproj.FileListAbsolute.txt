@@ -459,3 +459,4 @@ D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmInventoryRepo
 D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
 D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmAccountInformation.resources
+D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctServiceInvoice.resources

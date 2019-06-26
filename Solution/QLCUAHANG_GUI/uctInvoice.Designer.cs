@@ -99,17 +99,7 @@
             this.navBarItem1.Caption = "Services";
             this.navBarItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("navBarItem1.ImageOptions.SvgImage")));
             this.navBarItem1.Name = "navBarItem1";
-            // 
-            // btnTotalDebtÒCutomer
-            // 
-            this.btnTotalDebtÒCutomer.Caption = "Quản lí tiền nợ Khách hàng";
-            this.btnTotalDebtÒCutomer.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnTotalDebtÒCutomer.ImageOptions.SmallImage")));
-            this.btnTotalDebtÒCutomer.Name = "btnTotalDebtÒCutomer";
-            this.btnTotalDebtÒCutomer.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnTotalDebtOfCutomer_LinkClicked);
-            // 
-            // btnTotalDebtOfAgency
-            // 
-            this.btnTotalDebtOfAgency.Name = "btnTotalDebtOfAgency";
+            this.navBarItem1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
             // 
             // uctInvoice
             // 

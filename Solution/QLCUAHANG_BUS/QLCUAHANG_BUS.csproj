@@ -52,9 +52,7 @@
     <Compile Include="PostInvoice_BUS.cs" />
     <Compile Include="Customer_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLiTienNo_DaiLi_BUS.cs" />
     <Compile Include="Product_BUS.cs" />
-    <Compile Include="QuanLi_TienNoKH_BUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QLCUAHANG_DAL\QLCUAHANG_DAL.csproj">

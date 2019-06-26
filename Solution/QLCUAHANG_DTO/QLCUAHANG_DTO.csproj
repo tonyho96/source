@@ -61,9 +61,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="QuanLiTIenNo_DaiLi_DTO.cs" />
     <Compile Include="Product_DTO.cs" />
-    <Compile Include="QuanLi_TienNoKH_DTO.cs" />
     <Compile Include="User_DTO.cs" />
   </ItemGroup>
   <ItemGroup>

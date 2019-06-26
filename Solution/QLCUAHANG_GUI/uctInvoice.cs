@@ -17,6 +17,7 @@ namespace QLCUAHANG_GUI
             InitializeComponent();
         }
         internal static List<byte> typePages = new List<byte>();
+
         public void addTabPages(UserControl uct, byte typeControl, string tenTab)
         {
             // Kiểm tra tồn tại trang này chưa
@@ -44,22 +45,17 @@ namespace QLCUAHANG_GUI
 
         private void btnSaleManager_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            addTabPages(uctSaleInvoice.uctPHDB, 4, "Phiếu hóa đơn bán hàng");
+            addTabPages(uctSaleInvoice.uctSaleInvoiceInfo, 4, "Sale Invoice");
         }
 
         private void btnPurchaseManager_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            addTabPages(uctPostInvoice.uctPHN, 5, "Phiếu hóa đơn nhập hàng");
+            addTabPages(uctPostInvoice.uctPostInvoiceInfo, 5, "Post Invoice");
         }
 
-        private void btnTotalDebtOfCutomer_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        private void navBarItem1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            //addTabPages(uctQuanLiTienNoKhachHang.uctQLTienNoKH, 4, "Quản lí tiền nợ Khách hàng");
+            addTabPages(uctServiceInvoice.uctServiceInfo, 6, "Service Invoice");
         }
-
-        /*private void btnTotalDebtOfAgency_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            addTabPages(uctQuanLiTienNoDaiLi.uctQLTienNoDL, 4, "Quản lí tiền nợ Đại lí");
-        }*/
     }
 }

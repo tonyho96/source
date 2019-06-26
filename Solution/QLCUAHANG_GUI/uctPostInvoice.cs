@@ -22,7 +22,7 @@ namespace QLCUAHANG_GUI
             InitializeComponent();
         }
 
-        public static uctPostInvoice uctPHN = new uctPostInvoice();
+        public static uctPostInvoice uctPostInvoiceInfo = new uctPostInvoice();
 
         private void uctPostInvoice_Load(object sender, EventArgs e)
         {

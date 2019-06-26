@@ -194,6 +194,12 @@
     <Compile Include="uctService.Designer.cs">
       <DependentUpon>uctService.cs</DependentUpon>
     </Compile>
+    <Compile Include="uctServiceInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uctServiceInvoice.Designer.cs">
+      <DependentUpon>uctServiceInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="uctUnit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     <EmbeddedResource Include="rptInventoryReport.rdlc" />
     <EmbeddedResource Include="uctService.resx">
       <DependentUpon>uctService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uctServiceInvoice.resx">
+      <DependentUpon>uctServiceInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uctUnit.resx">
       <DependentUpon>uctUnit.cs</DependentUpon>
