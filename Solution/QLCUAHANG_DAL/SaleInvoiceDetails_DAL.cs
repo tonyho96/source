@@ -110,15 +110,13 @@ namespace QLCUAHANG_DAL
                 cmd.Parameters.Add(p);
                 p = new SqlParameter("@ProductID", invoice.ProductID);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@ProductName", invoice.ProductName);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@ProductCategoryName", invoice.ProductCategoryName);
-                cmd.Parameters.Add(p);
-                p = new SqlParameter("@UnitName", invoice.UnitName);
-                cmd.Parameters.Add(p);
                 p = new SqlParameter("@TransQuantity", invoice.TransQuantity);
                 cmd.Parameters.Add(p);
+                p = new SqlParameter("@TransChange", invoice.TransChange);
+                cmd.Parameters.Add(p);
                 p = new SqlParameter("@TransPrice", invoice.TransPrice);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@Total", invoice.Total);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -143,6 +141,8 @@ namespace QLCUAHANG_DAL
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter p = new SqlParameter("@TransDetailsID", invoice.TransDetailsID);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@TransChange", invoice.TransChange);
                 cmd.Parameters.Add(p);
                 p = new SqlParameter("@ProductID", invoice.ProductID);
                 cmd.Parameters.Add(p);

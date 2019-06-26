@@ -172,12 +172,7 @@ namespace QLCUAHANG_GUI
             this.Close();
         }
        
-        private void btnRevenue_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            frmBaoCaoDoanhThu baocao = new frmBaoCaoDoanhThu();
-            baocao.ShowDialog();
-            this.Show();
-        }
+
 
         private void btnProductOfStore1_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -205,59 +200,9 @@ namespace QLCUAHANG_GUI
             }
         }
 
-        private void btnProductRender_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                frmBaoCaoSPTonKho report = new frmBaoCaoSPTonKho();
-                report.ShowDialog();
-                this.Show();
-
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "Notification");
-            }
-        }
-
-        private void btnDebtAgency_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                frmBaoCaoNoDaiLi report = new frmBaoCaoNoDaiLi();
-                report.ShowDialog();
-                this.Show();
-
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "Notification");
-            }
-        }
-
-        private void btnDeptCustomer_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                frmBaoCaoTienNoKhachHang baocao = new frmBaoCaoTienNoKhachHang();
-                baocao.ShowDialog();
-                this.Show();
-
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "Notification");
-            }
-        }
-
-        private void btnStatistics_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            addTabPages(uctThongKe.uctthongke, 10, "Summary of Revenue");
-        }
-
         private void btnInfoAccount_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmThongTinTaiKhoan account = new frmThongTinTaiKhoan();
+            frmAccountInformation account = new frmAccountInformation();
             account.ShowDialog();
             this.Show();
         }
@@ -282,6 +227,13 @@ namespace QLCUAHANG_GUI
         private void btnService_ItemClick(object sender, ItemClickEventArgs e)
         {
             addTabPages(uctService.uctServiceInfo, 40, "Service Information");
+        }
+
+        private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmInventoryReport report = new frmInventoryReport();
+            report.ShowDialog();
+            this.Show();
         }
     }
 }

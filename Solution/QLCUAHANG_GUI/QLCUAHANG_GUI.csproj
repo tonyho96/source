@@ -43,6 +43,7 @@
     <Reference Include="DevExpress.Charts.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.CodeParser.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -75,7 +76,13 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.Common.v12.12.0.0.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Runtime.Common.12.0.2402.15\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportViewer.WinForms.v12.12.0.0.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
@@ -119,35 +126,17 @@
     <Compile Include="frmAuthorInfo.Designer.cs">
       <DependentUpon>frmAuthorInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmBaoCaoDoanhThu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaoCaoDoanhThu.Designer.cs">
-      <DependentUpon>frmBaoCaoDoanhThu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBaoCaoNoDaiLi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaoCaoNoDaiLi.Designer.cs">
-      <DependentUpon>frmBaoCaoNoDaiLi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBaoCaoSPTonKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaoCaoSPTonKho.Designer.cs">
-      <DependentUpon>frmBaoCaoSPTonKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBaoCaoTienNoKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaoCaoTienNoKhachHang.Designer.cs">
-      <DependentUpon>frmBaoCaoTienNoKhachHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmConfig.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmConfig.designer.cs">
       <DependentUpon>FrmConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventoryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventoryReport.Designer.cs">
+      <DependentUpon>frmInventoryReport.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegister.cs">
       <SubType>Form</SubType>
@@ -185,11 +174,16 @@
     <Compile Include="frmSorftwareInfo.Designer.cs">
       <DependentUpon>frmSorftwareInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThongTinTaiKhoan.cs">
+    <Compile Include="frmAccountInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmThongTinTaiKhoan.Designer.cs">
-      <DependentUpon>frmThongTinTaiKhoan.cs</DependentUpon>
+    <Compile Include="frmAccountInformation.Designer.cs">
+      <DependentUpon>frmAccountInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JEWELRYSTOREMGMT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JEWELRYSTOREMGMT.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -248,12 +242,6 @@
     <Compile Include="uctProduct.Designer.cs">
       <DependentUpon>uctProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctThongKe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="uctThongKe.Designer.cs">
-      <DependentUpon>uctThongKe.cs</DependentUpon>
-    </Compile>
     <Compile Include="uctWareHouseController.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -272,20 +260,11 @@
     <EmbeddedResource Include="frmAuthorInfo.resx">
       <DependentUpon>frmAuthorInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoCaoDoanhThu.resx">
-      <DependentUpon>frmBaoCaoDoanhThu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoCaoNoDaiLi.resx">
-      <DependentUpon>frmBaoCaoNoDaiLi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoCaoSPTonKho.resx">
-      <DependentUpon>frmBaoCaoSPTonKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBaoCaoTienNoKhachHang.resx">
-      <DependentUpon>frmBaoCaoTienNoKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmConfig.resx">
       <DependentUpon>FrmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventoryReport.resx">
+      <DependentUpon>frmInventoryReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>
@@ -306,8 +285,8 @@
     <EmbeddedResource Include="frmSorftwareInfo.resx">
       <DependentUpon>frmSorftwareInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmThongTinTaiKhoan.resx">
-      <DependentUpon>frmThongTinTaiKhoan.cs</DependentUpon>
+    <EmbeddedResource Include="frmAccountInformation.resx">
+      <DependentUpon>frmAccountInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -320,10 +299,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="rptBaoCaoTienNoKhachHang.rdlc" />
-    <EmbeddedResource Include="rptBaoCaoDoanhThu.rdlc" />
-    <EmbeddedResource Include="rptBaoCaoNoDaiLi.rdlc" />
-    <EmbeddedResource Include="rptBaoCaoSanPhamTonKho.rdlc" />
+    <EmbeddedResource Include="rptInventoryReport.rdlc" />
     <EmbeddedResource Include="uctService.resx">
       <DependentUpon>uctService.cs</DependentUpon>
     </EmbeddedResource>
@@ -351,9 +327,6 @@
     <EmbeddedResource Include="uctProduct.resx">
       <DependentUpon>uctProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctThongKe.resx">
-      <DependentUpon>uctThongKe.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="uctWareHouseController.resx">
       <DependentUpon>uctWareHouseController.cs</DependentUpon>
     </EmbeddedResource>
@@ -370,6 +343,17 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="JEWELRYSTOREMGMT.xsc">
+      <DependentUpon>JEWELRYSTOREMGMT.xsd</DependentUpon>
+    </None>
+    <None Include="JEWELRYSTOREMGMT.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JEWELRYSTOREMGMT.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="JEWELRYSTOREMGMT.xss">
+      <DependentUpon>JEWELRYSTOREMGMT.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

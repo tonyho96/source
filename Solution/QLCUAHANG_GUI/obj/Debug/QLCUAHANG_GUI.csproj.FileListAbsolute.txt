@@ -395,10 +395,6 @@ D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\ru\DevExpress.Diagram.v19.1.Co
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.csprojAssemblyReference.cache
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmAdmin.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmAuthorInfo.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmBaoCaoDoanhThu.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmBaoCaoNoDaiLi.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmBaoCaoSPTonKho.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmBaoCaoTienNoKhachHang.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.FrmConfig.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmRegister.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmLogin.resources
@@ -461,3 +457,6 @@ D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctProductCatego
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctSaleInvoice.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctProduct.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctService.resources
+D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmInventoryReport.resources
+D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll

@@ -14,6 +14,7 @@ namespace QLCUAHANG_DTO
         private string productName;
         private string productCategoryName;
         private int transQuantity;
+        private int transChange;
         private string unitName;
         private string transPrice;
         private string total;
@@ -93,6 +94,19 @@ namespace QLCUAHANG_DTO
             set
             {
                 transQuantity = value;
+            }
+        }
+
+        public int TransChange
+        {
+            get
+            {
+                return transChange;
+            }
+
+            set
+            {
+                transChange = value;
             }
         }
 

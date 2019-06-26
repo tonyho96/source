@@ -48,6 +48,8 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnProductOfStore1 = new DevExpress.XtraBars.BarButtonItem();
             this.btnProductCategory = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnService = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.btnProductOfStore = new DevExpress.XtraBars.BarButtonItem();
             this.btnBillOfExportProduct = new DevExpress.XtraBars.BarButtonItem();
@@ -97,12 +99,6 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnDeptCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.btnStatistics = new DevExpress.XtraBars.BarButtonItem();
-            this.rpReport = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -118,8 +114,8 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barEditItem4 = new DevExpress.XtraBars.BarEditItem();
             this.tabDisplay = new System.Windows.Forms.TabControl();
-            this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnService = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuToolStrip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCL1)).BeginInit();
@@ -181,7 +177,8 @@
             this.pageGroupOfCustomer,
             this.pageGroupOfBills,
             this.ribbonPageGroup6,
-            this.ribbonPageGroup13});
+            this.ribbonPageGroup13,
+            this.ribbonPageGroup5});
             this.rpManager.Name = "rpManager";
             this.rpManager.Text = "Management";
             // 
@@ -267,6 +264,21 @@
             this.btnProductCategory.Name = "btnProductCategory";
             this.btnProductCategory.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnProductCategory.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProductCategory_ItemClick);
+            // 
+            // ribbonPageGroup13
+            // 
+            this.ribbonPageGroup13.ItemLinks.Add(this.btnService);
+            this.ribbonPageGroup13.Name = "ribbonPageGroup13";
+            this.ribbonPageGroup13.ShowCaptionButton = false;
+            // 
+            // btnService
+            // 
+            this.btnService.Caption = "Service";
+            this.btnService.Id = 58;
+            this.btnService.ImageOptions.Image = global::QLCUAHANG_GUI.Properties.Resources.purchaseManager;
+            this.btnService.Name = "btnService";
+            this.btnService.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnService.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnService_ItemClick);
             // 
             // barButtonItem7
             // 
@@ -445,14 +457,14 @@
             this.btnStatistics,
             this.btnUnit,
             this.btnProductCategory,
-            this.btnService});
+            this.btnService,
+            this.barButtonItem11});
             this.menuToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuToolStrip.MaxItemId = 59;
+            this.menuToolStrip.MaxItemId = 63;
             this.menuToolStrip.Name = "menuToolStrip";
             this.menuToolStrip.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpSystem,
             this.rpManager,
-            this.rpReport,
             this.rpHelp});
             this.menuToolStrip.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1,
@@ -643,110 +655,11 @@
             this.barButtonItem8.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem8.ImageOptions.LargeImage")));
             this.barButtonItem8.Name = "barButtonItem8";
             // 
-            // btnStatistical1
-            // 
-            this.btnStatistical1.Caption = "     Thống kê";
-            this.btnStatistical1.Id = 44;
-            this.btnStatistical1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistical1.ImageOptions.Image")));
-            this.btnStatistical1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnStatistical1.ImageOptions.LargeImage")));
-            this.btnStatistical1.Name = "btnStatistical1";
-            // 
-            // btnRevenue
-            // 
-            this.btnRevenue.Caption = "Doanh thu";
-            this.btnRevenue.Id = 45;
-            this.btnRevenue.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRevenue.ImageOptions.Image")));
-            this.btnRevenue.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRevenue.ImageOptions.LargeImage")));
-            this.btnRevenue.Name = "btnRevenue";
-            this.btnRevenue.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnRevenue.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRevenue_ItemClick);
-            // 
-            // btnDebtAgency
-            // 
-            this.btnDebtAgency.Caption = "Tiền nợ Đại lí";
-            this.btnDebtAgency.Id = 46;
-            this.btnDebtAgency.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDebtAgency.ImageOptions.Image")));
-            this.btnDebtAgency.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDebtAgency.ImageOptions.LargeImage")));
-            this.btnDebtAgency.Name = "btnDebtAgency";
-            this.btnDebtAgency.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDebtAgency_ItemClick);
-            // 
-            // btnProductRender
-            // 
-            this.btnProductRender.Caption = "Sản phẩm tồn kho";
-            this.btnProductRender.Id = 47;
-            this.btnProductRender.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnProductRender.ImageOptions.Image")));
-            this.btnProductRender.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnProductRender.ImageOptions.LargeImage")));
-            this.btnProductRender.Name = "btnProductRender";
-            this.btnProductRender.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProductRender_ItemClick);
-            // 
-            // btnStatistical
-            // 
-            this.btnStatistical.Id = 53;
-            this.btnStatistical.Name = "btnStatistical";
-            // 
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "barButtonItem2";
             this.barButtonItem2.Id = 50;
             this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // btnDeptCustomer
-            // 
-            this.btnDeptCustomer.Caption = "Tiền nợ Khách hàng";
-            this.btnDeptCustomer.Id = 51;
-            this.btnDeptCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeptCustomer.ImageOptions.Image")));
-            this.btnDeptCustomer.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDeptCustomer.ImageOptions.LargeImage")));
-            this.btnDeptCustomer.Name = "btnDeptCustomer";
-            this.btnDeptCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDeptCustomer_ItemClick);
-            // 
-            // btnStatistics
-            // 
-            this.btnStatistics.Caption = "Thống kê";
-            this.btnStatistics.Id = 52;
-            this.btnStatistics.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnStatistics.ImageOptions.Image")));
-            this.btnStatistics.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnStatistics.ImageOptions.LargeImage")));
-            this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStatistics_ItemClick);
-            // 
-            // rpReport
-            // 
-            this.rpReport.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup10,
-            this.ribbonPageGroup5,
-            this.ribbonPageGroup7,
-            this.ribbonPageGroup8,
-            this.ribbonPageGroup12});
-            this.rpReport.Name = "rpReport";
-            this.rpReport.Text = "Report";
-            // 
-            // ribbonPageGroup10
-            // 
-            this.ribbonPageGroup10.AllowTextClipping = false;
-            this.ribbonPageGroup10.ItemLinks.Add(this.btnRevenue);
-            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
-            // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.AllowTextClipping = false;
-            this.ribbonPageGroup5.ItemLinks.Add(this.btnDebtAgency);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.State = DevExpress.XtraBars.Ribbon.RibbonPageGroupState.Expanded;
-            // 
-            // ribbonPageGroup7
-            // 
-            this.ribbonPageGroup7.AllowTextClipping = false;
-            this.ribbonPageGroup7.ItemLinks.Add(this.btnProductRender);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            // 
-            // ribbonPageGroup8
-            // 
-            this.ribbonPageGroup8.ItemLinks.Add(this.btnDeptCustomer);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            // 
-            // ribbonPageGroup12
-            // 
-            this.ribbonPageGroup12.ItemLinks.Add(this.btnStatistics);
-            this.ribbonPageGroup12.Name = "ribbonPageGroup12";
             // 
             // rpHelp
             // 
@@ -851,20 +764,19 @@
             this.tabDisplay.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabDisplay_DrawItem_1);
             this.tabDisplay.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tabDisplay_MouseDown);
             // 
-            // ribbonPageGroup13
+            // ribbonPageGroup5
             // 
-            this.ribbonPageGroup13.ItemLinks.Add(this.btnService);
-            this.ribbonPageGroup13.Name = "ribbonPageGroup13";
-            this.ribbonPageGroup13.ShowCaptionButton = false;
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem11);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             // 
-            // btnService
+            // barButtonItem11
             // 
-            this.btnService.Caption = "Service";
-            this.btnService.Id = 58;
-            this.btnService.ImageOptions.Image = global::QLCUAHANG_GUI.Properties.Resources.purchaseManager;
-            this.btnService.Name = "btnService";
-            this.btnService.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnService.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnService_ItemClick);
+            this.barButtonItem11.Caption = "Inventory Report";
+            this.barButtonItem11.Id = 62;
+            this.barButtonItem11.ImageOptions.Image = global::QLCUAHANG_GUI.Properties.Resources.product_1;
+            this.barButtonItem11.Name = "barButtonItem11";
+            this.barButtonItem11.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem11.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick);
             // 
             // frmMain
             // 
@@ -933,8 +845,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem btnSorftwareInfo;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
-        private DevExpress.XtraBars.Ribbon.RibbonPage rpReport;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.Ribbon.RibbonPage rpHelp;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
@@ -976,8 +886,6 @@
         private DevExpress.XtraBars.BarDockingMenuItem btnStatistical1;
         private DevExpress.XtraBars.BarButtonItem btnRevenue;
         private DevExpress.XtraBars.BarButtonItem btnDebtAgency;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         public DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem btnProductRender;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
@@ -985,12 +893,12 @@
         private DevExpress.XtraBars.BarButtonItem btnStatistical;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem btnDeptCustomer;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem btnStatistics;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
         private DevExpress.XtraBars.BarButtonItem btnUnit;
         private DevExpress.XtraBars.BarButtonItem btnProductCategory;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
         private DevExpress.XtraBars.BarButtonItem btnService;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
     }
 }
