@@ -402,11 +402,9 @@ D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmChangePasswor
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmMain.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmAccountManagement.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmSorftwareInfo.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmThongTinTaiKhoan.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.Properties.Resources.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctVendor.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctCustomer.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctThongKe.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctWareHouseController.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.WaitForm1.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.csproj.GenerateResource.cache
@@ -460,3 +458,4 @@ D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctService.resou
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmInventoryReport.resources
 D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
 D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmAccountInformation.resources
