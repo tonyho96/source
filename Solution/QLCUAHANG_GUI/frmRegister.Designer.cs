@@ -42,6 +42,7 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             this.panel2.SuspendLayout();
@@ -80,9 +81,6 @@
             this.textEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textEdit2.Location = new System.Drawing.Point(0, 0);
             this.textEdit2.Name = "textEdit2";
-            // 
-            // 
-            // 
             this.textEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Silver;
             this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.textEdit2.Properties.Appearance.Options.UseBackColor = true;
@@ -105,9 +103,6 @@
             this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPassword.Location = new System.Drawing.Point(0, 0);
             this.txtPassword.Name = "txtPassword";
-            // 
-            // 
-            // 
             this.txtPassword.Properties.Appearance.BackColor = System.Drawing.Color.Silver;
             this.txtPassword.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.Properties.Appearance.Options.UseBackColor = true;
@@ -131,9 +126,6 @@
             this.pictureEdit1.EditValue = global::QLCUAHANG_GUI.Properties.Resources.user_5;
             this.pictureEdit1.Location = new System.Drawing.Point(0, 3);
             this.pictureEdit1.Name = "pictureEdit1";
-            // 
-            // 
-            // 
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit1.Size = new System.Drawing.Size(23, 22);
@@ -143,9 +135,6 @@
             // 
             this.txtUser.Location = new System.Drawing.Point(22, 3);
             this.txtUser.Name = "txtUser";
-            // 
-            // 
-            // 
             this.txtUser.Properties.Appearance.BackColor = System.Drawing.Color.Silver;
             this.txtUser.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.txtUser.Properties.Appearance.Options.UseBackColor = true;
@@ -221,6 +210,8 @@
             this.Text = "Create A Account";
             this.Load += new System.EventHandler(this.frmRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             this.panel2.ResumeLayout(false);

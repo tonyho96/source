@@ -17,6 +17,7 @@ namespace QLCUAHANG_GUI
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
         static public string NameLog;
+
         public frmLogin()
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace QLCUAHANG_GUI
         }
 
         public static string UserName;
+
         private void hyperlinkLCRegister_Click(object sender, EventArgs e)
         {
 
@@ -73,17 +75,19 @@ namespace QLCUAHANG_GUI
             try
             {
                 if (txtUser.Text == string.Empty || txtPassword.Text == string.Empty)
-                    XtraMessageBox.Show("Please fullfill your information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show("Please fullfill your information!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
                     try
                     {
                         SqlConnection cnn = DataProvider.OpenConnection();
-                        var cmd = new SqlCommand("users_getid", cnn);
+                        var cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_checkUserAccount]", cnn);
                         cmd.CommandType = CommandType.StoredProcedure;
+
                         cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = txtUser.Text;
                         cmd.Parameters.Add("@pass", SqlDbType.VarChar).Value = txtPassword.Text;
                         UserName = txtUser.Text;
+
                         SqlDataReader dt = cmd.ExecuteReader();
                         if (dt.Read() == true)
                         {
@@ -101,34 +105,36 @@ namespace QLCUAHANG_GUI
                             }
                             cnn.Close();
                             XtraMessageBox.Show("Login Sucessfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             Properties.Settings.Default.NameLog = txtUser.Text;
                             Properties.Settings.Default.PassLog = txtPassword.Text;
+
                             this.Hide();
+
                             frmMain main = new frmMain();
                             main.ShowDialog();
 
                             txtUser.Text = "";
                             txtPassword.Text = "";
                             this.Show();
-
                         }
                         else
                         {
-                            XtraMessageBox.Show("Username or Password is incorrect!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            XtraMessageBox.Show("Username or Password is incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             cnn.Close();
                             return;
                         }
                     }
                     catch
                     {
-                        XtraMessageBox.Show("Login Falure!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("Login Failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
             }
             catch
             {
-                XtraMessageBox.Show("Login Falure!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Login Failed!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

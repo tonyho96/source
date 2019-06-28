@@ -109,17 +109,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="frmAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAdmin.Designer.cs">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAuthorInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,12 +156,6 @@
     </Compile>
     <Compile Include="frmAccountManagement.Designer.cs">
       <DependentUpon>frmAccountManagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmSorftwareInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSorftwareInfo.Designer.cs">
-      <DependentUpon>frmSorftwareInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAccountInformation.cs">
       <SubType>Form</SubType>
@@ -248,21 +231,12 @@
     <Compile Include="uctProduct.Designer.cs">
       <DependentUpon>uctProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="uctWareHouseController.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="uctWareHouseController.Designer.cs">
-      <DependentUpon>uctWareHouseController.cs</DependentUpon>
-    </Compile>
     <Compile Include="WaitForm1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAdmin.resx">
-      <DependentUpon>frmAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAuthorInfo.resx">
       <DependentUpon>frmAuthorInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,9 +261,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAccountManagement.resx">
       <DependentUpon>frmAccountManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSorftwareInfo.resx">
-      <DependentUpon>frmSorftwareInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAccountInformation.resx">
       <DependentUpon>frmAccountInformation.cs</DependentUpon>
@@ -336,23 +307,9 @@
     <EmbeddedResource Include="uctProduct.resx">
       <DependentUpon>uctProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uctWareHouseController.resx">
-      <DependentUpon>uctWareHouseController.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="JEWELRYSTOREMGMT.xsc">
       <DependentUpon>JEWELRYSTOREMGMT.xsd</DependentUpon>
     </None>

@@ -42,11 +42,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtgvListUser = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvListUser)).BeginInit();
@@ -106,7 +106,7 @@
             this.txtPosition.FormattingEnabled = true;
             this.txtPosition.Items.AddRange(new object[] {
             "Admin",
-            "Nhân viên"});
+            "User"});
             this.txtPosition.Location = new System.Drawing.Point(137, 74);
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(121, 21);
@@ -128,6 +128,7 @@
             // 
             // txtUser
             // 
+            this.txtUser.Enabled = false;
             this.txtUser.Location = new System.Drawing.Point(137, 32);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(121, 20);
@@ -187,11 +188,11 @@
             // 
             this.dtgvListUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvListUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
+            this.UserID,
             this.UserName,
-            this.ChucVu,
-            this.DiaChi,
-            this.SoDT});
+            this.Role,
+            this.Address,
+            this.PhoneNo});
             this.dtgvListUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvListUser.Location = new System.Drawing.Point(3, 22);
             this.dtgvListUser.Name = "dtgvListUser";
@@ -200,13 +201,13 @@
             this.dtgvListUser.TabIndex = 2;
             this.dtgvListUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvListUser_CellClick);
             // 
-            // ID
+            // UserID
             // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
+            this.UserID.DataPropertyName = "UserID";
+            this.UserID.HeaderText = "User ID";
+            this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
+            this.UserID.Width = 50;
             // 
             // UserName
             // 
@@ -216,31 +217,31 @@
             this.UserName.ReadOnly = true;
             this.UserName.Width = 140;
             // 
-            // ChucVu
+            // Role
             // 
-            this.ChucVu.DataPropertyName = "ChucVu";
-            this.ChucVu.HeaderText = "Role";
-            this.ChucVu.Name = "ChucVu";
-            this.ChucVu.ReadOnly = true;
-            this.ChucVu.Width = 150;
+            this.Role.DataPropertyName = "Role";
+            this.Role.HeaderText = "Role";
+            this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
+            this.Role.Width = 150;
             // 
-            // DiaChi
+            // Address
             // 
-            this.DiaChi.DataPropertyName = "DiaChi";
-            this.DiaChi.HeaderText = "Address";
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.ReadOnly = true;
-            this.DiaChi.Width = 190;
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            this.Address.Width = 190;
             // 
-            // SoDT
+            // PhoneNo
             // 
-            this.SoDT.DataPropertyName = "SoDT";
-            this.SoDT.HeaderText = "Phone No";
-            this.SoDT.Name = "SoDT";
-            this.SoDT.ReadOnly = true;
-            this.SoDT.Width = 120;
+            this.PhoneNo.DataPropertyName = "PhoneNo";
+            this.PhoneNo.HeaderText = "Phone No";
+            this.PhoneNo.Name = "PhoneNo";
+            this.PhoneNo.ReadOnly = true;
+            this.PhoneNo.Width = 120;
             // 
-            // frmQuanLiTaiKhoan
+            // frmAccountManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -250,7 +251,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmQuanLiTaiKhoan";
+            this.Name = "frmAccountManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Account Management";
             this.Load += new System.EventHandler(this.frmAccountManagement_Load);
@@ -277,10 +278,10 @@
         private System.Windows.Forms.LinkLabel linkClear;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dtgvListUser;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ChucVu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNo;
     }
 }

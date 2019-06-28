@@ -27,7 +27,7 @@ namespace QLCUAHANG_GUI
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Loi" + ex.Message); 
+                MessageBox.Show("Warning" + ex.Message); 
 
              }
         }

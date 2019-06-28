@@ -146,7 +146,7 @@
             this.txtPosition.FormattingEnabled = true;
             this.txtPosition.Items.AddRange(new object[] {
             "Admin",
-            "Nhân viên"});
+            "User"});
             this.txtPosition.Location = new System.Drawing.Point(334, 70);
             this.txtPosition.Name = "txtPosition";
             this.txtPosition.Size = new System.Drawing.Size(170, 23);
@@ -173,7 +173,7 @@
             this.Name = "frmAccountInformation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Account Information";
-            this.Load += new System.EventHandler(this.frmThongTinTaiKhoan_Load);
+            this.Load += new System.EventHandler(this.frmAccountInformation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

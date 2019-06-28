@@ -20,23 +20,33 @@ namespace QLCUAHANG_GUI
             InitializeComponent();
         }
 
-        private void frmThongTinTaiKhoan_Load(object sender, EventArgs e)
+        private void frmAccountInformation_Load(object sender, EventArgs e)
         {
             try
             {
                 SqlConnection con = DataProvider.OpenConnection();
-                string query = string.Format("EXEC dbo.users_loadinfo @UserName = '" + frmLogin.UserName + "'");
+                string query = string.Format("EXEC [JEWELRYSTOREMGMT].[dbo].[usp_loadUserInfo] @UserName = '" + frmLogin.UserName + "'");
                 DataTable dt = DataProvider.GetDataTable(query, con);
+
                 if (dt.Rows.Count == 0)
+                {
                     return;
+                }
 
                 txtUser.Text = dt.Rows[0]["UserName"].ToString();
-                txtPosition.Text = dt.Rows[0]["ChucVu"].ToString();
-                txtAddress.Text = dt.Rows[0]["DiaChi"].ToString();
-                txtNumberPhone.Text = dt.Rows[0]["SoDT"].ToString();
-            }catch(Exception ex)
+                txtPosition.Text = dt.Rows[0]["Role"].ToString();
+                txtAddress.Text = dt.Rows[0]["Address"].ToString();
+                txtNumberPhone.Text = dt.Rows[0]["PhoneNo"].ToString();
+
+                if (dt.Rows[0]["Role"].ToString() != "Admin")
+                {
+                    txtPosition.Items.Remove("Admin");
+                    txtPosition.DropDownStyle = ComboBoxStyle.Simple;
+                }
+            }
+            catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
            
@@ -45,31 +55,31 @@ namespace QLCUAHANG_GUI
         private void btnUpdateInfo_Click(object sender, EventArgs e)
         {
             SqlConnection con = DataProvider.OpenConnection();
-            SqlCommand cmd = new SqlCommand("users_updateinfo", con);
+            SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_updateUser]", con);
 
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@Name", txtUser.Text);
+                SqlParameter p = new SqlParameter("@UserName", txtUser.Text);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@ChucVu", txtPosition.Text);
+                p = new SqlParameter("@Role", txtPosition.Text);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@DiaChi", txtAddress.Text);
+                p = new SqlParameter("@Address", txtAddress.Text);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoDT", txtNumberPhone.Text);
+                p = new SqlParameter("@PhoneNo", txtNumberPhone.Text);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
 
                 DataProvider.CloseConnection(con);
-                XtraMessageBox.Show("Cập nhật thông tin thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show("Update Informaion Sucessfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             catch (Exception ex)
             {
                 DataProvider.CloseConnection(con);
-                XtraMessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

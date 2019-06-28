@@ -24,22 +24,23 @@ namespace QLCUAHANG_GUI
         {
             if (txtUser.Text == "" || txtPassword.Text == "" || textEdit2.Text == " ")
             {
-                XtraMessageBox.Show("Please fullfill your account information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Please fullfill your account information!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (txtPassword.Text != textEdit2.Text)
             {
-                XtraMessageBox.Show("Your password does not match!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Your password does not match!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 SqlConnection cnn = DataProvider.OpenConnection();
-                var cmd = new SqlCommand("users_checkname", cnn);
+                var cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_checkUserName]", cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = txtUser.Text;
                 SqlDataReader dta = cmd.ExecuteReader();
+
                 if (dta.Read() == true)
                 {
-                    XtraMessageBox.Show("Your username has been existed!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Your username has been existed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cnn.Close();
                 }
                 else
@@ -48,7 +49,7 @@ namespace QLCUAHANG_GUI
                     try
                     {
                         cnn.Open();
-                        var cmdd = new SqlCommand("USERS_INSERT", cnn);
+                        var cmdd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_insertNewUser]", cnn);
                         cmdd.CommandType = CommandType.StoredProcedure;
                         cmdd.Parameters.Add("@name", SqlDbType.Text).Value = txtUser.Text;
                         cmdd.Parameters.Add("@pass", SqlDbType.Text).Value = txtPassword.Text;
@@ -59,11 +60,9 @@ namespace QLCUAHANG_GUI
                     }
                     catch
                     {
-                        XtraMessageBox.Show("Register Failed!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("Register Failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
-
             }
         }
 

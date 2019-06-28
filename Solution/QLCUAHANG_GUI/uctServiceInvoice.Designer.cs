@@ -28,88 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dtgvInfoListOfBillExport = new System.Windows.Forms.DataGridView();
-            this.TransID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtgvServiceInfoList = new System.Windows.Forms.DataGridView();
+            this.ServiceTransID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prepaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remain = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtTransDetailsID = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.txtTransStatus = new System.Windows.Forms.TextBox();
             this.txtTransPrice = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtTransQuantity = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.cmbUnit = new System.Windows.Forms.ComboBox();
+            this.txtAdditionalPrice = new System.Windows.Forms.TextBox();
+            this.txtServicePrice = new System.Windows.Forms.TextBox();
+            this.txtServiceID = new System.Windows.Forms.TextBox();
+            this.txtServiceTransIDD = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.dtpkDeliveredDate = new System.Windows.Forms.DateTimePicker();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtTransRemain = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtServiceTransDetailsID = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtTransTotal = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtTransPrepaid = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.cmbProductCategory = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbProductName = new System.Windows.Forms.ComboBox();
+            this.cmbServiceName = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.grbDetailBillSale = new System.Windows.Forms.GroupBox();
-            this.dtgvDetailBillSale = new System.Windows.Forms.DataGridView();
-            this.TransDetailsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnUpdateProductExportDetail = new System.Windows.Forms.Button();
-            this.btnDeleteProductExportDetail = new System.Windows.Forms.Button();
-            this.btnAddProductExportDetail = new System.Windows.Forms.Button();
-            this.lkbClear1 = new System.Windows.Forms.LinkLabel();
-            this.cmbIDBillExportDetail = new System.Windows.Forms.ComboBox();
-            this.cmbIDProductDetailStore = new System.Windows.Forms.ComboBox();
+            this.btnUpdateServiceDetail = new System.Windows.Forms.Button();
+            this.btnDeleteServiceDetail = new System.Windows.Forms.Button();
+            this.btnInsertServiceDetail = new System.Windows.Forms.Button();
+            this.btnClearDetail = new System.Windows.Forms.LinkLabel();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.grbDetailBillSale = new System.Windows.Forms.GroupBox();
+            this.dtgvServiceDetailsInfoList = new System.Windows.Forms.DataGridView();
             this.grbInfoBill = new System.Windows.Forms.GroupBox();
-            this.cmbIDCustomer = new System.Windows.Forms.ComboBox();
+            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtRemain = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtPrepaid = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cmbCustomerName = new System.Windows.Forms.ComboBox();
             this.lkbClear = new System.Windows.Forms.LinkLabel();
-            this.btnUpdateBillExport = new System.Windows.Forms.Button();
-            this.btnDeleteBillExport = new System.Windows.Forms.Button();
-            this.btnAddBillExport = new System.Windows.Forms.Button();
-            this.dtpkDateTimeExport = new System.Windows.Forms.DateTimePicker();
-            this.txtIDCustomer = new System.Windows.Forms.TextBox();
-            this.txtIDBillExport = new System.Windows.Forms.TextBox();
+            this.btnUpdateService = new System.Windows.Forms.Button();
+            this.btnDeleteService = new System.Windows.Forms.Button();
+            this.btnInsertService = new System.Windows.Forms.Button();
+            this.dtpkCreatedDate = new System.Windows.Forms.DateTimePicker();
+            this.txtCustomerID = new System.Windows.Forms.TextBox();
+            this.txtServiceTransID = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
+            this.ServiceTransDetailsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceTransIDD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ServicePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdditionalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransPrepaid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransRemain = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeliveredDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvInfoListOfBillExport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvServiceInfoList)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.grbDetailBillSale.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvDetailBillSale)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.grbDetailBillSale.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvServiceDetailsInfoList)).BeginInit();
             this.grbInfoBill.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.dtgvInfoListOfBillExport);
+            this.groupBox4.Controls.Add(this.dtgvServiceInfoList);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(17, 301);
             this.groupBox4.Name = "groupBox4";
@@ -117,29 +128,34 @@
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             // 
-            // dtgvInfoListOfBillExport
+            // dtgvServiceInfoList
             // 
-            this.dtgvInfoListOfBillExport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvInfoListOfBillExport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TransID,
+            this.dtgvServiceInfoList.AllowUserToAddRows = false;
+            this.dtgvServiceInfoList.AllowUserToDeleteRows = false;
+            this.dtgvServiceInfoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvServiceInfoList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ServiceTransID,
             this.CustomerID,
             this.CustomerName,
             this.CreateDate,
-            this.TotalPrice});
-            this.dtgvInfoListOfBillExport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvInfoListOfBillExport.Location = new System.Drawing.Point(3, 21);
-            this.dtgvInfoListOfBillExport.Name = "dtgvInfoListOfBillExport";
-            this.dtgvInfoListOfBillExport.ReadOnly = true;
-            this.dtgvInfoListOfBillExport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvInfoListOfBillExport.Size = new System.Drawing.Size(558, 245);
-            this.dtgvInfoListOfBillExport.TabIndex = 1;
+            this.Total,
+            this.Prepaid,
+            this.Remain,
+            this.Status});
+            this.dtgvServiceInfoList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvServiceInfoList.Location = new System.Drawing.Point(3, 21);
+            this.dtgvServiceInfoList.Name = "dtgvServiceInfoList";
+            this.dtgvServiceInfoList.ReadOnly = true;
+            this.dtgvServiceInfoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvServiceInfoList.Size = new System.Drawing.Size(558, 245);
+            this.dtgvServiceInfoList.TabIndex = 1;
             // 
-            // TransID
+            // ServiceTransID
             // 
-            this.TransID.DataPropertyName = "TransID";
-            this.TransID.HeaderText = "Invoice No";
-            this.TransID.Name = "TransID";
-            this.TransID.ReadOnly = true;
+            this.ServiceTransID.DataPropertyName = "ServiceTransID";
+            this.ServiceTransID.HeaderText = "Invoice No";
+            this.ServiceTransID.Name = "ServiceTransID";
+            this.ServiceTransID.ReadOnly = true;
             // 
             // CustomerID
             // 
@@ -164,13 +180,34 @@
             this.CreateDate.ReadOnly = true;
             this.CreateDate.Width = 110;
             // 
-            // TotalPrice
+            // Total
             // 
-            this.TotalPrice.DataPropertyName = "TotalPrice";
-            this.TotalPrice.HeaderText = "Total";
-            this.TotalPrice.Name = "TotalPrice";
-            this.TotalPrice.ReadOnly = true;
-            this.TotalPrice.Width = 140;
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 140;
+            // 
+            // Prepaid
+            // 
+            this.Prepaid.DataPropertyName = "Prepaid";
+            this.Prepaid.HeaderText = "Prepaid";
+            this.Prepaid.Name = "Prepaid";
+            this.Prepaid.ReadOnly = true;
+            // 
+            // Remain
+            // 
+            this.Remain.DataPropertyName = "Remain";
+            this.Remain.HeaderText = "Remain";
+            this.Remain.Name = "Remain";
+            this.Remain.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // label2
             // 
@@ -194,30 +231,32 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.txtTransDetailsID);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.txtTotal);
-            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.txtTransStatus);
             this.groupBox2.Controls.Add(this.txtTransPrice);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtTransQuantity);
+            this.groupBox2.Controls.Add(this.label23);
+            this.groupBox2.Controls.Add(this.txtQuantity);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.cmbUnit);
+            this.groupBox2.Controls.Add(this.txtAdditionalPrice);
+            this.groupBox2.Controls.Add(this.txtServicePrice);
+            this.groupBox2.Controls.Add(this.txtServiceID);
+            this.groupBox2.Controls.Add(this.txtServiceTransIDD);
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.dtpkDeliveredDate);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.txtTransRemain);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.txtServiceTransDetailsID);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.txtTransTotal);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.txtTransPrepaid);
+            this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.cmbProductCategory);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.cmbProductName);
+            this.groupBox2.Controls.Add(this.cmbServiceName);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Controls.Add(this.lkbClear1);
-            this.groupBox2.Controls.Add(this.cmbIDBillExportDetail);
-            this.groupBox2.Controls.Add(this.cmbIDProductDetailStore);
+            this.groupBox2.Controls.Add(this.btnClearDetail);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Location = new System.Drawing.Point(587, 51);
@@ -226,89 +265,191 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
-            // txtTransDetailsID
+            // txtTransStatus
             // 
-            this.txtTransDetailsID.Location = new System.Drawing.Point(426, 216);
-            this.txtTransDetailsID.Name = "txtTransDetailsID";
-            this.txtTransDetailsID.ReadOnly = true;
-            this.txtTransDetailsID.Size = new System.Drawing.Size(116, 20);
-            this.txtTransDetailsID.TabIndex = 39;
-            this.txtTransDetailsID.Visible = false;
+            this.txtTransStatus.Enabled = false;
+            this.txtTransStatus.Location = new System.Drawing.Point(438, 207);
+            this.txtTransStatus.Name = "txtTransStatus";
+            this.txtTransStatus.Size = new System.Drawing.Size(116, 20);
+            this.txtTransStatus.TabIndex = 58;
+            // 
+            // txtTransPrice
+            // 
+            this.txtTransPrice.Enabled = false;
+            this.txtTransPrice.Location = new System.Drawing.Point(438, 20);
+            this.txtTransPrice.Name = "txtTransPrice";
+            this.txtTransPrice.Size = new System.Drawing.Size(116, 20);
+            this.txtTransPrice.TabIndex = 57;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(320, 20);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(38, 17);
+            this.label23.TabIndex = 56;
+            this.label23.Text = "Price";
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.Location = new System.Drawing.Point(438, 51);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(116, 20);
+            this.txtQuantity.TabIndex = 55;
+            this.txtQuantity.TextChanged += new System.EventHandler(this.txtQuantity_TextChanged);
+            this.txtQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantity_KeyPress);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(319, 51);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(62, 17);
+            this.label14.TabIndex = 54;
+            this.label14.Text = "Quantity";
+            // 
+            // txtAdditionalPrice
+            // 
+            this.txtAdditionalPrice.Location = new System.Drawing.Point(142, 146);
+            this.txtAdditionalPrice.Name = "txtAdditionalPrice";
+            this.txtAdditionalPrice.Size = new System.Drawing.Size(116, 20);
+            this.txtAdditionalPrice.TabIndex = 53;
+            this.txtAdditionalPrice.TextChanged += new System.EventHandler(this.txtAdditionalPrice_TextChanged);
+            this.txtAdditionalPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAdditionalPrice_KeyPress);
+            // 
+            // txtServicePrice
+            // 
+            this.txtServicePrice.Enabled = false;
+            this.txtServicePrice.Location = new System.Drawing.Point(142, 114);
+            this.txtServicePrice.Name = "txtServicePrice";
+            this.txtServicePrice.Size = new System.Drawing.Size(116, 20);
+            this.txtServicePrice.TabIndex = 52;
+            // 
+            // txtServiceID
+            // 
+            this.txtServiceID.Enabled = false;
+            this.txtServiceID.Location = new System.Drawing.Point(142, 49);
+            this.txtServiceID.Name = "txtServiceID";
+            this.txtServiceID.Size = new System.Drawing.Size(116, 20);
+            this.txtServiceID.TabIndex = 51;
+            // 
+            // txtServiceTransIDD
+            // 
+            this.txtServiceTransIDD.Enabled = false;
+            this.txtServiceTransIDD.Location = new System.Drawing.Point(142, 17);
+            this.txtServiceTransIDD.Name = "txtServiceTransIDD";
+            this.txtServiceTransIDD.ReadOnly = true;
+            this.txtServiceTransIDD.Size = new System.Drawing.Size(116, 20);
+            this.txtServiceTransIDD.TabIndex = 50;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(319, 207);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(46, 17);
+            this.label22.TabIndex = 48;
+            this.label22.Text = "Status";
+            // 
+            // dtpkDeliveredDate
+            // 
+            this.dtpkDeliveredDate.CustomFormat = "dd/m/yyyy";
+            this.dtpkDeliveredDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpkDeliveredDate.Location = new System.Drawing.Point(438, 177);
+            this.dtpkDeliveredDate.Name = "dtpkDeliveredDate";
+            this.dtpkDeliveredDate.Size = new System.Drawing.Size(116, 20);
+            this.dtpkDeliveredDate.TabIndex = 47;
+            this.dtpkDeliveredDate.Value = new System.DateTime(2019, 6, 27, 0, 0, 0, 0);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(319, 178);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(100, 17);
+            this.label21.TabIndex = 46;
+            this.label21.Text = "Delivered Date";
+            // 
+            // txtTransRemain
+            // 
+            this.txtTransRemain.Enabled = false;
+            this.txtTransRemain.Location = new System.Drawing.Point(438, 145);
+            this.txtTransRemain.Name = "txtTransRemain";
+            this.txtTransRemain.Size = new System.Drawing.Size(116, 20);
+            this.txtTransRemain.TabIndex = 45;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(319, 144);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(54, 17);
+            this.label20.TabIndex = 44;
+            this.label20.Text = "Remain";
+            // 
+            // txtServiceTransDetailsID
+            // 
+            this.txtServiceTransDetailsID.Location = new System.Drawing.Point(230, 224);
+            this.txtServiceTransDetailsID.Name = "txtServiceTransDetailsID";
+            this.txtServiceTransDetailsID.ReadOnly = true;
+            this.txtServiceTransDetailsID.Size = new System.Drawing.Size(116, 20);
+            this.txtServiceTransDetailsID.TabIndex = 39;
+            this.txtServiceTransDetailsID.Visible = false;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Enabled = false;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(273, 216);
+            this.label16.Location = new System.Drawing.Point(77, 224);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(146, 17);
             this.label16.TabIndex = 38;
             this.label16.Text = "ServiceTransDetails ID";
             this.label16.Visible = false;
             // 
-            // txtTotal
+            // txtTransTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(438, 49);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(116, 20);
-            this.txtTotal.TabIndex = 37;
+            this.txtTransTotal.Enabled = false;
+            this.txtTransTotal.Location = new System.Drawing.Point(438, 82);
+            this.txtTransTotal.Name = "txtTransTotal";
+            this.txtTransTotal.ReadOnly = true;
+            this.txtTransTotal.Size = new System.Drawing.Size(116, 20);
+            this.txtTransTotal.TabIndex = 37;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(319, 49);
+            this.label13.Location = new System.Drawing.Point(319, 82);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(39, 17);
             this.label13.TabIndex = 36;
             this.label13.Text = "Total";
             // 
-            // txtTransPrice
+            // txtTransPrepaid
             // 
-            this.txtTransPrice.Enabled = false;
-            this.txtTransPrice.Location = new System.Drawing.Point(438, 83);
-            this.txtTransPrice.Name = "txtTransPrice";
-            this.txtTransPrice.Size = new System.Drawing.Size(116, 20);
-            this.txtTransPrice.TabIndex = 35;
+            this.txtTransPrepaid.Location = new System.Drawing.Point(438, 113);
+            this.txtTransPrepaid.Name = "txtTransPrepaid";
+            this.txtTransPrepaid.Size = new System.Drawing.Size(116, 20);
+            this.txtTransPrepaid.TabIndex = 35;
+            this.txtTransPrepaid.TextChanged += new System.EventHandler(this.txtTransPrepaid_TextChanged);
+            this.txtTransPrepaid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTransPrepaid_KeyPress);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(319, 83);
+            this.label10.Location = new System.Drawing.Point(319, 113);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(55, 17);
             this.label10.TabIndex = 34;
             this.label10.Text = "Prepaid";
-            // 
-            // txtTransQuantity
-            // 
-            this.txtTransQuantity.Location = new System.Drawing.Point(438, 20);
-            this.txtTransQuantity.Name = "txtTransQuantity";
-            this.txtTransQuantity.Size = new System.Drawing.Size(116, 20);
-            this.txtTransQuantity.TabIndex = 33;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(319, 20);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(62, 17);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "Quantity";
-            // 
-            // cmbUnit
-            // 
-            this.cmbUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cmbUnit.Enabled = false;
-            this.cmbUnit.FormattingEnabled = true;
-            this.cmbUnit.Location = new System.Drawing.Point(142, 146);
-            this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(116, 21);
-            this.cmbUnit.TabIndex = 31;
             // 
             // label8
             // 
@@ -316,19 +457,9 @@
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(14, 146);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 17);
+            this.label8.Size = new System.Drawing.Size(107, 17);
             this.label8.TabIndex = 30;
-            this.label8.Text = "Price";
-            // 
-            // cmbProductCategory
-            // 
-            this.cmbProductCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cmbProductCategory.Enabled = false;
-            this.cmbProductCategory.FormattingEnabled = true;
-            this.cmbProductCategory.Location = new System.Drawing.Point(142, 114);
-            this.cmbProductCategory.Name = "cmbProductCategory";
-            this.cmbProductCategory.Size = new System.Drawing.Size(116, 21);
-            this.cmbProductCategory.TabIndex = 29;
+            this.label8.Text = "Additional Price";
             // 
             // label7
             // 
@@ -340,13 +471,14 @@
             this.label7.TabIndex = 28;
             this.label7.Text = "Service Price";
             // 
-            // cmbProductName
+            // cmbServiceName
             // 
-            this.cmbProductName.FormattingEnabled = true;
-            this.cmbProductName.Location = new System.Drawing.Point(142, 82);
-            this.cmbProductName.Name = "cmbProductName";
-            this.cmbProductName.Size = new System.Drawing.Size(116, 21);
-            this.cmbProductName.TabIndex = 27;
+            this.cmbServiceName.FormattingEnabled = true;
+            this.cmbServiceName.Location = new System.Drawing.Point(142, 82);
+            this.cmbServiceName.Name = "cmbServiceName";
+            this.cmbServiceName.Size = new System.Drawing.Size(116, 21);
+            this.cmbServiceName.TabIndex = 27;
+            this.cmbServiceName.SelectedIndexChanged += new System.EventHandler(this.cmbServiceName_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -358,166 +490,57 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "Service Name";
             // 
-            // grbDetailBillSale
-            // 
-            this.grbDetailBillSale.Controls.Add(this.dtgvDetailBillSale);
-            this.grbDetailBillSale.Location = new System.Drawing.Point(587, 303);
-            this.grbDetailBillSale.Name = "grbDetailBillSale";
-            this.grbDetailBillSale.Size = new System.Drawing.Size(616, 267);
-            this.grbDetailBillSale.TabIndex = 14;
-            this.grbDetailBillSale.TabStop = false;
-            // 
-            // dtgvDetailBillSale
-            // 
-            this.dtgvDetailBillSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvDetailBillSale.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TransDetailsID,
-            this.ProductID,
-            this.ProductName,
-            this.ProductCategoryName,
-            this.TransQuantity,
-            this.UnitName,
-            this.TransPrice,
-            this.Total});
-            this.dtgvDetailBillSale.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvDetailBillSale.Location = new System.Drawing.Point(3, 16);
-            this.dtgvDetailBillSale.Name = "dtgvDetailBillSale";
-            this.dtgvDetailBillSale.ReadOnly = true;
-            this.dtgvDetailBillSale.RowHeadersVisible = false;
-            this.dtgvDetailBillSale.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvDetailBillSale.Size = new System.Drawing.Size(610, 248);
-            this.dtgvDetailBillSale.TabIndex = 0;
-            // 
-            // TransDetailsID
-            // 
-            this.TransDetailsID.DataPropertyName = "TransDetailsID";
-            this.TransDetailsID.HeaderText = "TransDetailsID";
-            this.TransDetailsID.Name = "TransDetailsID";
-            this.TransDetailsID.ReadOnly = true;
-            this.TransDetailsID.Visible = false;
-            // 
-            // ProductID
-            // 
-            this.ProductID.DataPropertyName = "ProductID";
-            this.ProductID.HeaderText = "Product ID";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            this.ProductID.Width = 75;
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "ProductName";
-            this.ProductName.HeaderText = "Product Name";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // ProductCategoryName
-            // 
-            this.ProductCategoryName.DataPropertyName = "ProductCategoryName";
-            this.ProductCategoryName.HeaderText = "Category Name";
-            this.ProductCategoryName.Name = "ProductCategoryName";
-            this.ProductCategoryName.ReadOnly = true;
-            this.ProductCategoryName.Width = 80;
-            // 
-            // TransQuantity
-            // 
-            this.TransQuantity.DataPropertyName = "TransQuantity";
-            this.TransQuantity.HeaderText = "Quantity";
-            this.TransQuantity.Name = "TransQuantity";
-            this.TransQuantity.ReadOnly = true;
-            this.TransQuantity.Width = 75;
-            // 
-            // UnitName
-            // 
-            this.UnitName.DataPropertyName = "UnitName";
-            this.UnitName.HeaderText = "Unit Name";
-            this.UnitName.Name = "UnitName";
-            this.UnitName.ReadOnly = true;
-            // 
-            // TransPrice
-            // 
-            this.TransPrice.DataPropertyName = "TransPrice";
-            this.TransPrice.HeaderText = "Price";
-            this.TransPrice.Name = "TransPrice";
-            this.TransPrice.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "Total";
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnUpdateProductExportDetail);
-            this.groupBox3.Controls.Add(this.btnDeleteProductExportDetail);
-            this.groupBox3.Controls.Add(this.btnAddProductExportDetail);
+            this.groupBox3.Controls.Add(this.btnUpdateServiceDetail);
+            this.groupBox3.Controls.Add(this.btnDeleteServiceDetail);
+            this.groupBox3.Controls.Add(this.btnInsertServiceDetail);
             this.groupBox3.Location = new System.Drawing.Point(17, 176);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(205, 50);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             // 
-            // btnUpdateProductExportDetail
+            // btnUpdateServiceDetail
             // 
-            this.btnUpdateProductExportDetail.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateProductExportDetail.Location = new System.Drawing.Point(63, 15);
-            this.btnUpdateProductExportDetail.Name = "btnUpdateProductExportDetail";
-            this.btnUpdateProductExportDetail.Size = new System.Drawing.Size(68, 25);
-            this.btnUpdateProductExportDetail.TabIndex = 16;
-            this.btnUpdateProductExportDetail.Text = "Update";
-            this.btnUpdateProductExportDetail.UseVisualStyleBackColor = true;
+            this.btnUpdateServiceDetail.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateServiceDetail.Location = new System.Drawing.Point(63, 15);
+            this.btnUpdateServiceDetail.Name = "btnUpdateServiceDetail";
+            this.btnUpdateServiceDetail.Size = new System.Drawing.Size(68, 25);
+            this.btnUpdateServiceDetail.TabIndex = 16;
+            this.btnUpdateServiceDetail.Text = "Update";
+            this.btnUpdateServiceDetail.UseVisualStyleBackColor = true;
             // 
-            // btnDeleteProductExportDetail
+            // btnDeleteServiceDetail
             // 
-            this.btnDeleteProductExportDetail.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteProductExportDetail.Location = new System.Drawing.Point(137, 15);
-            this.btnDeleteProductExportDetail.Name = "btnDeleteProductExportDetail";
-            this.btnDeleteProductExportDetail.Size = new System.Drawing.Size(62, 25);
-            this.btnDeleteProductExportDetail.TabIndex = 16;
-            this.btnDeleteProductExportDetail.Text = "Delete";
-            this.btnDeleteProductExportDetail.UseVisualStyleBackColor = true;
+            this.btnDeleteServiceDetail.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteServiceDetail.Location = new System.Drawing.Point(137, 15);
+            this.btnDeleteServiceDetail.Name = "btnDeleteServiceDetail";
+            this.btnDeleteServiceDetail.Size = new System.Drawing.Size(62, 25);
+            this.btnDeleteServiceDetail.TabIndex = 16;
+            this.btnDeleteServiceDetail.Text = "Delete";
+            this.btnDeleteServiceDetail.UseVisualStyleBackColor = true;
             // 
-            // btnAddProductExportDetail
+            // btnInsertServiceDetail
             // 
-            this.btnAddProductExportDetail.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProductExportDetail.Location = new System.Drawing.Point(6, 15);
-            this.btnAddProductExportDetail.Name = "btnAddProductExportDetail";
-            this.btnAddProductExportDetail.Size = new System.Drawing.Size(51, 25);
-            this.btnAddProductExportDetail.TabIndex = 16;
-            this.btnAddProductExportDetail.Text = "Insert";
-            this.btnAddProductExportDetail.UseVisualStyleBackColor = true;
+            this.btnInsertServiceDetail.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsertServiceDetail.Location = new System.Drawing.Point(6, 15);
+            this.btnInsertServiceDetail.Name = "btnInsertServiceDetail";
+            this.btnInsertServiceDetail.Size = new System.Drawing.Size(51, 25);
+            this.btnInsertServiceDetail.TabIndex = 16;
+            this.btnInsertServiceDetail.Text = "Insert";
+            this.btnInsertServiceDetail.UseVisualStyleBackColor = true;
             // 
-            // lkbClear1
+            // btnClearDetail
             // 
-            this.lkbClear1.AutoSize = true;
-            this.lkbClear1.Location = new System.Drawing.Point(228, 191);
-            this.lkbClear1.Name = "lkbClear1";
-            this.lkbClear1.Size = new System.Drawing.Size(31, 13);
-            this.lkbClear1.TabIndex = 18;
-            this.lkbClear1.TabStop = true;
-            this.lkbClear1.Text = "Clear";
-            // 
-            // cmbIDBillExportDetail
-            // 
-            this.cmbIDBillExportDetail.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cmbIDBillExportDetail.Enabled = false;
-            this.cmbIDBillExportDetail.FormattingEnabled = true;
-            this.cmbIDBillExportDetail.Location = new System.Drawing.Point(142, 19);
-            this.cmbIDBillExportDetail.Name = "cmbIDBillExportDetail";
-            this.cmbIDBillExportDetail.Size = new System.Drawing.Size(116, 21);
-            this.cmbIDBillExportDetail.TabIndex = 12;
-            // 
-            // cmbIDProductDetailStore
-            // 
-            this.cmbIDProductDetailStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cmbIDProductDetailStore.Enabled = false;
-            this.cmbIDProductDetailStore.FormattingEnabled = true;
-            this.cmbIDProductDetailStore.Location = new System.Drawing.Point(142, 49);
-            this.cmbIDProductDetailStore.Name = "cmbIDProductDetailStore";
-            this.cmbIDProductDetailStore.Size = new System.Drawing.Size(116, 21);
-            this.cmbIDProductDetailStore.TabIndex = 12;
+            this.btnClearDetail.AutoSize = true;
+            this.btnClearDetail.Location = new System.Drawing.Point(228, 191);
+            this.btnClearDetail.Name = "btnClearDetail";
+            this.btnClearDetail.Size = new System.Drawing.Size(31, 13);
+            this.btnClearDetail.TabIndex = 18;
+            this.btnClearDetail.TabStop = true;
+            this.btnClearDetail.Text = "Clear";
+            this.btnClearDetail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnClearDetail_LinkClicked);
             // 
             // label9
             // 
@@ -539,24 +562,69 @@
             this.label11.TabIndex = 7;
             this.label11.Text = "Invoice No";
             // 
+            // grbDetailBillSale
+            // 
+            this.grbDetailBillSale.Controls.Add(this.dtgvServiceDetailsInfoList);
+            this.grbDetailBillSale.Location = new System.Drawing.Point(587, 303);
+            this.grbDetailBillSale.Name = "grbDetailBillSale";
+            this.grbDetailBillSale.Size = new System.Drawing.Size(616, 267);
+            this.grbDetailBillSale.TabIndex = 14;
+            this.grbDetailBillSale.TabStop = false;
+            // 
+            // dtgvServiceDetailsInfoList
+            // 
+            this.dtgvServiceDetailsInfoList.AllowUserToAddRows = false;
+            this.dtgvServiceDetailsInfoList.AllowUserToDeleteRows = false;
+            this.dtgvServiceDetailsInfoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvServiceDetailsInfoList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ServiceTransDetailsID,
+            this.ServiceTransIDD,
+            this.ServiceID,
+            this.ServiceName,
+            this.ServicePrice,
+            this.AdditionalPrice,
+            this.TransPrice,
+            this.TransQuantity,
+            this.TransTotal,
+            this.TransPrepaid,
+            this.TransRemain,
+            this.DeliveredDate,
+            this.TransStatus});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvServiceDetailsInfoList.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgvServiceDetailsInfoList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvServiceDetailsInfoList.Location = new System.Drawing.Point(3, 16);
+            this.dtgvServiceDetailsInfoList.Name = "dtgvServiceDetailsInfoList";
+            this.dtgvServiceDetailsInfoList.ReadOnly = true;
+            this.dtgvServiceDetailsInfoList.RowHeadersVisible = false;
+            this.dtgvServiceDetailsInfoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvServiceDetailsInfoList.Size = new System.Drawing.Size(610, 248);
+            this.dtgvServiceDetailsInfoList.TabIndex = 0;
+            // 
             // grbInfoBill
             // 
-            this.grbInfoBill.Controls.Add(this.textBox4);
+            this.grbInfoBill.Controls.Add(this.txtStatus);
             this.grbInfoBill.Controls.Add(this.label19);
-            this.grbInfoBill.Controls.Add(this.textBox3);
+            this.grbInfoBill.Controls.Add(this.txtRemain);
             this.grbInfoBill.Controls.Add(this.label18);
-            this.grbInfoBill.Controls.Add(this.textBox2);
+            this.grbInfoBill.Controls.Add(this.txtPrepaid);
             this.grbInfoBill.Controls.Add(this.label17);
-            this.grbInfoBill.Controls.Add(this.textBox1);
+            this.grbInfoBill.Controls.Add(this.txtTotal);
             this.grbInfoBill.Controls.Add(this.label15);
-            this.grbInfoBill.Controls.Add(this.cmbIDCustomer);
+            this.grbInfoBill.Controls.Add(this.cmbCustomerName);
             this.grbInfoBill.Controls.Add(this.lkbClear);
-            this.grbInfoBill.Controls.Add(this.btnUpdateBillExport);
-            this.grbInfoBill.Controls.Add(this.btnDeleteBillExport);
-            this.grbInfoBill.Controls.Add(this.btnAddBillExport);
-            this.grbInfoBill.Controls.Add(this.dtpkDateTimeExport);
-            this.grbInfoBill.Controls.Add(this.txtIDCustomer);
-            this.grbInfoBill.Controls.Add(this.txtIDBillExport);
+            this.grbInfoBill.Controls.Add(this.btnUpdateService);
+            this.grbInfoBill.Controls.Add(this.btnDeleteService);
+            this.grbInfoBill.Controls.Add(this.btnInsertService);
+            this.grbInfoBill.Controls.Add(this.dtpkCreatedDate);
+            this.grbInfoBill.Controls.Add(this.txtCustomerID);
+            this.grbInfoBill.Controls.Add(this.txtServiceTransID);
             this.grbInfoBill.Controls.Add(this.label12);
             this.grbInfoBill.Controls.Add(this.label3);
             this.grbInfoBill.Controls.Add(this.label5);
@@ -567,13 +635,86 @@
             this.grbInfoBill.TabIndex = 4;
             this.grbInfoBill.TabStop = false;
             // 
-            // cmbIDCustomer
+            // txtStatus
             // 
-            this.cmbIDCustomer.FormattingEnabled = true;
-            this.cmbIDCustomer.Location = new System.Drawing.Point(138, 94);
-            this.cmbIDCustomer.Name = "cmbIDCustomer";
-            this.cmbIDCustomer.Size = new System.Drawing.Size(129, 21);
-            this.cmbIDCustomer.TabIndex = 13;
+            this.txtStatus.Enabled = false;
+            this.txtStatus.Location = new System.Drawing.Point(401, 129);
+            this.txtStatus.Name = "txtStatus";
+            this.txtStatus.Size = new System.Drawing.Size(129, 20);
+            this.txtStatus.TabIndex = 26;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(289, 130);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(46, 17);
+            this.label19.TabIndex = 25;
+            this.label19.Text = "Status";
+            // 
+            // txtRemain
+            // 
+            this.txtRemain.Enabled = false;
+            this.txtRemain.Location = new System.Drawing.Point(401, 96);
+            this.txtRemain.Name = "txtRemain";
+            this.txtRemain.Size = new System.Drawing.Size(129, 20);
+            this.txtRemain.TabIndex = 24;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(289, 97);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(54, 17);
+            this.label18.TabIndex = 23;
+            this.label18.Text = "Remain";
+            // 
+            // txtPrepaid
+            // 
+            this.txtPrepaid.Enabled = false;
+            this.txtPrepaid.Location = new System.Drawing.Point(401, 62);
+            this.txtPrepaid.Name = "txtPrepaid";
+            this.txtPrepaid.Size = new System.Drawing.Size(129, 20);
+            this.txtPrepaid.TabIndex = 22;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(289, 63);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(55, 17);
+            this.label17.TabIndex = 21;
+            this.label17.Text = "Prepaid";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(401, 29);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(129, 20);
+            this.txtTotal.TabIndex = 20;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(289, 31);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(39, 17);
+            this.label15.TabIndex = 19;
+            this.label15.Text = "Total";
+            // 
+            // cmbCustomerName
+            // 
+            this.cmbCustomerName.FormattingEnabled = true;
+            this.cmbCustomerName.Location = new System.Drawing.Point(138, 94);
+            this.cmbCustomerName.Name = "cmbCustomerName";
+            this.cmbCustomerName.Size = new System.Drawing.Size(129, 21);
+            this.cmbCustomerName.TabIndex = 13;
+            this.cmbCustomerName.SelectedIndexChanged += new System.EventHandler(this.cmbCustomerName_SelectedIndexChanged);
             // 
             // lkbClear
             // 
@@ -584,63 +725,64 @@
             this.lkbClear.TabIndex = 18;
             this.lkbClear.TabStop = true;
             this.lkbClear.Text = "Clear";
+            this.lkbClear.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lkbClear_LinkClicked);
             // 
-            // btnUpdateBillExport
+            // btnUpdateService
             // 
-            this.btnUpdateBillExport.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateBillExport.Location = new System.Drawing.Point(133, 174);
-            this.btnUpdateBillExport.Name = "btnUpdateBillExport";
-            this.btnUpdateBillExport.Size = new System.Drawing.Size(61, 25);
-            this.btnUpdateBillExport.TabIndex = 16;
-            this.btnUpdateBillExport.Text = "Update";
-            this.btnUpdateBillExport.UseVisualStyleBackColor = true;
+            this.btnUpdateService.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateService.Location = new System.Drawing.Point(133, 174);
+            this.btnUpdateService.Name = "btnUpdateService";
+            this.btnUpdateService.Size = new System.Drawing.Size(61, 25);
+            this.btnUpdateService.TabIndex = 16;
+            this.btnUpdateService.Text = "Update";
+            this.btnUpdateService.UseVisualStyleBackColor = true;
             // 
-            // btnDeleteBillExport
+            // btnDeleteService
             // 
-            this.btnDeleteBillExport.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteBillExport.Location = new System.Drawing.Point(199, 174);
-            this.btnDeleteBillExport.Name = "btnDeleteBillExport";
-            this.btnDeleteBillExport.Size = new System.Drawing.Size(65, 25);
-            this.btnDeleteBillExport.TabIndex = 16;
-            this.btnDeleteBillExport.Text = "Delete";
-            this.btnDeleteBillExport.UseVisualStyleBackColor = true;
+            this.btnDeleteService.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteService.Location = new System.Drawing.Point(199, 174);
+            this.btnDeleteService.Name = "btnDeleteService";
+            this.btnDeleteService.Size = new System.Drawing.Size(65, 25);
+            this.btnDeleteService.TabIndex = 16;
+            this.btnDeleteService.Text = "Delete";
+            this.btnDeleteService.UseVisualStyleBackColor = true;
             // 
-            // btnAddBillExport
+            // btnInsertService
             // 
-            this.btnAddBillExport.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBillExport.Location = new System.Drawing.Point(71, 174);
-            this.btnAddBillExport.Name = "btnAddBillExport";
-            this.btnAddBillExport.Size = new System.Drawing.Size(55, 25);
-            this.btnAddBillExport.TabIndex = 16;
-            this.btnAddBillExport.Text = "Insert";
-            this.btnAddBillExport.UseVisualStyleBackColor = true;
+            this.btnInsertService.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInsertService.Location = new System.Drawing.Point(71, 174);
+            this.btnInsertService.Name = "btnInsertService";
+            this.btnInsertService.Size = new System.Drawing.Size(55, 25);
+            this.btnInsertService.TabIndex = 16;
+            this.btnInsertService.Text = "Insert";
+            this.btnInsertService.UseVisualStyleBackColor = true;
             // 
-            // dtpkDateTimeExport
+            // dtpkCreatedDate
             // 
-            this.dtpkDateTimeExport.CustomFormat = "dd/m/yyyy";
-            this.dtpkDateTimeExport.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpkDateTimeExport.Location = new System.Drawing.Point(138, 130);
-            this.dtpkDateTimeExport.Name = "dtpkDateTimeExport";
-            this.dtpkDateTimeExport.Size = new System.Drawing.Size(129, 20);
-            this.dtpkDateTimeExport.TabIndex = 15;
-            this.dtpkDateTimeExport.Value = new System.DateTime(2018, 4, 25, 20, 54, 0, 0);
+            this.dtpkCreatedDate.CustomFormat = "dd/m/yyyy";
+            this.dtpkCreatedDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpkCreatedDate.Location = new System.Drawing.Point(138, 130);
+            this.dtpkCreatedDate.Name = "dtpkCreatedDate";
+            this.dtpkCreatedDate.Size = new System.Drawing.Size(129, 20);
+            this.dtpkCreatedDate.TabIndex = 15;
+            this.dtpkCreatedDate.Value = new System.DateTime(2019, 6, 27, 10, 29, 36, 0);
             // 
-            // txtIDCustomer
+            // txtCustomerID
             // 
-            this.txtIDCustomer.Enabled = false;
-            this.txtIDCustomer.Location = new System.Drawing.Point(138, 60);
-            this.txtIDCustomer.Name = "txtIDCustomer";
-            this.txtIDCustomer.Size = new System.Drawing.Size(129, 20);
-            this.txtIDCustomer.TabIndex = 14;
+            this.txtCustomerID.Enabled = false;
+            this.txtCustomerID.Location = new System.Drawing.Point(138, 60);
+            this.txtCustomerID.Name = "txtCustomerID";
+            this.txtCustomerID.Size = new System.Drawing.Size(129, 20);
+            this.txtCustomerID.TabIndex = 14;
             // 
-            // txtIDBillExport
+            // txtServiceTransID
             // 
-            this.txtIDBillExport.Enabled = false;
-            this.txtIDBillExport.Location = new System.Drawing.Point(138, 28);
-            this.txtIDBillExport.Name = "txtIDBillExport";
-            this.txtIDBillExport.ReadOnly = true;
-            this.txtIDBillExport.Size = new System.Drawing.Size(129, 20);
-            this.txtIDBillExport.TabIndex = 14;
+            this.txtServiceTransID.Enabled = false;
+            this.txtServiceTransID.Location = new System.Drawing.Point(138, 28);
+            this.txtServiceTransID.Name = "txtServiceTransID";
+            this.txtServiceTransID.ReadOnly = true;
+            this.txtServiceTransID.Size = new System.Drawing.Size(129, 20);
+            this.txtServiceTransID.TabIndex = 14;
             // 
             // label12
             // 
@@ -658,9 +800,9 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(17, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 17);
+            this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Customer No";
+            this.label3.Text = "Customer ID";
             // 
             // label5
             // 
@@ -682,133 +824,97 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Invoice No";
             // 
-            // textBox1
+            // ServiceTransDetailsID
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(401, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 20);
-            this.textBox1.TabIndex = 20;
+            this.ServiceTransDetailsID.DataPropertyName = "ServiceTransDetailsID";
+            this.ServiceTransDetailsID.HeaderText = "ServiceTransDetailsID";
+            this.ServiceTransDetailsID.Name = "ServiceTransDetailsID";
+            this.ServiceTransDetailsID.ReadOnly = true;
+            this.ServiceTransDetailsID.Visible = false;
             // 
-            // label15
+            // ServiceTransIDD
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(289, 31);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 17);
-            this.label15.TabIndex = 19;
-            this.label15.Text = "Total";
+            this.ServiceTransIDD.DataPropertyName = "ServiceTransID";
+            this.ServiceTransIDD.HeaderText = "Transaction ID";
+            this.ServiceTransIDD.Name = "ServiceTransIDD";
+            this.ServiceTransIDD.ReadOnly = true;
             // 
-            // textBox2
+            // ServiceID
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(401, 62);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(129, 20);
-            this.textBox2.TabIndex = 22;
+            this.ServiceID.DataPropertyName = "ServiceID";
+            this.ServiceID.HeaderText = "Service ID";
+            this.ServiceID.Name = "ServiceID";
+            this.ServiceID.ReadOnly = true;
             // 
-            // label17
+            // ServiceName
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(289, 63);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(55, 17);
-            this.label17.TabIndex = 21;
-            this.label17.Text = "Prepaid";
+            this.ServiceName.DataPropertyName = "ServiceName";
+            this.ServiceName.HeaderText = "ServiceName";
+            this.ServiceName.Name = "ServiceName";
+            this.ServiceName.ReadOnly = true;
             // 
-            // textBox3
+            // ServicePrice
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(401, 96);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(129, 20);
-            this.textBox3.TabIndex = 24;
+            this.ServicePrice.DataPropertyName = "ServicePrice";
+            this.ServicePrice.HeaderText = "ServicePrice";
+            this.ServicePrice.Name = "ServicePrice";
+            this.ServicePrice.ReadOnly = true;
             // 
-            // label18
+            // AdditionalPrice
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(289, 97);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(54, 17);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "Remain";
+            this.AdditionalPrice.DataPropertyName = "AdditionalPrice";
+            this.AdditionalPrice.HeaderText = "Additional Price";
+            this.AdditionalPrice.Name = "AdditionalPrice";
+            this.AdditionalPrice.ReadOnly = true;
             // 
-            // textBox4
+            // TransPrice
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(401, 129);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(129, 20);
-            this.textBox4.TabIndex = 26;
+            this.TransPrice.DataPropertyName = "TransPrice";
+            this.TransPrice.HeaderText = "Price";
+            this.TransPrice.Name = "TransPrice";
+            this.TransPrice.ReadOnly = true;
             // 
-            // label19
+            // TransQuantity
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(289, 130);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(46, 17);
-            this.label19.TabIndex = 25;
-            this.label19.Text = "Status";
+            this.TransQuantity.DataPropertyName = "TransQuantity";
+            this.TransQuantity.HeaderText = "Quantity";
+            this.TransQuantity.Name = "TransQuantity";
+            this.TransQuantity.ReadOnly = true;
             // 
-            // textBox5
+            // TransTotal
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(438, 115);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(116, 20);
-            this.textBox5.TabIndex = 45;
+            this.TransTotal.DataPropertyName = "TransTotal";
+            this.TransTotal.HeaderText = "Total";
+            this.TransTotal.Name = "TransTotal";
+            this.TransTotal.ReadOnly = true;
             // 
-            // label20
+            // TransPrepaid
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(319, 114);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(54, 17);
-            this.label20.TabIndex = 44;
-            this.label20.Text = "Remain";
+            this.TransPrepaid.DataPropertyName = "TransPrepaid";
+            this.TransPrepaid.HeaderText = "Prepaid";
+            this.TransPrepaid.Name = "TransPrepaid";
+            this.TransPrepaid.ReadOnly = true;
             // 
-            // dateTimePicker1
+            // TransRemain
             // 
-            this.dateTimePicker1.CustomFormat = "dd/m/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(438, 145);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(116, 20);
-            this.dateTimePicker1.TabIndex = 47;
-            this.dateTimePicker1.Value = new System.DateTime(2018, 4, 25, 20, 54, 0, 0);
+            this.TransRemain.DataPropertyName = "TransRemain";
+            this.TransRemain.HeaderText = "Remain";
+            this.TransRemain.Name = "TransRemain";
+            this.TransRemain.ReadOnly = true;
             // 
-            // label21
+            // DeliveredDate
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(319, 146);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(100, 17);
-            this.label21.TabIndex = 46;
-            this.label21.Text = "Delivered Date";
+            this.DeliveredDate.DataPropertyName = "DeliveredDate";
+            this.DeliveredDate.HeaderText = "Delivered Date";
+            this.DeliveredDate.Name = "DeliveredDate";
+            this.DeliveredDate.ReadOnly = true;
             // 
-            // textBox6
+            // TransStatus
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(438, 176);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(116, 20);
-            this.textBox6.TabIndex = 49;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(319, 175);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(46, 17);
-            this.label22.TabIndex = 48;
-            this.label22.Text = "Status";
+            this.TransStatus.DataPropertyName = "TransStatus";
+            this.TransStatus.HeaderText = "Status";
+            this.TransStatus.Name = "TransStatus";
+            this.TransStatus.ReadOnly = true;
             // 
             // uctServiceInvoice
             // 
@@ -822,13 +928,14 @@
             this.Controls.Add(this.grbDetailBillSale);
             this.Name = "uctServiceInvoice";
             this.Size = new System.Drawing.Size(1220, 581);
+            this.Load += new System.EventHandler(this.uctServiceInvoice_Load);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvInfoListOfBillExport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvServiceInfoList)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.grbDetailBillSale.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvDetailBillSale)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.grbDetailBillSale.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvServiceDetailsInfoList)).EndInit();
             this.grbInfoBill.ResumeLayout(false);
             this.grbInfoBill.PerformLayout();
             this.ResumeLayout(false);
@@ -839,74 +946,84 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dtgvInfoListOfBillExport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TransID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
+        private System.Windows.Forms.DataGridView dtgvServiceInfoList;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtTransDetailsID;
+        private System.Windows.Forms.TextBox txtServiceTransDetailsID;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtTransTotal;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtTransPrice;
+        private System.Windows.Forms.TextBox txtTransPrepaid;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtTransQuantity;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox cmbUnit;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cmbProductCategory;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbProductName;
+        private System.Windows.Forms.ComboBox cmbServiceName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox grbDetailBillSale;
-        private System.Windows.Forms.DataGridView dtgvDetailBillSale;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TransDetailsID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCategoryName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TransQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UnitName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TransPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridView dtgvServiceDetailsInfoList;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnUpdateProductExportDetail;
-        private System.Windows.Forms.Button btnDeleteProductExportDetail;
-        private System.Windows.Forms.Button btnAddProductExportDetail;
-        private System.Windows.Forms.LinkLabel lkbClear1;
-        private System.Windows.Forms.ComboBox cmbIDBillExportDetail;
-        private System.Windows.Forms.ComboBox cmbIDProductDetailStore;
+        private System.Windows.Forms.Button btnUpdateServiceDetail;
+        private System.Windows.Forms.Button btnDeleteServiceDetail;
+        private System.Windows.Forms.Button btnInsertServiceDetail;
+        private System.Windows.Forms.LinkLabel btnClearDetail;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox grbInfoBill;
-        private System.Windows.Forms.ComboBox cmbIDCustomer;
+        private System.Windows.Forms.ComboBox cmbCustomerName;
         private System.Windows.Forms.LinkLabel lkbClear;
-        private System.Windows.Forms.Button btnUpdateBillExport;
-        private System.Windows.Forms.Button btnDeleteBillExport;
-        private System.Windows.Forms.Button btnAddBillExport;
-        private System.Windows.Forms.DateTimePicker dtpkDateTimeExport;
-        private System.Windows.Forms.TextBox txtIDCustomer;
-        private System.Windows.Forms.TextBox txtIDBillExport;
+        private System.Windows.Forms.Button btnUpdateService;
+        private System.Windows.Forms.Button btnDeleteService;
+        private System.Windows.Forms.Button btnInsertService;
+        private System.Windows.Forms.DateTimePicker dtpkCreatedDate;
+        private System.Windows.Forms.TextBox txtCustomerID;
+        private System.Windows.Forms.TextBox txtServiceTransID;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtRemain;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPrepaid;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpkDeliveredDate;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtTransRemain;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtServiceTransIDD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceTransID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Prepaid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remain;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.TextBox txtServiceID;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtAdditionalPrice;
+        private System.Windows.Forms.TextBox txtServicePrice;
+        private System.Windows.Forms.TextBox txtTransPrice;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox txtTransStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceTransDetailsID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceTransIDD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServicePrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AdditionalPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransPrepaid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransRemain;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeliveredDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransStatus;
     }
 }

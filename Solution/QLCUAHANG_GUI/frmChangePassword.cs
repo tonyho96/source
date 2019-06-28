@@ -24,9 +24,9 @@ namespace QLCUAHANG_GUI
         private void btnOK_Click(object sender, EventArgs e)
         {
             if (txtNewPass.Text == string.Empty || txtOldPass.Text == string.Empty || txtRegisPass.Text == string.Empty)
-                XtraMessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Please fullfill your information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
-                if (txtOldPass.Text != Properties.Settings.Default.PassLog) lbOld.Text = "Mật khẩu cũ không chính xác";
+                if (txtOldPass.Text != Properties.Settings.Default.PassLog) lbOld.Text = "Old password is not correct!";
             else
                 if (txtNewPass.Text != txtRegisPass.Text) return;
             else
@@ -36,20 +36,19 @@ namespace QLCUAHANG_GUI
                 try
                 {
                     SqlConnection cnn = DataProvider.OpenConnection();
-                    SqlCommand cmd = new SqlCommand("users_updatepass", cnn);
+                    SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_updateUserPassword]", cnn);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = NameLog;
                     cmd.Parameters.Add("@pass", SqlDbType.VarChar).Value = txtNewPass.Text;
                     cmd.ExecuteNonQuery();
                     cnn.Close();
-                    XtraMessageBox.Show("Đổi mật khẩu thành công!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show("Change password failed!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 catch (Exception ex)
                 {
-                    XtraMessageBox.Show(ex.Message,"Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
         }
 
@@ -58,29 +57,29 @@ namespace QLCUAHANG_GUI
             if (txtNewPass.Text != txtRegisPass.Text)
             {
                 lbNew.ForeColor = Color.Red;
-                lbNew.Text = "Không khớp mật khẩu.";
+                lbNew.Text = "Not match!";
             }
             else if (txtNewPass.Text == txtRegisPass.Text)
             {
-                lbNew.Text = "Khớp mật khẩu.";
+                lbNew.Text = "Match";
                 lbNew.ForeColor = Color.Green;
             }
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void txtNewPass_TextChanged(object sender, EventArgs e)
         {
-            if (txtNewPass.Text == txtOldPass.Text) lbCheck.Text = "Không được trùng với mật khẩu cũ!";
+            if (txtNewPass.Text == txtOldPass.Text) lbCheck.Text = "New password must be different from the old one.";
             else
                 lbCheck.Text = "";
             if (txtNewPass.Text != txtRegisPass.Text) lbNew.Text = "";
         }
 
-        private void frmDoiMatKhau_Load(object sender, EventArgs e)
+        private void frmChangePassword_Load(object sender, EventArgs e)
         {
 
         }

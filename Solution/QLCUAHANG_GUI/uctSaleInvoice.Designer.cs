@@ -42,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbImportPrice = new System.Windows.Forms.ComboBox();
             this.cmbPercent = new System.Windows.Forms.ComboBox();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.txtTransDetailsID = new System.Windows.Forms.TextBox();
@@ -60,6 +61,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.grbDetailBillSale = new System.Windows.Forms.GroupBox();
             this.dtgvDetailBillSale = new System.Windows.Forms.DataGridView();
+            this.TransDetailsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnUpdateProductExportDetail = new System.Windows.Forms.Button();
             this.btnDeleteProductExportDetail = new System.Windows.Forms.Button();
@@ -79,15 +88,6 @@
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbPQuatity = new System.Windows.Forms.ComboBox();
-            this.cmbImportPrice = new System.Windows.Forms.ComboBox();
-            this.TransDetailsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbInfoBill.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.grbDetailBillSale.SuspendLayout();
@@ -266,6 +266,17 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
+            // cmbImportPrice
+            // 
+            this.cmbImportPrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.cmbImportPrice.Enabled = false;
+            this.cmbImportPrice.FormattingEnabled = true;
+            this.cmbImportPrice.Location = new System.Drawing.Point(433, 198);
+            this.cmbImportPrice.Name = "cmbImportPrice";
+            this.cmbImportPrice.Size = new System.Drawing.Size(68, 21);
+            this.cmbImportPrice.TabIndex = 43;
+            this.cmbImportPrice.Visible = false;
+            // 
             // cmbPercent
             // 
             this.cmbPercent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
@@ -275,6 +286,7 @@
             this.cmbPercent.Name = "cmbPercent";
             this.cmbPercent.Size = new System.Drawing.Size(42, 21);
             this.cmbPercent.TabIndex = 42;
+            this.cmbPercent.Visible = false;
             // 
             // btnCalculate
             // 
@@ -450,6 +462,66 @@
             this.dtgvDetailBillSale.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvDetailBillSale.Size = new System.Drawing.Size(512, 179);
             this.dtgvDetailBillSale.TabIndex = 0;
+            // 
+            // TransDetailsID
+            // 
+            this.TransDetailsID.DataPropertyName = "TransDetailsID";
+            this.TransDetailsID.HeaderText = "TransDetailsID";
+            this.TransDetailsID.Name = "TransDetailsID";
+            this.TransDetailsID.ReadOnly = true;
+            this.TransDetailsID.Visible = false;
+            // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "ProductID";
+            this.ProductID.HeaderText = "Product ID";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Width = 75;
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "Product Name";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // ProductCategoryName
+            // 
+            this.ProductCategoryName.DataPropertyName = "ProductCategoryName";
+            this.ProductCategoryName.HeaderText = "Category Name";
+            this.ProductCategoryName.Name = "ProductCategoryName";
+            this.ProductCategoryName.ReadOnly = true;
+            this.ProductCategoryName.Width = 80;
+            // 
+            // TransQuantity
+            // 
+            this.TransQuantity.DataPropertyName = "TransQuantity";
+            this.TransQuantity.HeaderText = "Quantity";
+            this.TransQuantity.Name = "TransQuantity";
+            this.TransQuantity.ReadOnly = true;
+            this.TransQuantity.Width = 75;
+            // 
+            // UnitName
+            // 
+            this.UnitName.DataPropertyName = "UnitName";
+            this.UnitName.HeaderText = "Unit Name";
+            this.UnitName.Name = "UnitName";
+            this.UnitName.ReadOnly = true;
+            // 
+            // TransPrice
+            // 
+            this.TransPrice.DataPropertyName = "TransPrice";
+            this.TransPrice.HeaderText = "Price";
+            this.TransPrice.Name = "TransPrice";
+            this.TransPrice.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "Total";
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -637,76 +709,6 @@
             this.cmbPQuatity.Name = "cmbPQuatity";
             this.cmbPQuatity.Size = new System.Drawing.Size(42, 21);
             this.cmbPQuatity.TabIndex = 41;
-            // 
-            // cmbImportPrice
-            // 
-            this.cmbImportPrice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cmbImportPrice.Enabled = false;
-            this.cmbImportPrice.FormattingEnabled = true;
-            this.cmbImportPrice.Location = new System.Drawing.Point(433, 198);
-            this.cmbImportPrice.Name = "cmbImportPrice";
-            this.cmbImportPrice.Size = new System.Drawing.Size(68, 21);
-            this.cmbImportPrice.TabIndex = 43;
-            // 
-            // TransDetailsID
-            // 
-            this.TransDetailsID.DataPropertyName = "TransDetailsID";
-            this.TransDetailsID.HeaderText = "TransDetailsID";
-            this.TransDetailsID.Name = "TransDetailsID";
-            this.TransDetailsID.ReadOnly = true;
-            this.TransDetailsID.Visible = false;
-            // 
-            // ProductID
-            // 
-            this.ProductID.DataPropertyName = "ProductID";
-            this.ProductID.HeaderText = "Product ID";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            this.ProductID.Width = 75;
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "ProductName";
-            this.ProductName.HeaderText = "Product Name";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // ProductCategoryName
-            // 
-            this.ProductCategoryName.DataPropertyName = "ProductCategoryName";
-            this.ProductCategoryName.HeaderText = "Category Name";
-            this.ProductCategoryName.Name = "ProductCategoryName";
-            this.ProductCategoryName.ReadOnly = true;
-            this.ProductCategoryName.Width = 80;
-            // 
-            // TransQuantity
-            // 
-            this.TransQuantity.DataPropertyName = "TransQuantity";
-            this.TransQuantity.HeaderText = "Quantity";
-            this.TransQuantity.Name = "TransQuantity";
-            this.TransQuantity.ReadOnly = true;
-            this.TransQuantity.Width = 75;
-            // 
-            // UnitName
-            // 
-            this.UnitName.DataPropertyName = "UnitName";
-            this.UnitName.HeaderText = "Unit Name";
-            this.UnitName.Name = "UnitName";
-            this.UnitName.ReadOnly = true;
-            // 
-            // TransPrice
-            // 
-            this.TransPrice.DataPropertyName = "TransPrice";
-            this.TransPrice.HeaderText = "Price";
-            this.TransPrice.Name = "TransPrice";
-            this.TransPrice.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "Total";
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
             // 
             // uctSaleInvoice
             // 

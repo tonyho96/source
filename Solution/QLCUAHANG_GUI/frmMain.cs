@@ -12,22 +12,56 @@ using DevExpress.XtraEditors;
 using DevExpress.Utils;
 using System.Threading;
 using DevExpress.XtraSplashScreen;
+using System.Data.SqlClient;
+using QLCUAHANG_DAL;
 
 namespace QLCUAHANG_GUI
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        public class IsDistributor
+        {
+            public static int isDistributor = 0;
+        }
+
         public frmMain()
         {
             InitializeComponent();
         }
 
         internal static List<byte> typePages = new List<byte>();
-        public int isContributor;
+
+
+        public void getAdminRole()
+        {
+            try
+            {
+                SqlConnection con = DataProvider.OpenConnection();
+                string query = string.Format("EXEC [JEWELRYSTOREMGMT].[dbo].[usp_checkAdminAccount] @name = '" + frmLogin.UserName + "'");
+                DataTable dt = DataProvider.GetDataTable(query, con);
+                if (dt.Rows.Count == 0)
+                {
+                    IsDistributor.isDistributor = 0;
+                }
+                else
+                {
+                    IsDistributor.isDistributor = 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            skins();
+            getAdminRole();
+        }
 
         public void addTabPages(UserControl uct, byte typeControl, string tenTab)
         {
-            // Check page existing
             for(int i = 0; i < tabDisplay.TabPages.Count; i++)
             {
                 if(tabDisplay.TabPages[i].Contains(uct) == true)
@@ -50,20 +84,17 @@ namespace QLCUAHANG_GUI
 
         }
 
-        // Close current tab
         public void CloseTabDisplayCurrent()
         {
             tabDisplay.TabPages.Remove(tabDisplay.SelectedTab);
         }
 
-        // Close all tab
         public void CloseAllTab()
         {
             while (tabDisplay.TabPages.Count > 0)
             {
                 CloseTabDisplayCurrent();
             }
-            //tabDisplay.TabPages.Clear();
         }
 
         private void skins()
@@ -77,12 +108,6 @@ namespace QLCUAHANG_GUI
             addTabPages(uctVendor.uctVendorInfo, 40, "Vendor Information");
         }
 
-        //private void btnProductOfAgency_ItemClick(object sender, ItemClickEventArgs e)
-        //{
-            //SplashScreenManager.ShowForm(typeof(WaitForm1));
-            //addTabPages(uctSanPhamDL.uctSPDL, 30, "Product of Vendor");
-        //}
-
         private void btnInfoOfCustomer_ItemClick(object sender, ItemClickEventArgs e)
         {
             addTabPages(uctCustomer.uctCustomerInfo, 30, "Customer Information");
@@ -92,7 +117,6 @@ namespace QLCUAHANG_GUI
         {
             addTabPages(uctInvoice.uctPHD, 25, "Invoice");
         }
-
 
         private void colseAllTapToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -104,7 +128,6 @@ namespace QLCUAHANG_GUI
             CloseTabDisplayCurrent();
         }
 
-
         private void btnProductOfStore_ItemClick(object sender, ItemClickEventArgs e)
         {
             addTabPages(uctProduct.uctSPCH, 10, "Product in Store");
@@ -115,14 +138,6 @@ namespace QLCUAHANG_GUI
             barEditItem3.EditValue = DateTime.Now.ToLongDateString();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-            //Thread.Sleep(2000);
-            //addTabPages(uctBackGroud.ucthienthi, 40, "");
-            //addTabPages(uctPhieuHoaDon.uctPHD, 40, "Receipt");
-            skins();
-        }
-
         private void tabDisplay_DrawItem_1(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
@@ -130,7 +145,6 @@ namespace QLCUAHANG_GUI
 
             Font drawFont = new Font("Time New Roman", 10);
             g.FillRectangle(new SolidBrush(Color.Blue), e.Bounds.Left, e.Bounds.Top, 200, 1);
-            //e.Graphics.DrawString("X", drawFont, Brushes.Red, e.Bounds.Right - 14, e.Bounds.Top);e.Bounds.Left+10, e.Bounds.Top + 6
             e.Graphics.DrawString(this.tabDisplay.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left, e.Bounds.Top + 6);
             e.Graphics.DrawImage(Properties.Resources.x2, e.Bounds.Right - 16, e.Bounds.Top + 4);
             e.DrawFocusRectangle();
@@ -142,7 +156,6 @@ namespace QLCUAHANG_GUI
 
             {
                 Rectangle r = tabDisplay.GetTabRect(i);
-                //Getting the position of the “x” mark.
                 Rectangle closeButton = new Rectangle(r.Right - 12, r.Top + 4, 20, 20);
 
                 if (closeButton.Contains(e.Location))
@@ -167,12 +180,8 @@ namespace QLCUAHANG_GUI
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.Hide();
-            //frmLogin l = new frmLogin();
-            //l.ShowDialog();
             this.Close();
         }
-       
-
 
         private void btnProductOfStore1_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -186,20 +195,6 @@ namespace QLCUAHANG_GUI
             this.Show();
         }
 
-        private void btnSorftwareInfo_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                frmSorftwareInfo author = new frmSorftwareInfo();
-                author.ShowDialog();
-                this.Show();
-            }
-            catch(Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "Notification");
-            }
-        }
-
         private void btnInfoAccount_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmAccountInformation account = new frmAccountInformation();
@@ -209,9 +204,17 @@ namespace QLCUAHANG_GUI
 
         private void btnManagerAccount_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmAdmin account = new frmAdmin();
-            account.ShowDialog();
-            this.Show();
+            if (IsDistributor.isDistributor == 1)
+            {
+                frmAccountManagement account = new frmAccountManagement();
+                account.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                XtraMessageBox.Show("You do not have permission to access this page!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void BtnUnit_ItemClick(object sender, ItemClickEventArgs e)

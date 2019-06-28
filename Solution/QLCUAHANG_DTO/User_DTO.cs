@@ -8,22 +8,22 @@ namespace QLCUAHANG_DTO
 {
    public  class User_DTO
     {
-        private int iD;
+        private int userID;
         private string userName;
-        private string chucVu;
-        private string diaChi;
-        private string soDT;
+        private string role;
+        private string phoneNo;
+        private string address;
 
-        public int ID
+        public int UserID
         {
             get
             {
-                return iD;
+                return userID;
             }
 
             set
             {
-                iD = value;
+                userID = value;
             }
         }
 
@@ -40,42 +40,42 @@ namespace QLCUAHANG_DTO
             }
         }
 
-        public string ChucVu
+        public string Role
         {
             get
             {
-                return chucVu;
+                return role;
             }
 
             set
             {
-                chucVu = value;
+                role = value;
             }
         }
 
-        public string DiaChi
+        public string PhoneNo
         {
             get
             {
-                return diaChi;
+                return phoneNo;
             }
 
             set
             {
-                diaChi = value;
+                phoneNo = value;
             }
         }
 
-        public string SoDT
+        public string Address
         {
             get
             {
-                return soDT;
+                return address;
             }
 
             set
             {
-                soDT = value;
+                address = value;
             }
         }
     }

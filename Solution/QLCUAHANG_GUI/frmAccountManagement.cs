@@ -20,40 +20,19 @@ namespace QLCUAHANG_GUI
         {
             InitializeComponent();
         }
+
         private void frmAccountManagement_Load(object sender, EventArgs e)
         {
-            string s = "Admin";
-            try
-            {
-                SqlConnection con = DataProvider.OpenConnection();
-                string query = string.Format("EXEC dbo.users_loadinfo @UserName = " + s + "");
-                DataTable dt = DataProvider.GetDataTable(query, con);
-                if (dt.Rows.Count == 0)
-                {
-                    return;
-                }
-                
-                txtUser.Text = "Admin";
-                txtPosition.Text = dt.Rows[0]["ChucVu"].ToString();
-                txtAddress.Text = dt.Rows[0]["DiaChi"].ToString();
-                txtNumberPhone.Text = dt.Rows[0]["SoDT"].ToString();
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             LoadData();
-
         }
+
         private void LoadData()
         {
             try
             {
                 SqlConnection con = DataProvider.OpenConnection();
 
-                DataTable dt = DataProvider.GetDataTable("users_list", con);
+                DataTable dt = DataProvider.GetDataTable("[JEWELRYSTOREMGMT].[dbo].[usp_getUserList]", con);
 
                 List<User_DTO> dsUser = new List<User_DTO>();
 
@@ -65,11 +44,11 @@ namespace QLCUAHANG_GUI
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     User_DTO us = new User_DTO();
-                    us.ID = Convert.ToInt32(dt.Rows[i]["ID"].ToString());
+                    us.UserID = Convert.ToInt32(dt.Rows[i]["UserID"].ToString());
                     us.UserName = dt.Rows[i]["UserName"].ToString();
-                    us.ChucVu = dt.Rows[i]["ChucVu"].ToString();
-                    us.DiaChi = dt.Rows[i]["DiaChi"].ToString();
-                    us.SoDT = dt.Rows[i]["SoDT"].ToString();
+                    us.Role = dt.Rows[i]["Role"].ToString();
+                    us.PhoneNo = dt.Rows[i]["PhoneNo"].ToString();
+                    us.Address = dt.Rows[i]["Address"].ToString();
 
                     dsUser.Add(us);
                 }
@@ -78,14 +57,16 @@ namespace QLCUAHANG_GUI
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
+
         private void linkClear_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ClearDisplay();
         }
+
         private void ClearDisplay()
         {
             txtUser.Text = "";
@@ -93,14 +74,15 @@ namespace QLCUAHANG_GUI
             txtAddress.Text = "";
             txtNumberPhone.Text = "";
         }
+
         private void dtgvListUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 txtUser.Text = Convert.ToString(dtgvListUser.CurrentRow.Cells["UserName"].Value);
-                txtPosition.Text = Convert.ToString(dtgvListUser.CurrentRow.Cells["ChucVu"].Value);
-                txtAddress.Text = Convert.ToString(dtgvListUser.CurrentRow.Cells["DiaChi"].Value);
-                txtNumberPhone.Text = Convert.ToString(dtgvListUser.CurrentRow.Cells["SoDT"].Value);
+                txtPosition.Text = Convert.ToString(dtgvListUser.CurrentRow.Cells["Role"].Value);
+                txtAddress.Text = Convert.ToString(dtgvListUser.CurrentRow.Cells["Address"].Value);
+                txtNumberPhone.Text = Convert.ToString(dtgvListUser.CurrentRow.Cells["PhoneNo"].Value);
             }
         }
 
@@ -108,23 +90,23 @@ namespace QLCUAHANG_GUI
         {
             if (txtUser.Text == "")
             {
-                XtraMessageBox.Show("You have to choose at least one account to update?", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("You have to choose at least one account to update?", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             SqlConnection con = DataProvider.OpenConnection();
-            SqlCommand cmd = new SqlCommand("users_update", con);
+            SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_updateUser]", con);
 
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@name",txtUser.Text);
+                SqlParameter p = new SqlParameter("@UserName", txtUser.Text);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@ChucVu",txtPosition.Text);
+                p = new SqlParameter("@Role", txtPosition.Text);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@DiaChi",txtAddress.Text);
+                p = new SqlParameter("@Address", txtAddress.Text);
                 cmd.Parameters.Add(p);
-                p = new SqlParameter("@SoDT",txtNumberPhone.Text);
+                p = new SqlParameter("@PhoneNo", txtNumberPhone.Text);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -138,7 +120,7 @@ namespace QLCUAHANG_GUI
             catch(Exception ex)
             {
                 DataProvider.CloseConnection(con);
-                XtraMessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }
@@ -146,19 +128,21 @@ namespace QLCUAHANG_GUI
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            if(txtUser.Text=="")
+            if(txtUser.Text == "")
             {
-                XtraMessageBox.Show("You have to choose at least one account to delete!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("You have to choose at least one account to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             SqlConnection con = DataProvider.OpenConnection();
-            SqlCommand cmd = new SqlCommand("users_delete", con);
+            SqlCommand cmd = new SqlCommand("[JEWELRYSTOREMGMT].[dbo].[usp_deleteUser]", con);
 
             try
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter p = new SqlParameter("@name",txtUser.Text);
+                SqlParameter p = new SqlParameter("@UserName", txtUser.Text);
+                cmd.Parameters.Add(p);
+                p = new SqlParameter("@CurrentUserName", frmLogin.UserName);
                 cmd.Parameters.Add(p);
 
                 cmd.ExecuteNonQuery();
@@ -172,7 +156,7 @@ namespace QLCUAHANG_GUI
             catch(Exception ex)
             {
                 DataProvider.CloseConnection(con);
-                XtraMessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

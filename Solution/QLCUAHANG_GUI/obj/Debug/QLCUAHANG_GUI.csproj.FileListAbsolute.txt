@@ -393,7 +393,6 @@ D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\es\DevExpress.Diagram.v19.1.Co
 D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\ja\DevExpress.Diagram.v19.1.Core.resources.dll
 D:\source\source\Solution\QLCUAHANG_GUI\bin\Debug\ru\DevExpress.Diagram.v19.1.Core.resources.dll
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.csprojAssemblyReference.cache
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmAdmin.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmAuthorInfo.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.FrmConfig.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmRegister.resources
@@ -401,11 +400,9 @@ D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmLogin.resourc
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmChangePassword.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmMain.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmAccountManagement.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.frmSorftwareInfo.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.Properties.Resources.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctVendor.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctCustomer.resources
-D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.uctWareHouseController.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.WaitForm1.resources
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.csproj.GenerateResource.cache
 D:\source\source\Solution\QLCUAHANG_GUI\obj\Debug\QLCUAHANG_GUI.exe.licenses

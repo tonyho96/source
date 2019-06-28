@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace QLCUAHANG_DAL
 {
-   public class PostInvoice_DAL
+    public class PostInvoice_DAL
     {
 
         private static SqlCommand cmd;
@@ -130,7 +130,7 @@ namespace QLCUAHANG_DAL
             catch(Exception ex)
             {
                 DataProvider.CloseConnection(con);
-                MessageBox.Show(ex.Message, "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

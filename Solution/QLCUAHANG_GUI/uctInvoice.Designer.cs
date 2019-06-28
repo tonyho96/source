@@ -45,7 +45,7 @@
             this.tabControlBill.Location = new System.Drawing.Point(193, 0);
             this.tabControlBill.Name = "tabControlBill";
             this.tabControlBill.SelectedIndex = 0;
-            this.tabControlBill.Size = new System.Drawing.Size(1300, 543);
+            this.tabControlBill.Size = new System.Drawing.Size(1277, 600);
             this.tabControlBill.TabIndex = 1;
             // 
             // navBarControl1
@@ -63,7 +63,7 @@
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 195;
-            this.navBarControl1.Size = new System.Drawing.Size(195, 543);
+            this.navBarControl1.Size = new System.Drawing.Size(195, 600);
             this.navBarControl1.TabIndex = 2;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -101,6 +101,14 @@
             this.navBarItem1.Name = "navBarItem1";
             this.navBarItem1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
             // 
+            // btnTotalDebtÒCutomer
+            // 
+            this.btnTotalDebtÒCutomer.Name = "btnTotalDebtÒCutomer";
+            // 
+            // btnTotalDebtOfAgency
+            // 
+            this.btnTotalDebtOfAgency.Name = "btnTotalDebtOfAgency";
+            // 
             // uctInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,7 +117,7 @@
             this.Controls.Add(this.navBarControl1);
             this.Controls.Add(this.tabControlBill);
             this.Name = "uctInvoice";
-            this.Size = new System.Drawing.Size(1301, 543);
+            this.Size = new System.Drawing.Size(1470, 600);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             this.ResumeLayout(false);
 
